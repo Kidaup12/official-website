@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Compliance Vault | Building Code Verification for Architects | KiDaFlow</title>
+    <meta name="description"
+        content="Zero-error building code compliance with AI. Scan blueprints against local regulations instantly. Reduce permit rejections by 85%.">
+    <link rel="icon" type="image/png" href="kidaflow_logo.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Onest:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- EvenUp Clone Theme -->
+    <link rel="stylesheet" href="evenup-theme.css">
+
+    <style>
+        :root {
+            --bg-darker-green: #0a0a0a;
+            --bg-dark-green: #111111;
+            --color-accent: #2e8b57;
+        }
+
+        .layman-summary {
+            background: rgba(46, 139, 87, 0.05);
+            border: 1px solid rgba(46, 139, 87, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 32px auto;
+            max-width: 800px;
+        }
+
+        .layman-summary h3 {
+            color: var(--color-accent);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .layman-summary p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--text-body);
+        }
+
+        .feature-section {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .feature-grid {
+            display: grid;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .feature-grid.img-left {
+            grid-template-columns: 0.8fr 1.2fr;
+        }
+
+        .feature-grid.img-right {
+            grid-template-columns: 1.2fr 0.8fr;
+        }
+
+        .feature-img-placeholder {
+            height: 300px;
+            background: #eee;
+            border: 2px dashed #ddd;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-content h3 {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .feature-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-body);
+        }
+
+        .hero-img {
+            max-width: 600px;
+            height: auto;
+            margin: 40px auto 0;
+            border-radius: 16px;
+            display: block;
+        }
+
+        /* Social Proof Section */
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin: 60px 0;
+        }
+
+        .case-study-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .case-study-headline {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .case-study-quote {
+            font-size: 20px;
+            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            color: var(--text-body);
+        }
+
+        .case-study-attribution {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .case-study-img-placeholder {
+            height: 350px;
+            background: #eee;
+            border: 2px dashed #ddd;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Scrolling Marquee */
+        .marquee-section {
+            background: var(--bg-dark-green);
+            padding: 40px 0;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .marquee-label {
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 80px;
+            animation: scroll 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        .marquee-item {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            display: inline-block;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .feature-grid.img-left,
+            .feature-grid.img-right {
+                grid-template-columns: 1fr;
+            }
+
+            .case-study-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="kidaflow_logo.png" alt="Kidaflow Logo">
+            </a>
+
+            <!-- Hamburger Menu Button (Mobile Only) -->
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Mobile Menu Overlay -->
+            <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+
+            <!-- Navigation Menu -->
+            <div class="nav-menu" id="nav-menu">
+                <button class="close-menu" id="close-menu-btn" aria-label="Close menu">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                            fill="currentColor" />
+                    </svg>
+                </button>
+
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="customers.html" class="nav-link">Customer Success Stories</a>
+                <div class="nav-item-dropdown">
+                    <span class="nav-link nav-link-dropdown">
+                        Solutions
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z" />
+                        </svg>
+                    </span>
+                    <div class="dropdown-menu" style="width: 260px;">
+                        <a href="docflow.html" class="dropdown-item">DocFlow System for Accounting & Finance</a>
+                        <a href="vikki.html" class="dropdown-item">Vikki for Legal & Law Firms</a>
+                        <a href="bcv.html" class="dropdown-item">Build Compliance Vault for Architects &
+                            Construction</a>
+                    </div>
+                </div>
+
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+                <a href="https://www.skool.com/monetize-learn-aiautomation-2878" target="_blank" class="nav-link">Join
+                    the Skool</a>
+                <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin"
+                    class="btn btn-primary">Schedule a Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="section hero-wrapper" style="animation: fadeIn 0.8s forwards;">
+        <div class="container" style="position: relative; z-index: 5;">
+            <div class="hero-content">
+                <span class="text-label"
+                    style="background: var(--color-accent); color: white; padding: 8px 16px; border-radius: 20px; display: inline-block;">AI
+                    Regulatory Intelligence</span>
+                <h1 style="margin-top: 24px;">Zero-Error Building Code Compliance</h1>
+
+                <div class="layman-summary">
+                    <h3>In Simple Terms</h3>
+                    <p>Imagine never having a building permit rejected again. This tool acts like a spell-checker for
+                        your blueprints, scanning them against local rules to catch mistakes instantly. It saves months
+                        of delays and prevents costly rework before you ever break ground.</p>
+                </div>
+
+                <div class="hero-actions" style="display: flex; gap: 20px; justify-content: center; margin-top: 32px;">
+                    <a href="https://www.buildcompliancevault.com/login" class="btn btn-primary"
+                        style="padding: 20px 40px; font-size: 16px;">Launch Project Scan</a>
+                </div>
+
+                <div
+                    style="margin-top: 40px; background: rgba(46, 139, 87, 0.05); border: 1px solid rgba(46, 139, 87, 0.2); border-radius: 16px; padding: 40px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <h3 style="color: #fff; margin-bottom: 16px;">Scan Blueprints Instantly</h3>
+                    <div style="display: flex; gap: 20px; align-items: center;">
+                        <div style="font-size: 40px;">📜</div>
+                        <div>
+                            <p style="font-weight: 700; color: var(--color-accent);">Smart Upload System</p>
+                            <p style="font-size: 14px; opacity: 0.8;">Supports PDF, DWG, and high-res image formats.
+                                Extracts geometric data and text annotations automatically.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 80px;">AI-Powered Code Compliance</h2>
+
+            <!-- Feature 1: Intelligent Plan Upload & Analysis -->
+            <div class="feature-section">
+                <div class="feature-content"
+                    style="max-width: 800px; margin: 0 auto; text-align: center; background: #fff; border: 1px solid rgba(0,0,0,0.05); padding: 40px; border-radius: 16px;">
+                    <div style="font-size: 40px; margin-bottom: 20px;">🌐</div>
+                    <h3>Intelligent Plan Upload & Analysis</h3>
+                    <p>Drag-and-drop your plans and select your specific jurisdiction—supporting US, Canadian, and
+                        Australian Building Codes. Our AI scans every page against thousands of local regulatory data
+                        points in seconds.</p>
+                </div>
+            </div>
+
+            <!-- Feature 2: Interactive Compliance Reports -->
+            <div class="feature-section">
+                <div class="feature-content"
+                    style="max-width: 800px; margin: 0 auto; text-align: center; background: #fff; border: 1px solid rgba(0,0,0,0.05); padding: 40px; border-radius: 16px;">
+                    <div style="font-size: 40px; margin-bottom: 20px;">📝</div>
+                    <h3>Interactive Compliance Reports</h3>
+                    <p>Receive detailed web reports categorizing violations by severity (Critical, Warning, Compliant).
+                        Each issue includes citation of the specific regulation and clear fix instructions.</p>
+                </div>
+            </div>
+
+            <!-- Feature 3: Project Management & Versioning -->
+            <div class="feature-section">
+                <div class="feature-content"
+                    style="max-width: 800px; margin: 0 auto; text-align: center; background: #fff; border: 1px solid rgba(0,0,0,0.05); padding: 40px; border-radius: 16px;">
+                    <div style="font-size: 40px; margin-bottom: 20px;">📁</div>
+                    <h3>Project Management & Versioning</h3>
+                    <p>Keep track of multiple projects with folder organization and version history. Upload revised
+                        plans to instantly verify if previous violations have been resolved.</p>
+                </div>
+            </div>
+
+            <!-- Feature 4: Stakeholder Collaboration -->
+            <div class="feature-section">
+                <div class="feature-content"
+                    style="max-width: 800px; margin: 0 auto; text-align: center; background: #fff; border: 1px solid rgba(0,0,0,0.05); padding: 40px; border-radius: 16px;">
+                    <div style="font-size: 40px; margin-bottom: 20px;">🤝</div>
+                    <h3>Stakeholder Collaboration</h3>
+                    <p>Share findings effortlessly with contractors, engineering consultants, and inspectors.
+                        Downloadable PDF reports ensure everyone stays on the same page.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Case Study Section -->
+    <section class="section" style="background: #f8f8f8;">
+        <div class="container">
+            <div class="case-study-grid">
+                <div>
+                    <div class="case-study-label">CASE STUDY</div>
+                    <h2 class="case-study-headline">Saving $50k in Permit Delays</h2>
+                    <p class="case-study-quote">"We used to hold our breath every time we submitted to the city. Now we
+                        know it's right before we hit send."</p>
+                    <div class="case-study-attribution">Beva Homes - Luxury Property Developer</div>
+                </div>
+                <div
+                    style="padding: 40px; background: #fff; border-radius: 16px; text-align: center; border: 1px solid rgba(0,0,0,0.05);">
+                    <div style="font-size: 48px; margin-bottom: 20px;">🏗️</div>
+                    <div style="height: 4px; width: 100px; background: var(--color-accent); margin: 0 auto 20px;"></div>
+                    <p style="font-weight: 700;">Zero Rejection Benchmark</p>
+                    <p style="font-size: 14px; opacity: 0.6; margin-top: 10px;">85% reduction in total permit turnaround
+                        time since adoption.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- CTA Section -->
+    <section class="section bg-dark text-center" style="padding: 120px 0;">
+        <div class="container">
+            <h2 style="font-size: 56px; margin-bottom: 30px;">Never Face a Permit Rejection Again</h2>
+            <a href="https://www.buildcompliancevault.com/login" class="btn btn-primary"
+                style="padding: 24px 60px; font-size: 18px;">Launch Project Scan</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid-4">
+                <div>
+                    <img src="kidaflow_logo.png" alt="Kidaflow"
+                        style="filter: brightness(0) invert(1); height: 32px; margin-bottom: 24px;">
+                    <p style="font-size: 14px; opacity: 0.6;">Automating workflows for modern businesses.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/107006159" target="_blank" aria-label="LinkedIn"
+                            class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/kidaflow_group/" target="_blank" aria-label="Instagram"
+                            class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="https://wa.link/qat6uf" target="_blank" aria-label="WhatsApp" class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="customers.html">Customers</a>
+                </div>
+                <div>
+                    <h4>Solutions</h4>
+                    <a href="docflow.html">DocFlow System</a>
+                    <a href="vikki.html">Vikki for Legal</a>
+                    <a href="bcv.html">Build Compliance Vault</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="mailto:hello@kidaflow.com">hello@kidaflow.com</a>
+                    <a href="tel:+254105430486">+254105430486</a>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; font-size: 14px; opacity: 0.4;">
+                <p style="margin-bottom: 20px;">
+                    Now to him who is able to do immeasurably more than all we ask or imagine, according to his power
+                    that is at work within us, 21 to him be glory in the church and in Christ Jesus throughout all
+                    generations, for ever and ever! Amen.
+                </p>
+                © 2025 Kidaflow. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="booking.js"></script>
+
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <script>
+        // Mobile menu functionality
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+
+        if (hamburgerBtn) {
+            function openMenu() {
+                navMenu.classList.add('active');
+                mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                navMenu.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            hamburgerBtn.addEventListener('click', openMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+            if (mobileOverlay) mobileOverlay.addEventListener('click', closeMenu);
+
+            const navLinks = navMenu.querySelectorAll('.nav-link, .dropdown-item');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        closeMenu();
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

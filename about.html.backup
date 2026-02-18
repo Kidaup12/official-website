@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | KiDaFlow - AI Automation Agency</title>
+    <meta name="description"
+        content="Learn about KiDaFlow, a Kenyan AI automation agency with 200+ automations delivered and a 4.97/5 client rating. Meet our team and discover our story.">
+    <link rel="stylesheet" href="customers.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="https://kidaflow.com">
+                <img src="kidaflow_logo.png" alt="Kidaflow Logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="https://kidaflow.com" class="nav-link">Home</a></li>
+            <li><a href="projects.html" class="nav-link">Projects & Portfolio</a></li>
+            <li><a href="customers.html" class="nav-link">Success Stories</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="https://kidaflow.com/contact" class="nav-link highlight" target="_blank">Contact</a></li>
+        </ul>
+        <div class="mobile-menu-btn">☰</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="hero-content-center">
+                <span class="hero-label">ABOUT KIDAFLOW</span>
+                <h1>Building AI Systems That Actually Work</h1>
+                <p class="hero-subtitle">A Kenyan AI automation agency delivering production-ready systems for growing
+                    businesses worldwide</p>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Automations Delivered</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Clients Served</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.97/5</div>
+                        <div class="stat-label">Client Rating</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Continents</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section (Merged Services + Approach) -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">What We Do</h2>
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-number">01</div>
+                    <div class="service-content">
+                        <h3>AI Voice Agents</h3>
+                        <p>Custom voice agents using Retell AI, Vapi, and ElevenLabs for 24/7 customer engagement</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-number">02</div>
+                    <div class="service-content">
+                        <h3>CRM Automation</h3>
+                        <p>GoHighLevel, ServiceTitan, and Salesforce workflow automation and integration</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-number">03</div>
+                    <div class="service-content">
+                        <h3>Workflow Orchestration</h3>
+                        <p>Complex automation systems using n8n, Make, and Zapier</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-number">04</div>
+                    <div class="service-content">
+                        <h3>Document Processing & OCR</h3>
+                        <p>Intelligent document processing for data extraction and automation</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-number">05</div>
+                    <div class="service-content">
+                        <h3>Custom API Integrations</h3>
+                        <p>Seamless connections between your business tools and systems</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-number">06</div>
+                    <div class="service-content">
+                        <h3>Operations Automation</h3>
+                        <p>Automate data processing and workflows for accounting, finance, law firms, and service
+                            businesses</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-number">07</div>
+                    <div class="service-content">
+                        <h3>Custom Solutions</h3>
+                        <p>Build automation solutions tailored to each company's tools, processes, and growth goals</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-number">08</div>
+                    <div class="service-content">
+                        <h3>AI-Powered Systems</h3>
+                        <p>Design and implement AI systems for CRM, sales automation, booking, and lead management</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+
+            <div class="story-content">
+                <div class="story-intro">
+                    <p class="story-highlight">In March 2025, two 25-year-old founders in Nairobi, Kenya launched
+                        KiDaFlow. No investors. No roadmap. No clients. Just a shared obsession with building systems
+                        that actually work and grow businesses.</p>
+                </div>
+
+                <div class="story-body">
+                    <p>Randy Kipkurui came from a tech background, David from engineering, and both were mind-blown by
+                        what AI could do for real businesses.</p>
+
+                    <p>They watched local companies juggle leads across WhatsApp, email, and spreadsheets—losing money
+                        every day to manual chaos. The opportunity was obvious: bring world-class automation to growing
+                        businesses that couldn't afford to keep hiring their way out of operational bottlenecks.</p>
+
+                    <div class="milestone-box">
+                        <p><strong>Since launch,</strong> the team has built over <strong>500 automations</strong>
+                            across AI agents, document processing systems, CRMs, and data workflows for more than
+                            <strong>15 international businesses</strong>.
+                        </p>
+                    </div>
+
+                    <p>They've partnered with startups, agencies, home services companies, accounting firms, law
+                        practices, and real estate investors across four continents.</p>
+
+                    <p class="story-lesson"><em>The hard lesson learned early: Every great system starts with one manual
+                            process done really well—then you scale what works.</em></p>
+
+                    <p>It hasn't been easy. There have been late nights, lost leads, and rebuilds that took twice as
+                        long as planned. But every system taught the team something new about clarity, scale, and what
+                        real impact looks like when you move beyond features and focus on outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Who We Are</h2>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">RK</div>
+                    <h3>Randy Kipkurui</h3>
+                    <p class="member-role">Co-Founder</p>
+                    <p class="member-bio">Tech background with expertise in AI automation and system architecture</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">DM</div>
+                    <h3>David</h3>
+                    <p class="member-role">Co-Founder</p>
+                    <p class="member-bio">Engineering background focused on workflow optimization and integration</p>
+                </div>
+            </div>
+
+            <div class="team-description">
+                <p><strong>KiDaFlow Group</strong> is a performance and ROI-focused AI automation partner for growing
+                    businesses.</p>
+                <p>Based in <strong>Nairobi, Kenya</strong>, and serving clients internationally across multiple
+                    industries.</p>
+                <p>We combine deep technical skills in automation and AI with hands-on business experience implementing
+                    systems inside real companies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work Section -->
+    <section class="how-we-work-section">
+        <div class="container">
+            <h2 class="section-title">How We Work</h2>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <h3>Clear Discovery</h3>
+                    <p>Start with clear discovery: where time, money, and leads are being lost today.</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <h3>Fast Results</h3>
+                    <p>Launch focused automation projects that show fast results, then scale what works.</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <h3>Measure Everything</h3>
+                    <p>Measure everything against concrete metrics like hours saved, leads recovered, and revenue
+                        impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Believe Section -->
+    <section class="beliefs-section">
+        <div class="container">
+            <h2 class="section-title">What We Believe</h2>
+
+            <div class="beliefs-grid">
+                <div class="belief-card">
+                    <h3>Performance Over Hype</h3>
+                    <p>AI should be judged by performance, not hype or features.</p>
+                </div>
+                <div class="belief-card">
+                    <h3>Transparency Matters</h3>
+                    <p>Automation must be transparent and understandable for founders and teams.</p>
+                </div>
+                <div class="belief-card">
+                    <h3>Simple Goal</h3>
+                    <p>Help businesses scale without adding headcount by turning messy, manual work into clean,
+                        automated systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section fade-in-up">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Automate Your Business?</h2>
+                <p>Let's build systems that drive real results for your growing business</p>
+                <a href="https://kidaflow.com/contact" class="btn-cta">Schedule a Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kidaflow</h3>
+                    <p>Automating workflows for modern businesses. We help companies scale efficiently through
+                        intelligent automation solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="https://kidaflow.com/">Home</a>
+                        <a href="projects.html">Projects & Portfolio</a>
+                        <a href="customers.html">Customer Stories</a>
+                        <a href="about.html">About</a>
+                        <a href="https://kidaflow.com/contact">Contact</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <div class="footer-links">
+                        <a href="mailto:hello@kidaflow.com">hello@kidaflow.com</a>
+                        <a href="https://kidaflow.com/contact">Schedule a Call</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kidaflow. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="customers.js"></script>
+</body>
+
+</html>

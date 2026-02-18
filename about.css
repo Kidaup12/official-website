@@ -1,0 +1,538 @@
+/* ================================================
+   About Page Specific Styles - RESTRUCTURED
+   Black & White Premium Theme with Visual Rhythm
+   ================================================ */
+
+/* ===== Hero Section ===== */
+.about-hero {
+    padding: 80px 0 50px;
+    background: transparent;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.hero-content-center {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-label {
+    color: #000000;
+    background: #e5e5e5;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.about-hero h1 {
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: #000000;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: #666666;
+    margin-bottom: 40px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 900;
+    color: #000000;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #666666;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===== Problem First Section (NEW - DARK) ===== */
+.problem-section {
+    padding: 60px 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+}
+
+.problem-section .section-title {
+    font-size: 42px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 48px;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.problem-item {
+    text-align: center;
+}
+
+.problem-item p {
+    font-size: 18px;
+    color: #e5e5e5;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== What Makes You Different Section (NEW - LIGHT) ===== */
+.different-section {
+    padding: 60px 0;
+    background: transparent;
+}
+
+.different-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.different-card {
+    text-align: center;
+    padding: 40px 32px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.different-card:hover {
+    border-color: #000000;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+}
+
+.different-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #000000;
+}
+
+.different-card p {
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== Story Section (CONDENSED - LIGHT GRAY) ===== */
+.story-section {
+    padding: 60px 0;
+    background: rgba(248, 249, 250, 0.5);
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 48px;
+    color: #000000;
+    letter-spacing: -0.01em;
+}
+
+.story-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.story-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 24px;
+    border-left: 3px solid #000000;
+}
+
+.timeline-year {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+.timeline-item p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #333333;
+    margin: 0;
+}
+
+.story-quote-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.quote-text {
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 600;
+    color: #000000;
+    font-style: italic;
+    margin: 0;
+}
+
+/* ===== Team Section (WHITE) ===== */
+.team-section {
+    padding: 60px 0;
+    background: transparent;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-bottom: 48px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-member {
+    text-align: center;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.team-member:hover {
+    border-color: #000000;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.member-avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: #000000;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 900;
+    margin: 0 auto 20px;
+    border: 4px solid #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.team-member h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #000000;
+}
+
+.member-role {
+    font-size: 13px;
+    color: #666666;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.member-bio {
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.team-description {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.team-description p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #333333;
+    margin-bottom: 12px;
+}
+
+/* ===== How We Work Section (ENHANCED - WHITE) ===== */
+.how-we-work-section {
+    padding: 60px 0;
+    background: transparent;
+}
+
+.horizontal-stepper {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 24px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.step-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 32px 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.step-item:hover {
+    border-color: #000000;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.step-item h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #000000;
+}
+
+.step-action {
+    font-size: 15px;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.step-outcome {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000000;
+    margin: 0;
+}
+
+.step-arrow {
+    font-size: 28px;
+    color: #000000;
+    font-weight: 700;
+}
+
+/* ===== What We Do Section (SIMPLIFIED - LIGHT GRAY) ===== */
+.services-section {
+    padding: 60px 0;
+    background: rgba(248, 249, 250, 0.5);
+}
+
+.primary-services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.primary-service-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px 32px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.primary-service-card:hover {
+    border-color: #000000;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+}
+
+.primary-service-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #000000;
+}
+
+.primary-service-card p {
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.secondary-services {
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+    font-style: italic;
+    margin: 0;
+}
+
+/* ===== Beliefs Section (COMPRESSED - DARK) ===== */
+.beliefs-section {
+    padding: 60px 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+}
+
+.beliefs-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.belief-item {
+    text-align: center;
+}
+
+.belief-item h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.belief-item p {
+    font-size: 16px;
+    color: #e5e5e5;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+    .about-hero h1 {
+        font-size: 44px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .problem-grid,
+    .different-cards,
+    .primary-services,
+    .beliefs-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .story-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .horizontal-stepper {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .step-arrow {
+        display: none;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .about-hero {
+        padding: 60px 0 40px;
+    }
+
+    .about-hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 17px;
+        margin-bottom: 32px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .stat-number {
+        font-size: 38px;
+    }
+
+    .section-title,
+    .problem-section .section-title {
+        font-size: 32px;
+        margin-bottom: 32px;
+    }
+
+    .quote-text {
+        font-size: 20px;
+    }
+
+    .member-avatar {
+        width: 120px;
+        height: 120px;
+        font-size: 36px;
+    }
+
+    .problem-section,
+    .different-section,
+    .story-section,
+    .team-section,
+    .how-we-work-section,
+    .services-section,
+    .beliefs-section {
+        padding: 50px 0;
+    }
+}

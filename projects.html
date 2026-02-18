@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | KiDaFlow</title>
+    <link rel="icon" type="image/png" href="kidaflow_logo.png">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Onest:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- EvenUp Clone Theme -->
+    <link rel="stylesheet" href="evenup-theme.css">
+
+    <style>
+        /* Light Theme Project Grid Adaptations */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-accent);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(25, 82, 51, 0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+        }
+
+        .card-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .card-badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 14px;
+            background: rgba(25, 82, 51, 0.1);
+            border: 1px solid rgba(25, 82, 51, 0.2);
+            border-radius: 20px;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0a2e1d;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .card-description {
+            font-size: 15px;
+            color: rgba(0, 0, 0, 0.65);
+            margin-bottom: 24px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .card-actions {
+            margin-top: auto;
+        }
+
+        .btn-view {
+            display: inline-flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-accent);
+            text-decoration: none;
+            gap: 8px;
+            transition: gap 0.2s ease;
+        }
+
+        .btn-view:hover {
+            color: #0a2e1d;
+            gap: 12px;
+        }
+
+        /* SVG Icons */
+        .icon-calendar {
+            stroke-linejoin: round;
+            stroke-linecap: round;
+        }
+
+        .icon-mail {
+            stroke-linejoin: round;
+            stroke-linecap: round;
+        }
+
+        .icon-mic {
+            stroke-linejoin: round;
+            stroke-linecap: round;
+        }
+
+        .icon-zap {
+            stroke-linejoin: round;
+            stroke-linecap: round;
+        }
+
+        /* Hidden class for search filtering */
+        .project-card.hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="kidaflow_logo.png" alt="Kidaflow Logo" style="filter: brightness(0) invert(1);">
+            </a>
+
+            <!-- Hamburger Menu Button (Mobile Only) -->
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Mobile Menu Overlay -->
+            <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+
+            <!-- Navigation Menu -->
+            <div class="nav-menu" id="nav-menu">
+                <button class="close-menu" id="close-menu-btn" aria-label="Close menu">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                            fill="currentColor" />
+                    </svg>
+                </button>
+
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="customers.html" class="nav-link">Customer Success Stories</a>
+                <div class="nav-item-dropdown">
+                    <span class="nav-link nav-link-dropdown">
+                        Solutions
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z" />
+                        </svg>
+                    </span>
+                    <div class="dropdown-menu" style="width: 260px;">
+                        <a href="docflow.html" class="dropdown-item">DocFlow System for Accounting & Finance</a>
+                        <a href="vikki.html" class="dropdown-item">Vikki for Legal & Law Firms</a>
+                        <a href="bcv.html" class="dropdown-item">Build Compliance Vault for Architects &
+                            Construction</a>
+                    </div>
+                </div>
+
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+                <a href="https://www.skool.com/monetize-learn-aiautomation-2878" target="_blank" class="nav-link">Join
+                    the Skool</a>
+                <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin"
+                    class="btn btn-primary">Schedule a Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Mobile menu functionality
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+
+        function openMenu() {
+            navMenu.classList.add('active');
+            mobileOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            navMenu.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        hamburgerBtn.addEventListener('click', openMenu);
+        closeMenuBtn.addEventListener('click', closeMenu);
+        mobileOverlay.addEventListener('click', closeMenu);
+
+        // Close menu when clicking on a link
+        const navLinks = navMenu.querySelectorAll('.nav-link, .dropdown-item');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    closeMenu();
+                }
+            });
+        });
+    </script>
+
+    <!-- Header -->
+    <section class="section bg-dark" style="padding-top: 200px; padding-bottom: 60px;">
+        <img src="glass-abstract-1.png" class="glass-deco glass-deco-1" alt="">
+        <img src="glass-abstract-2.png" class="glass-deco glass-deco-2" alt="">
+        <div class="container" style="position: relative; z-index: 1;">
+            <span
+                style="color: var(--color-accent); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 12px; margin-bottom: 16px; display: block;">Our
+                Work</span>
+            <h1 style="max-width: 800px; margin-bottom: 24px;">Automation Architectures</h1>
+            <p style="font-size: 20px; max-width: 700px; opacity: 0.8; line-height: 1.6;">
+                Explore our library of automation systems, from AI voice agents to complex CRM integrations. Each
+                project represents a solved business problem.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="projects-grid" id="projects-grid">
+
+                <!-- 1. AI Booking System -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-calendar">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">Booking</span>
+                    </div>
+                    <h3 class="card-title">AI Booking System</h3>
+                    <p class="card-description">Books, cancels, and reschedules appointments via natural language using
+                        n8n and Cal.com. Features stateful memory to prevent errors.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/ai-booking-system.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 2. AI Voice Receptionist -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-mic">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                                <line x1="12" y1="19" x2="12" y2="23" />
+                                <line x1="8" y1="23" x2="16" y2="23" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">Voice AI</span>
+                    </div>
+                    <h3 class="card-title">AI Voice Receptionist</h3>
+                    <p class="card-description">A no-code DIY agent that answers every call 24/7, handles inquiries, and
+                        books appointments directly into your calendar.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/voice-receptionist.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 3. OCR + WhatsApp -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-zap">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">Legal Tech</span>
+                    </div>
+                    <h3 class="card-title">OCR + WhatsApp Automation</h3>
+                    <p class="card-description">End-to-end document intake: WhatsApp uploads → Mistral OCR → structured
+                        data → GoHighLevel CRM population.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/ocr-whatsapp.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 4. 21k Cold Emails -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-mail">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">Outreach</span>
+                    </div>
+                    <h3 class="card-title">21,000+ Cold Emails</h3>
+                    <p class="card-description">Scaled cold outreach infrastructure sending 21k+ emails in 29 days with
+                        high deliverability and domain protection.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/21k-emails.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 5. AI Voice Agent for Plumbing -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-mic">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                                <line x1="12" y1="19" x2="12" y2="23" />
+                                <line x1="8" y1="23" x2="16" y2="23" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">Industry Specific</span>
+                    </div>
+                    <h3 class="card-title">AI Voice Agent (Plumbing)</h3>
+                    <p class="card-description">Integrated ServiceTitan booking agent that handles pricing queries and
+                        scheduling for plumbing businesses.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/ai-voice-agent.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 6. Akwaaba App -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-zap">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">Social Media</span>
+                    </div>
+                    <h3 class="card-title">Akwaaba Social Automation</h3>
+                    <p class="card-description">Automated content scheduling and posting workflow for the Akwaaba App
+                        ecosystem.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/akwaaba.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 7. Automated Proposals -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-mail">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                                <line x1="16" y1="17" x2="8" y2="17" />
+                                <polyline points="10 9 9 9 8 9" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">Sales Ops</span>
+                    </div>
+                    <h3 class="card-title">Automated Proposals</h3>
+                    <p class="card-description">Instant proposal generation for coaches and consultants, triggering from
+                        CRM opportunities.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/automated-proposals.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 8. Coaching Assistant -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-zap">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">AI Assistant</span>
+                    </div>
+                    <h3 class="card-title">24/7 Coaching Assistant</h3>
+                    <p class="card-description">A $10k/m revenue generating assistant that engages leads and books calls
+                        for high-ticket coaches.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/coaching-assistant.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 9. Cold Email Personalization -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-mail">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">AI Sales</span>
+                    </div>
+                    <h3 class="card-title">AI Cold Email Personalizer</h3>
+                    <p class="card-description">Uses LLMs to research prospects and generate unique, highly personalized
+                        first lines for cold emails.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/cold-email.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 10. Automated Customer Booking -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-calendar">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">Booking</span>
+                    </div>
+                    <h3 class="card-title">Customer Booking System</h3>
+                    <p class="card-description">Streamlined booking flows for service businesses, reducing
+                        administrative overhead.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/customer-booking.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 11. GoHighLevel Automations -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-zap">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">CRM</span>
+                    </div>
+                    <h3 class="card-title">GoHighLevel Workflows</h3>
+                    <p class="card-description">Complex GHL snapshot development, including custom funnels, triggers,
+                        and survey logic.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/gohighlevel-automations.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 12. Lovable Proposal Automation -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-mail">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">Integration</span>
+                    </div>
+                    <h3 class="card-title">Lovable × Proposal</h3>
+                    <p class="card-description">Bridging the Lovable platform with automated proposal generation tools
+                        for creative agencies.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/lovable-proposal-automation.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 13. Replace Calendly -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-calendar">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">Custom Dev</span>
+                    </div>
+                    <h3 class="card-title">Replace Calendly Agent</h3>
+                    <p class="card-description">Building a custom AI booking agent to bypass standard scheduling tools
+                        and offer bespoke flows.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/replace-calendly.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 14. Sales Hiring Workflow -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-mail">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">HR Tech</span>
+                    </div>
+                    <h3 class="card-title">Sales Hiring Automation</h3>
+                    <p class="card-description">End-to-end recruitment funnel: Application intake, automated screening,
+                        and interview scheduling.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/sales-hiring.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 15. Slack Inventory -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-zap">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">Operations</span>
+                    </div>
+                    <h3 class="card-title">Slack Inventory Bot</h3>
+                    <p class="card-description">Inventory management within Slack. Staff can check stock and order
+                        supplies via chat commands.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/slack-inventory.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 16. Viral Content OS -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-zap">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">Content Ops</span>
+                    </div>
+                    <h3 class="card-title">AI Viral Content OS</h3>
+                    <p class="card-description">System for analyzing cross-platform trends and generating viral content
+                        ideas for creators.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/viral-content-os.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- 17. WhatsApp Support -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon-mail">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                            </svg>
+                        </div>
+                        <span class="card-badge">Support</span>
+                    </div>
+                    <h3 class="card-title">WhatsApp Support Agent</h3>
+                    <p class="card-description">Automated customer support via WhatsApp, handling queries, FAQs, and
+                        ticket escalation.</p>
+                    <div class="card-actions">
+                        <a href="project-pages/whatsapp-support.html" class="btn-view">View Project →</a>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid-4">
+                <div>
+                    <a href="index.html">
+                        <img src="kidaflow_logo.png" alt="Kidaflow"
+                            style="filter: brightness(0) invert(1); height: 32px; margin-bottom: 24px;">
+                    </a>
+                    <p style="font-size: 14px; opacity: 0.6;">Automating workflows for modern businesses.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/kidaflow" target="_blank" aria-label="LinkedIn"
+                            class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/kidaflow_group/" target="_blank" aria-label="Instagram"
+                            class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="https://wa.link/qat6uf" target="_blank" aria-label="WhatsApp" class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="customers.html">Customers</a>
+                </div>
+                <div>
+                    <h4>Solutions</h4>
+                    <a href="docflow.html">DocFlow System</a>
+                    <a href="vikki.html">Vikki for Legal</a>
+                    <a href="bcv.html">Build Compliance Vault</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="mailto:hello@kidaflow.com">hello@kidaflow.com</a>
+                    <a href="tel:+254105430486">+254105430486</a>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; font-size: 14px; opacity: 0.4;">
+                <p style="margin-bottom: 20px;">
+                    Now to him who is able to do immeasurably more than all we ask or imagine, according to his power
+                    that is at work within us, 21 to him be glory in the church and in Christ Jesus throughout all
+                    generations, for ever and ever! Amen.
+                </p>
+                © 2025 Kidaflow. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="booking.js"></script>
+
+    <script>
+        // No search functionality needed
+    </script>
+</body>
+
+</html>

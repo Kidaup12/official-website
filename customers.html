@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers | KiDaFlow | Business Transformation and Growth</title>
+    <link rel="icon" type="image/png" href="kidaflow_logo.png">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- EvenUp Clone Theme (Includes Outfit Font) -->
+    <link rel="stylesheet" href="evenup-theme.css">
+    <link rel="stylesheet" href="customers-overlay.css">
+
+    <style>
+        .hidden-story {
+            display: none !important;
+        }
+
+        #view-more-container {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        #view-more-btn {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #view-more-btn:hover {
+            border-color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* Specific enhancements for the "Heritage Style" requested */
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .story-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .story-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .story-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-image {
+            height: 240px;
+            background-color: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .story-card:hover .story-image img {
+            transform: scale(1.05);
+        }
+
+        .story-content {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .story-tag {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-accent);
+            /* Fade Dark Green Accent */
+            margin-bottom: 16px;
+        }
+
+        .story-title {
+            font-family: 'Outfit', sans-serif;
+            /*Restored Font*/
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            color: #082111;
+        }
+
+        .story-desc {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .story-link {
+            margin-top: auto;
+            font-weight: 600;
+            color: #082111;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .story-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="kidaflow_logo.png" alt="Kidaflow Logo">
+            </a>
+
+            <!-- Hamburger Menu Button (Mobile Only) -->
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Mobile Menu Overlay -->
+            <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+
+            <!-- Navigation Menu -->
+            <div class="nav-menu" id="nav-menu">
+                <button class="close-menu" id="close-menu-btn" aria-label="Close menu">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                            fill="currentColor" />
+                    </svg>
+                </button>
+
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="customers.html" class="nav-link">Customer Success Stories</a>
+                <div class="nav-item-dropdown">
+                    <span class="nav-link nav-link-dropdown">
+                        Solutions
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z" />
+                        </svg>
+                    </span>
+                    <div class="dropdown-menu" style="width: 280px;">
+                        <a href="docflow.html" class="dropdown-item">DocFlow System for Accounting & Finance</a>
+                        <a href="vikki.html" class="dropdown-item">Vikki for Legal & Law Firms</a>
+                        <a href="bcv.html" class="dropdown-item">Build Compliance Vault for Architects &
+                            Construction</a>
+                        <a href="contact.html" class="dropdown-item">
+                            <strong>Custom Solution</strong><br>
+                            <small style="opacity: 0.8; font-size: 12px;">Let's create a system that is customized for
+                                you</small>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+                <a href="https://www.skool.com/monetize-learn-aiautomation-2878" target="_blank" class="nav-link">Join
+                    the Skool</a>
+                <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin"
+                    class="btn btn-primary">Schedule a Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="section bg-dark" style="padding-top: 200px; padding-bottom: 80px;">
+        <img src="glass-abstract-1.png" class="glass-deco glass-deco-1" alt="">
+        <img src="glass-abstract-2.png" class="glass-deco glass-deco-2" alt="">
+        <div class="container" style="position: relative; z-index: 1;">
+            <span
+                style="color: var(--color-accent); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 12px; margin-bottom: 16px; display: block;">Our
+                Impact</span>
+            <h1 class="hero-title">Customer Success Stories</h1>
+            <p class="lead-text">
+                Real results from companies that transformed their operations with Kidaflow.
+            </p>
+        </div>
+    </section>
+
+    <!-- All Stories Grid -->
+    <section class="section" style="background: #ffffff;">
+        <div class="container">
+            <div class="story-grid" id="customer-stories-grid">
+
+                <!-- Beva Homes -->
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="Client Stories/6.png" alt="Beva Homes">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Real Estate</span>
+                        <h3 class="story-title">Beva Homes</h3>
+                        <p class="story-desc">Recovered $2M+ in lost opportunities by automating lead follow-up and
+                            qualification instantly.</p>
+                        <a href="case-studies/beva-homes.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <!-- Beauty in the Books -->
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="Client Stories/3.png" alt="Beauty in the Books">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Finance</span>
+                        <h3 class="story-title">Beauty in the Books</h3>
+                        <p class="story-desc">Reduced manual data entry by 77% with a custom invoice processing AI
+                            pipeline.</p>
+                        <a href="case-studies/beauty-in-the-books.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <!-- Mr. Rooter -->
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="Client Stories/1.png" alt="Mr. Rooter">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Home Services</span>
+                        <h3 class="story-title">Mr. Rooter</h3>
+                        <p class="story-desc">Automated technician dispatch notifications, saving 15+ hours of admin
+                            time per week.</p>
+                        <a href="case-studies/mr-rooter.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <!-- Ask a Barrister -->
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="Client Stories/2.png" alt="Ask A Barrister UK">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Legal Tech</span>
+                        <h3 class="story-title">Ask a Barrister UK</h3>
+                        <p class="story-desc">From 25 minutes of manual checks to 5-minute AI-verified claims pipeline.
+                        </p>
+                        <a href="case-studies/ask-a-barrister.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <!-- Bins4less -->
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="Client Stories/11.png" alt="Bins4Less USA">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Logistics</span>
+                        <h3 class="story-title">Bins4less USA</h3>
+                        <p class="story-desc">Complete CRM automation & lead management for a regional waste giant.</p>
+                        <a href="case-studies/bins4less.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <!-- Loud Lion -->
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="Client Stories/4.png" alt="LoudLion">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Marketing</span>
+                        <h3 class="story-title">LoudLion</h3>
+                        <p class="story-desc">Scaled content production with AI agents that generate and schedule social
+                            posts.</p>
+                        <a href="case-studies/loudlion.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+
+
+                <!-- PI Associates -->
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="Client Stories/5.png" alt="PI Associates">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Personal Injury Law</span>
+                        <h3 class="story-title">PI Associates</h3>
+                        <p class="story-desc">Automated case intake and client management with Vikki, streamlining legal
+                            operations and improving response times.</p>
+                        <a href="case-studies/pi-associates.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <!-- Northern Inspections -->
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="Client Stories/12.png" alt="Northern Inspections">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Building Surveyors</span>
+                        <h3 class="story-title">Northern Inspections</h3>
+                        <p class="story-desc">Automated inspection reports and building code verification using Building
+                            Plan Analyzer,
+                            significantly reducing report generation time.</p>
+                        <a href="case-studies/northern-inspections.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <!-- Cherokee CPA -->
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="Client Stories/13.png" alt="Cherokee CPA">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Accounting Services</span>
+                        <h3 class="story-title">Cherokee CPA</h3>
+                        <p class="story-desc">Streamlined tax document processing and financial data extraction with
+                            DocFlow, increasing accuracy and efficiency.</p>
+                        <a href="case-studies/cherokee-cpa.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <!-- Custodia.care -->
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="Client Stories/9.png" alt="Custodia.care">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Family Care</span>
+                        <h3 class="story-title">Custodia.care</h3>
+                        <p class="story-desc">Automated secure document vaults and member onboarding, handling hundreds
+                            of families instantly.</p>
+                        <a href="case-studies/client-9.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <!-- Bail 2 GO -->
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="Client Stories/10.png" alt="Bail 2 GO">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Legal Tech</span>
+                        <h3 class="story-title">Bail 2 GO</h3>
+                        <p class="story-desc">Scaled operations 3x without new hires using the 'Mamba Flow' digital
+                            assembly line.</p>
+                        <a href="case-studies/client-10.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid-4">
+                <div>
+                    <img src="kidaflow_logo.png" alt="Kidaflow"
+                        style="filter: brightness(0) invert(1); height: 32px; margin-bottom: 24px;">
+                    <p style="font-size: 14px; opacity: 0.6;">Automating workflows for modern businesses.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/kidaflow" target="_blank" aria-label="LinkedIn"
+                            class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/kidaflow_group/" target="_blank" aria-label="Instagram"
+                            class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.949 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="https://wa.link/qat6uf" target="_blank" aria-label="WhatsApp" class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="customers.html">Customers</a>
+                </div>
+                <div>
+                    <h4>Solutions</h4>
+                    <a href="docflow.html">DocFlow System</a>
+                    <a href="vikki.html">Vikki for Legal</a>
+                    <a href="bcv.html">Build Compliance Vault</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="mailto:hello@kidaflow.com">hello@kidaflow.com</a>
+                    <a href="tel:+254105430486">+254105430486</a>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; font-size: 14px; opacity: 0.4;">
+                <p style="margin-bottom: 20px;">
+                    Now to him who is able to do immeasurably more than all we ask or imagine, according to his
+                    power
+                    that is at work within us, 21 to him be glory in the church and in Christ Jesus throughout
+                    all
+                    generations, for ever and ever! Amen.
+                </p>
+                © 2025 Kidaflow. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="booking.js"></script>
+    <script>
+        // Mobile menu functionality
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+
+        if (hamburgerBtn) {
+            function openMenu() {
+                navMenu.classList.add('active');
+                mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                navMenu.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            hamburgerBtn.addEventListener('click', openMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+            if (mobileOverlay) mobileOverlay.addEventListener('click', closeMenu);
+
+            const navLinks = navMenu.querySelectorAll('.nav-link, .dropdown-item');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        closeMenu();
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
