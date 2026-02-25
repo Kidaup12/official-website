@@ -163,8 +163,8 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 16px 38px;
-    /* Exact EvenUp padding */
+    padding: 12px 28px;
+    /* Adjusted padding */
     font-weight: 600;
     font-size: 14px;
     /* EvenUp uses relatively small button text */
@@ -262,14 +262,15 @@ img {
     height: 65%;
     position: relative;
     overflow: hidden;
-    background: #f5f5f5;
+    background: transparent;
 }
 
 .slider-card-img {
     width: 100%;
     height: 100%;
     max-width: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center;
     transition: transform 0.6s ease;
 }
 
@@ -939,140 +940,139 @@ img {
     body.menu-open {
         overflow: hidden;
     }
-}
 
-.nav-item-dropdown:hover .dropdown-menu,
-.nav-item-dropdown:focus-within .dropdown-menu {
-    max-height: 300px;
-    pointer-events: auto;
-}
+    .nav-item-dropdown:hover .dropdown-menu,
+    .nav-item-dropdown:focus-within .dropdown-menu {
+        max-height: 300px;
+        pointer-events: auto;
+    }
 
-.dropdown-item {
-    background: #ffffff;
-    margin-bottom: 4px;
-    border-radius: 6px;
-    border: 1px solid #e6e6e6;
-    padding: 12px 16px;
-}
+    .dropdown-item {
+        background: #ffffff;
+        margin-bottom: 4px;
+        border-radius: 6px;
+        border: 1px solid #e6e6e6;
+        padding: 12px 16px;
+    }
 
-.nav-menu .btn {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 12px;
-}
+    .nav-menu .btn {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 12px;
+    }
 
-/* Customer Stories Slider */
-.slider-track {
-    gap: 16px;
-}
+    /* Customer Stories Slider */
+    .slider-track {
+        gap: 16px;
+    }
 
-.slider-card {
-    min-width: 85%;
-    max-width: 85%;
-    width: 85%;
-    height: auto;
-}
+    .slider-card {
+        min-width: 85%;
+        max-width: 85%;
+        width: 85%;
+        height: auto;
+    }
 
-.slider-card-img-wrapper {
-    height: 200px;
-}
+    .slider-card-img-wrapper {
+        height: 200px;
+    }
 
-.slider-card-content {
-    position: static;
-    transform: none;
-    padding: 24px;
-    background: #ffffff;
-    border-top: 1px solid #e6e6e6;
-}
+    .slider-card-content {
+        position: static;
+        transform: none;
+        padding: 24px;
+        background: #ffffff;
+        border-top: 1px solid #e6e6e6;
+    }
 
-.slider-quote {
-    opacity: 1;
-    font-size: 15px;
-    margin-bottom: 16px;
-}
+    .slider-quote {
+        opacity: 1;
+        font-size: 15px;
+        margin-bottom: 16px;
+    }
 
-.author-name {
-    font-size: 16px;
-}
+    .author-name {
+        font-size: 16px;
+    }
 
-.author-meta {
-    font-size: 12px;
-}
+    .author-meta {
+        font-size: 12px;
+    }
 
-.slider-stat-badge {
-    top: 12px;
-    left: 12px;
-    font-size: 11px;
-    padding: 6px 12px;
-}
+    .slider-stat-badge {
+        top: 12px;
+        left: 12px;
+        font-size: 11px;
+        padding: 6px 12px;
+    }
 
-/* Grids */
-.grid-2,
-.grid-3,
-.grid-4 {
-    grid-template-columns: 1fr;
-    gap: 24px;
-}
+    /* Grids */
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
 
-/* Cards */
-.card {
-    padding: 24px;
-}
+    /* Cards */
+    .card {
+        padding: 24px;
+    }
 
-/* Buttons */
-.btn {
-    padding: 14px 28px;
-    font-size: 13px;
-    width: 100%;
-}
+    /* Buttons */
+    .btn {
+        padding: 14px 28px;
+        font-size: 13px;
+        width: 100%;
+    }
 
-.btn-primary,
-.btn-secondary {
-    width: 100%;
-}
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
 
-/* Stats Section */
-.grid-4.text-center h3 {
-    font-size: 36px !important;
-}
+    /* Stats Section */
+    .grid-4.text-center h3 {
+        font-size: 36px !important;
+    }
 
-.grid-4.text-center p {
-    font-size: 14px;
-}
+    .grid-4.text-center p {
+        font-size: 14px;
+    }
 
-/* Footer */
-.footer {
-    padding: 60px 0 30px;
-}
+    /* Footer */
+    .footer {
+        padding: 60px 0 30px;
+    }
 
-.footer h4 {
-    font-size: 14px;
-    margin-bottom: 20px;
-}
+    .footer h4 {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
 
-.footer a {
-    font-size: 14px;
-    margin-bottom: 12px;
-}
+    .footer a {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
 
-.footer-social {
-    justify-content: center;
-}
+    .footer-social {
+        justify-content: center;
+    }
 
-/* Glass Decorations - Hide on mobile */
-.glass-deco {
-    display: none;
-}
+    /* Glass Decorations - Hide on mobile */
+    .glass-deco {
+        display: none;
+    }
 
-/* Text Labels */
-.text-label {
-    font-size: 11px;
-}
+    /* Text Labels */
+    .text-label {
+        font-size: 11px;
+    }
 
-/* Lead Text */
-.lead-text {
-    font-size: 16px;
-}
+    /* Lead Text */
+    .lead-text {
+        font-size: 16px;
+    }
 }
 
 /* Tablet / Intermediate Responsive Fixes */
