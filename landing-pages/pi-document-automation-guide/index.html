@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PI Document Automation Guide | Kidaflow</title>
+    <meta name="description" content="A comprehensive guide to document automation for PI Firms. Learn how to generate documents in seconds.">
+    <link rel="icon" type="image/png" href="../../kidaflow_logo.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Base Theme & Custom Styles -->
+    <link rel="stylesheet" href="../../evenup-theme.css">
+    
+    <style>
+        body {
+            color: #222;
+        }
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .option-card {
+            background: #fff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        .option-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #f0f0f0;
+            color: #555;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .step-block {
+            margin-top: 32px;
+            padding-left: 20px;
+            border-left: 3px solid #ccc;
+        }
+        .step-title {
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #111;
+        }
+        /* Mobile Optimization & Typography */
+        .rich-text {
+            font-size: 18px; /* Easier to read */
+            line-height: 1.8;
+            color: #333;
+        }
+        .rich-text p {
+            margin-bottom: 20px;
+        }
+        .rich-text ul {
+            margin-bottom: 24px;
+            padding-left: 24px;
+            list-style-type: disc;
+        }
+        .rich-text li {
+            margin-bottom: 12px;
+        }
+        .rich-text pre, .rich-text code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 15px;
+            color: #444;
+        }
+        .rich-text pre {
+            padding: 16px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+            border: 1px solid #e9ecef;
+        }
+        .watch-this {
+            font-size: 20px;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #111;
+        }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            color: #333;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .download-btn:hover {
+            background: #f4f4f4;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+            }
+            .hero-wrapper h1 {
+                font-size: 40px !important;
+            }
+            .rich-text {
+                font-size: 16px; 
+            }
+            .option-card {
+                padding: 24px;
+            }
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .hero-wrapper {
+                padding-top: 40px !important;
+            }
+            .video-container {
+                margin-left: -20px;
+                margin-right: -20px;
+                border-radius: 0 !important;
+            }
+            .quick-nav {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 8px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .quick-nav-btn {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+        }
+        
+        .bg-dark-green {
+            background: var(--bg-dark-green) !important;
+            color: white;
+        }
+        .bg-dark-green .section-title, 
+        .bg-dark-green .watch-this {
+            color: white !important;
+        }
+        
+        .quick-nav {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+        .quick-nav-btn {
+            background: #fff;
+            border: 1px solid #dcdcdc;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #111;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .quick-nav-btn:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Print Styles to allow easy PDF save */
+        @media print {
+            .navbar, .download-btn, .footer {
+                display: none !important;
+            }
+            body {
+                background: #fff;
+            }
+            .section {
+                padding: 20px 0 !important;
+                background: #fff !important;
+            }
+            .option-card, .video-container {
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+            }
+            .video-container iframe {
+                display: none;
+            }
+            .video-container::after {
+                content: "[Video Placeholder in PDF]";
+                display: block;
+                padding: 40px;
+                text-align: center;
+                color: #888;
+                font-style: italic;
+            }
+        }
+    </style>
+</head>
+<body style="background: #fafafa;">
+
+    <!-- Navigation -->
+    <nav class="navbar" style="background: #fff; border-bottom: 1px solid #eaeaea;">
+        <div class="container nav-container guide-container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../../index.html" class="nav-logo">
+                <img src="../../kidaflow_logo.png" alt="Kidaflow Logo" width="140" height="40">
+            </a>
+            <div class="nav-menu">
+                <a href="https://vikki-law.vercel.app/" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;">Try Vikki</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="section hero-wrapper" style="padding-top: 60px; padding-bottom: 60px; background: #f0f7f3; border-bottom: 1px solid #dce8df; text-align: center;">
+        <div class="guide-container">
+            <div class="hero-content">
+                <span class="option-tag" style="background: var(--bg-dark-green); color: white; margin-bottom: 24px;">PI FIRM GUIDE</span>
+                <h1 style="font-size: 52px; line-height: 1.1; margin-bottom: 20px; color: #111;">Document Automation Guide for PI Firms</h1>
+                <p style="font-size: 22px; font-weight: 400; max-width: 700px; margin: 0 auto; color: #555; line-height: 1.5;">
+                    A practical breakdown of how to stop copying and pasting, and let your documents fill themselves based on the systems you already use.
+                </p>
+                
+                <div style="margin-top: 40px;">
+                    <a href="javascript:void(0)" onclick="window.print()" class="download-btn" style="font-size: 18px; padding: 16px 32px; background: var(--bg-dark-green); color: white; border: none; border-radius: 50px; font-weight: 700;">
+                        Rather download this? Click to download the PDF guide
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="section" style="padding-top: 60px; padding-bottom: 60px;">
+        <div class="guide-container">
+            <h2 class="section-title">The Overview: Before & After</h2>
+            
+            <div class="grid-2" style="gap: 32px;">
+                <!-- Before Card -->
+                <div class="option-card" style="background: #fff;">
+                    <div class="rich-text">
+                        <p style="font-weight: 600; font-size: 20px; color: #111;">Right now, you might be doing this:</p>
+                        <ul style="color: #555;">
+                            <li>Open a Word template</li>
+                            <li>Find/replace client name (appears 12+ times)</li>
+                            <li>Find/replace accident date (appears 4+ times)</li>
+                            <li>Find/replace provider name (appears 8+ times)</li>
+                            <li>Find/replace case number, adjuster, insurance company</li>
+                            <li>Save as PDF</li>
+                            <li>Attach to email and send</li>
+                        </ul>
+                        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #eaeaea;">
+                            <p style="font-weight: 600; margin: 0; color: #111;">Time per document: 15–20 minutes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- After Card -->
+                <div class="option-card" style="background: #f8f9fa;">
+                    <div class="rich-text">
+                        <p style="font-weight: 600; font-size: 20px; color: #111;">With automation, it looks like this:</p>
+                        <ul style="list-style-type: none; padding-left: 0; color: #333;">
+                            <li style="margin-bottom: 16px; display: flex; align-items: flex-start; gap: 12px;">
+                                <span style="font-size: 20px;">✓</span>
+                                <span>Add case info to your system (once)</span>
+                            </li>
+                            <li style="margin-bottom: 16px; display: flex; align-items: flex-start; gap: 12px;">
+                                <span style="font-size: 20px;">✓</span>
+                                <span>Click "Generate Document"</span>
+                            </li>
+                            <li style="margin-bottom: 16px; display: flex; align-items: flex-start; gap: 12px;">
+                                <span style="font-size: 20px;">✓</span>
+                                <span>Document fills itself, routes for signature, sends automatically</span>
+                            </li>
+                        </ul>
+                        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #dcdcdc;">
+                            <p style="font-weight: 600; margin: 0; color: #111;">Time per document: 30 seconds</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rich-text" style="margin-top: 24px; background: #fff; padding: 32px; border-radius: 8px; border: 1px solid #eaeaea;">
+                <p><strong>The essential difference:</strong> you're not manually copying and pasting anymore.</p>
+                <p style="margin-bottom: 0;">The system pulls data from wherever you store your case info (a spreadsheet, your case management software, or database), selects the right template, and fills it automatically.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Path Selection -->
+    <section class="section" style="padding-bottom: 60px;">
+        <div class="guide-container">
+            <h2 class="section-title">What You'll Need</h2>
+            <p class="rich-text" style="margin-bottom: 32px;">Pick your path based on the software your firm is already using today.</p>
+            
+            <div class="grid-3" style="gap: 24px; display: grid; grid-template-columns: repeat(3, 1fr);">
+                <div class="option-card" style="margin-bottom: 0; display: flex; flex-direction: column;">
+                    <span class="option-tag">OPTION A</span>
+                    <h3 style="margin-bottom: 16px; font-size: 22px;">Google Drive / OneDrive</h3>
+                    <div class="rich-text" style="font-size: 15px; flex-grow: 1;">
+                        <p><strong>Best for:</strong> Firms that keep case data in spreadsheets.</p>
+                        <ul style="padding-left: 20px; font-size: 14px; margin-bottom: 16px;">
+                            <li>Google Sheets OR Excel</li>
+                            <li>n8n (free automation tool)</li>
+                        </ul>
+                    </div>
+                    <a href="#option-a" class="btn btn-primary" style="width: 100%; text-align: center; font-size: 14px; padding: 12px;">Skip to section/setup</a>
+                </div>
+
+                <div class="option-card" style="margin-bottom: 0; display: flex; flex-direction: column;">
+                    <span class="option-tag">OPTION B</span>
+                    <h3 style="margin-bottom: 16px; font-size: 22px;">Clio Built-In</h3>
+                    <div class="rich-text" style="font-size: 15px; flex-grow: 1;">
+                        <p><strong>Best for:</strong> Firms currently using Clio to manage their caseload.</p>
+                        <ul style="padding-left: 20px; font-size: 14px; margin-bottom: 16px;">
+                            <li>Clio account</li>
+                            <li>Clio Draft included</li>
+                        </ul>
+                    </div>
+                    <a href="#option-b" class="btn btn-primary" style="width: 100%; text-align: center; font-size: 14px; padding: 12px;">Skip to section/setup</a>
+                </div>
+
+                <div class="option-card" style="margin-bottom: 0; background: #fafafa; border: 1px solid #ccc; display: flex; flex-direction: column;">
+                    <span class="option-tag" style="background: #e2e2e2;">OPTION C</span>
+                    <h3 style="margin-bottom: 16px; font-size: 22px;">Vikki Law</h3>
+                    <div class="rich-text" style="font-size: 15px; flex-grow: 1;">
+                        <p><strong>Best for:</strong> Firms that want document automation + case management custom-built for PI.</p>
+                        <ul style="padding-left: 20px; font-size: 14px; margin-bottom: 16px;">
+                            <li>Native PI system</li>
+                            <li>Your templates built-in</li>
+                        </ul>
+                    </div>
+                    <a href="#option-c" class="btn btn-primary" style="width: 100%; text-align: center; font-size: 14px; padding: 12px;">Skip to section/setup</a>
+                </div>
+            </div>
+            
+            <div class="rich-text" style="margin-top: 32px; padding: 24px; background: #fff; border: 1px solid #eaeaea; border-radius: 8px;">
+                <p style="font-weight: 600; margin-bottom: 12px;">Not sure which option to choose?</p>
+                <ul style="margin-bottom: 0; padding-left: 20px;">
+                    <li>If you're keeping case data in Excel or Google Sheets → <strong>Option A</strong></li>
+                    <li>If you're using Filevine, MyCase, or Clio → <strong>Option B</strong></li>
+                    <li>If you want a native PI system handling this for you → <strong>Option C</strong></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Option A Detail -->
+    <section id="option-a" class="section" style="padding-top: 60px; padding-bottom: 60px; border-top: 1px solid #eaeaea;">
+        <div class="guide-container">
+            <span class="option-tag">OPTION A: DEEP DIVE</span>
+            <h2 class="section-title" style="margin-top: 8px;">Google Drive / OneDrive + n8n</h2>
+
+            <div class="watch-this">
+                ▶ Watch the Demo First
+            </div>
+            <div class="video-container" style="margin-bottom: 40px; border-radius: 12px; overflow: hidden; border: 1px solid #ccc; background: #f4f4f4;">
+                <iframe src="https://www.loom.com/embed/1d99de311cb7417083f68f23abe8a75c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; fullscreen" loading="lazy" style="width: 100%; height: 500px; max-height: 60vh;"></iframe>
+            </div>
+
+            <div class="rich-text">
+                <p><strong>Time to set up:</strong> 2–3 hours<br>
+                <strong>Cost:</strong> $0–25/month<br>
+                <strong>Tech level:</strong> Medium (some setup required, but we'll walk you through it)</p>
+
+                <div class="step-block">
+                    <div class="step-title">Step 1: Build Your Template Library (30 minutes)</div>
+                    <p>Create one master Word document for each document type:</p>
+                    <ul>
+                        <li>Letter of Representation (1st party)</li>
+                        <li>Letter of Representation (3rd party)</li>
+                        <li>HIPAA Authorization</li>
+                        <li>Engagement Letter</li>
+                        <li>Demand Letter Outline</li>
+                    </ul>
+                    <p>Check the example LOR template document here: <a href="https://docs.google.com/document/d/1oAZKJKrbEFBTDuKLjMFXJC-46mYxEb1ybNnK0WpfHCA/edit?usp=sharing" target="_blank" style="color: #0066cc;">LOR_Template_Simple</a></p>
+                    <p>In each document, mark the fields that change from case to case with double curly brackets. Example:</p>
+                    <pre>Dear {{provider_name}},
+
+This firm represents {{client_name}} regarding injuries sustained on {{accident_date}}...</pre>
+                    <img src="Doc%20template.png" alt="Document Template Example" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid #ccc; margin-top: 16px; margin-bottom: 24px;">
+                    <p>Save all templates in one folder: "Document Templates" in Google Drive or OneDrive.</p>
+                </div>
+
+                <div class="step-block">
+                    <div class="step-title">Step 2: Locate Your Case Data (5 minutes)</div>
+                    <p>You already have this — you just need to know where it lives.</p>
+                    <img src="sample%20cases.png" alt="Spreadsheet Case Data Example" style="width: 100%; border-radius: 8px; border: 1px solid #ccc; margin-top: 16px; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                    <p><strong>If you're tracking cases in a spreadsheet:</strong></p>
+                    <ul>
+                        <li>You're already halfway there.</li>
+                        <li>Just make sure you have these columns for document generation: <code>client_name</code>, <code>accident_date</code>, <code>case_number</code>, <code>insurance_company</code>, <code>adjuster_name</code>.</li>
+                    </ul>
+                    <p><strong>If you're keeping case info in random Word docs or sticky notes:</strong></p>
+                    <ul>
+                        <li>Now is the time to consolidate.</li>
+                        <li>Create a simple Google Sheet with the standard columns above.</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 32px; font-weight: 700; font-size: 20px;">Minimum Data by Document Type</h4>
+                    <p>Different documents need different data. Here is what you actually need:</p>
+                    </ul>
+                    <p style="background: #f8f9fa; padding: 16px; border-radius: 8px;"><strong>Bottom line:</strong> If you can answer "who is the client and when did the accident happen" without opening 5 different files, you have enough data to start automating.</p>
+                </div>
+
+                <div class="step-block">
+                    <div class="step-title">Step 3: Set Up n8n (40 minutes)</div>
+                    <p><strong>What is n8n?</strong> It is a free automation tool that connects your spreadsheet to your templates. Think of it as the bridge between your case data and your documents.</p>
+                    <ul>
+                        <li>Go to n8n.io</li>
+                        <li>Click "Get Started"</li>
+                        <li>Create your first workflow: Copy our template automation. It will construct the files automatically; the only thing you have to do is input your own credentials.</li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 40px; padding: 24px; background: #fff; border: 1px solid #ccc; border-radius: 8px;">
+                    <h3 style="margin-bottom: 16px; font-size: 20px;">What This Looks Like in Practice:</h3>
+                    <p><strong>Before:</strong> Open Word template → Find/replace client name (12 places) → Find/replace accident date (4 places) → Find/replace provider name (8 places) → Save as PDF → Attach to email → Send. <em>(15–20 minutes per document)</em></p>
+                    <p style="margin-bottom: 0;"><strong>After:</strong> Add case info to spreadsheet. n8n generates the document, converts it to a PDF, and sends it for signature automatically. <em>(30 seconds—just entering the case data)</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Option B Detail -->
+    <section id="option-b" class="section" style="padding-top: 60px; padding-bottom: 60px; border-top: 1px solid #eaeaea;">
+        <div class="guide-container">
+            <span class="option-tag">OPTION B: DEEP DIVE</span>
+            <h2 class="section-title" style="margin-top: 8px;">Clio (Built-In)</h2>
+
+            <div class="watch-this">
+                ▶ Watch the Process Here
+            </div>
+            <div class="video-container" style="margin-bottom: 40px; border-radius: 12px; overflow: hidden; border: 1px solid #ccc; background: #f4f4f4;">
+                <iframe src="https://www.loom.com/embed/61d4e6ccf4674091849db8f1057aa218" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; fullscreen" loading="lazy" style="width: 100%; height: 500px; max-height: 60vh;"></iframe>
+            </div>
+
+            <div class="rich-text">
+                <p><strong>Time to set up:</strong> 1–2 hours<br>
+                <strong>Cost:</strong> $0 (already included)<br>
+                <strong>Tech level:</strong> Easy</p>
+
+                <p><strong>What You Need:</strong> A Clio account, a Google Drive account, and an n8n account (free to start).</p>
+
+                <div class="step-block">
+                    <div class="step-title">Step 1 — Create Your Case in Clio with Custom Fields</div>
+                    <p>Open a new matter in Clio and fill in your custom fields. These are the details that will flow automatically into your document:</p>
+                    <ul>
+                        <li>Client name & contact</li>
+                        <li>Accident date & location</li>
+                        <li>Insurance company</li>
+                        <li>Adjuster name, address & fax</li>
+                        <li>Claim number & file number</li>
+                        <li>Treatment provider</li>
+                    </ul>
+                    <img src="clio%20custom%20fields.png" alt="Clio Custom Fields" style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid #ccc; margin-top: 16px; margin-bottom: 16px;">
+                    <p>If your custom fields aren't set up yet, go to Settings → Custom Fields and add them once — they will appear on every future matter.</p>
+                </div>
+
+                <div class="step-block">
+                    <div class="step-title">Step 2: Build Your Template Library (30 minutes)</div>
+                    <p>Create one master Word document for each document type:</p>
+                    <ul>
+                        <li>Letter of Representation (1st party)</li>
+                        <li>Letter of Representation (3rd party)</li>
+                        <li>HIPAA Authorization</li>
+                        <li>Engagement Letter</li>
+                        <li>Demand Letter Outline</li>
+                    </ul>
+                    <p>Check the example LOR template document here: <a href="https://docs.google.com/document/d/1oAZKJKrbEFBTDuKLjMFXJC-46mYxEb1ybNnK0WpfHCA/edit?usp=sharing" target="_blank" style="color: #0066cc;">LOR_Template_Simple</a></p>
+                    <p>In each document, mark the fields that change from case to case with double curly brackets. Save all templates in one folder: "Document Templates" in Google Drive or OneDrive.</p>
+                </div>
+
+                <div class="step-block">
+                    <div class="step-title">Step 3 — Enable a Developer App in Clio</div>
+                    <p>This is a one-time technical setup that gives the automation permission to read your case data. Go to Settings → API → Developer Apps and create a new app. If you are not technical, hand this step to your IT person — they will need about 15 minutes. What they are doing is simply creating a secure connection so the system can pull case details from Clio automatically.</p>
+                </div>
+
+                <div class="step-block">
+                    <div class="step-title">Step 4 — Set Up the Automation in n8n</div>
+                    <p>Import the ready-made workflow template into n8n. This is the engine that:</p>
+                    <ul>
+                        <li>Pulls the case details from Clio</li>
+                        <li>Drops them into your Google Doc template</li>
+                        <li>Saves the finished document back to Clio</li>
+                    </ul>
+                    <p>No technical skills needed — the workflow is already built.</p>
+                </div>
+
+                <div class="step-block">
+                    <div class="step-title">Step 5: Test It (10 minutes)</div>
+                    <p>Create a test matter. Then test the workflow in n8n naturally to ensure variables map appropriately.</p>
+                    <img src="Clio%20doc.png" alt="Generated Clio Document" style="width: 100%; border-radius: 8px; border: 1px solid #ccc; margin-top: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Option C Detail -->
+    <section id="option-c" class="section" style="padding-top: 60px; padding-bottom: 60px; border-top: 1px solid #eaeaea;">
+        <div class="guide-container">
+            <span class="option-tag" style="background: #e2e2e2;">OPTION C: DEEP DIVE</span>
+            <h2 class="section-title" style="margin-top: 8px;">Vikki (Custom-Built for PI Firms)</h2>
+
+            <div class="watch-this">
+                ▶ Watch the Demo of Vikki
+            </div>
+            <div class="video-container" style="margin-bottom: 40px; border-radius: 12px; overflow: hidden; border: 1px solid #ccc; background: #f4f4f4;">
+                <iframe src="https://www.loom.com/embed/534e7ea6529b4bf1bc4eab6cf3556418" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; fullscreen" loading="lazy" style="width: 100%; height: 500px; max-height: 60vh;"></iframe>
+            </div>
+
+            <div class="rich-text">
+                <p><strong>What you need:</strong> Nothing. Vikki is a standalone system built from the ground up for PI firms.<br>
+                <strong>Trial:</strong> 14-day free trial (no credit card required).</p>
+
+                <h3 style="margin-top: 40px; margin-bottom: 24px; font-size: 24px; font-weight: 700;">How Vikki Works</h3>
+                <p>Unlike general practice tools adapted for PI, Vikki was built exclusively for personal injury workflows. Here is what happens:</p>
+
+                <div class="step-block">
+                    <div class="step-title">Step 1: Sign up for a Trial</div>
+                    <p>Here is the link: <a href="https://vikki-law.vercel.app/" target="_blank" style="color: #0066cc;">https://vikki-law.vercel.app/</a> (email only needed).</p>
+                </div>
+
+                <div class="step-block">
+                    <div class="step-title">Step 2: Add Your Adjusters Or Use Existing Database</div>
+                    <p>Create adjuster profiles containing: Name, Insurance company, Address, Fax, Email. Save them. Reuse them forever.</p>
+                    <pre>Example:
+Sarah Johnson
+State Farm Insurance
+4500 Main Street, Suite 200
+Oklahoma City, OK 73102
+Fax: (405) 555-1234
+Email: sjohnson@statefarm.com</pre>
+                    <img src="adjuster.png" alt="Vikki Adjuster Profile" style="width: 100%; max-width: 700px; border-radius: 8px; border: 1px solid #ccc; margin-top: 16px;">
+                </div>
+
+                <div class="step-block">
+                    <div class="step-title">Step 3: Add Your Providers (One Time Per Provider)</div>
+                    <p>Create provider profiles: Adjuster name, Facility name, Address, Phone/Fax. Save and reuse forever.</p>
+                    <pre>Example:
+Dr. Michael Chen
+Dallas Spine Center
+1234 Medical Drive, Suite 100
+Dallas, TX 75201
+Phone: (214) 555-7890</pre>
+                    <img src="health%20db.png" alt="Vikki Health Database" style="width: 100%; max-width: 700px; border-radius: 8px; border: 1px solid #ccc; margin-top: 16px;">
+                </div>
+
+                <div class="step-block">
+                    <div class="step-title">Step 4: Create a Case</div>
+                    <p>Fill in the case details:</p>
+                    <ul>
+                        <li>Client name: John Smith</li>
+                        <li>Accident date: January 15, 2026</li>
+                        <li>Accident location: Interstate 35, Dallas</li>
+                        <li>Select adjuster: Sarah Johnson (from your saved list)</li>
+                        <li>Select provider: Dr. Michael Chen (from your saved list)</li>
+                        <li>Liability summary: "Rear-ended at red light"</li>
+                        <li>Claim number: SF-2026-12345</li>
+                    </ul>
+                    <p>Click Save Case.</p>
+                </div>
+
+                <div class="step-block">
+                    <div class="step-title">Step 5: Generate Documents (Instantly)</div>
+                    <p>From the case screen, simply click what you need:</p>
+                    <ul>
+                        <li><strong>Generate LOR</strong> → Letter fills itself, routes to adjuster</li>
+                        <li><strong>Generate HIPAA</strong> → Authorization fills itself, routes to provider</li>
+                        <li><strong>Generate Engagement</strong> → Contract fills itself, routes to client</li>
+                    </ul>
+                    <img src="doc%20gen.png" alt="Vikki Document Generation" style="width: 100%; max-width: 500px; border-radius: 8px; border: 1px solid #ccc; margin-top: 16px; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <p style="margin-top: 16px;">All documents pull directly from your firm info (saved once), the assigned adjuster profile, the chosen provider profile, and this case's core details simultaneously.</p>
+                    <p style="font-weight: 700; background: #fff; border: 1px solid #ccc; padding: 12px 20px; border-radius: 6px; display: inline-block;">No copying. No pasting. No manual Word documents.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 64px; text-align: center;">
+                <a href="https://vikki-law.vercel.app/" target="_blank" class="download-btn" style="padding: 16px 32px; font-size: 18px; display: inline-block; background: #111; color: #fff; border: none;">
+                    Start 14-Day Free Trial of Vikki
+                </a>
+                <p style="margin-top: 16px; font-size: 15px; color: #666;">No credit card required to test the workflows.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="padding: 40px 0; border-top: 1px solid #eaeaea; background: #fff;">
+        <div class="container">
+            <div style="text-align: center; color: #777; font-size: 14px;">
+                <p style="margin-bottom: 8px;">hellokidaflow.com</p>
+                <p>© 2026 Kidaflow. All rights reserved.</p>
+                <div style="margin-top: 24px;">
+                    <button class="download-btn" onclick="window.print()" style="font-size: 13px; padding: 6px 12px; background: #f9f9f9;">
+                        Save this page as PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

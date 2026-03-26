@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The $1M Automation Playbook for PI Law Firms</title>
+    <link rel="icon" type="image/png" href="../../kidaflow_logo.png">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,800;1,400;1,600&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../playbook.css">
+</head>
+<body>
+    <div class="playbook-container">
+        <!-- Header -->
+        <header class="playbook-header">
+            <h1 class="main-headline">GET THE FREE $1M PI AUTOMATION PLAYBOOK</h1>
+            <h2 class="sub-headline"><em>Handle 30% More Cases Without Hiring Anyone — Using This 5-Step System</em></h2>
+        </header>
+
+        <!-- Main Content (2 Columns) -->
+        <main class="playbook-content">
+            <!-- Left Column: Image -->
+            <div class="playbook-image-col">
+                <img src="../lead magnet.jpg" alt="Ultimate PI Playbook Mockup" class="playbook-mockup">
+            </div>
+
+            <!-- Right Column: Conversion Card -->
+            <div class="playbook-card-col">
+                <div class="conversion-card">
+                    <h3 class="card-header">Everything You Need To Start TODAY Is Inside!</h3>
+                    
+                    <ul class="feature-checklist">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span><strong>Takes 15 Minutes Per Step:</strong> Pick one, implement it this week, see results immediately. No complex setup, no tech degree required.</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span><strong>Exact Tools & Templates Included:</strong> This isn't theory. You get the actual software stack, message templates, and automation workflows PI firms are using right now.</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span><strong>Works Even If You're Drowning:</strong> Built for attorneys who are already maxed out. These systems save time first, then scale your capacity.</span>
+                        </li>
+                    </ul>
+
+                    <form id="playbook-form" class="capture-form" action="../the-1m-free-pi-automation-playbook-thank-you/" method="GET">
+                        <div class="form-group">
+                            <input id="email-input" type="email" placeholder="Enter your best email address..." required class="email-input">
+                        </div>
+                        <button type="submit" class="cta-button">
+                            <span class="btn-text">I WANT THE PLAYBOOK</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <!-- What's Inside Section -->
+        <section class="whats-inside">
+            <h3 class="section-title">Here's What's Inside:</h3>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <span class="step-label">STEP 1</span>
+                    <h4 class="step-title">Stop Bleeding Leads</h4>
+                    <p>Fix your lead response system in one afternoon. Go from 7% conversion to 15%+ with the 5-minute callback rule + automated SMS follow-up. (Most firms implement this first — it pays for everything else.)</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-label">STEP 2</span>
+                    <h4 class="step-title">Know What Your Cases Are Worth</h4>
+                    <p>The case valuation framework insurance companies don't want you to have. Stop leaving 15% on the table. Use AI to audit your past settlements and find your blind spots.</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-label">STEP 3</span>
+                    <h4 class="step-title">Get Real-Time Case Visibility</h4>
+                    <p>Set up a case tracker that shows red/yellow/green status for every file. Zero missed deadlines. Zero "I forgot to follow up." Takes 2 hours to build, saves 10 hours per week.</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-label">STEP 4</span>
+                    <h4 class="step-title">Automate Every Document</h4>
+                    <p>Template library + auto-population setup for LORs, HIPAAs, engagement letters, and demand letters. Your paralegal goes from 40 hours/month on documents to 4 hours/month.</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-label">STEP 5</span>
+                    <h4 class="step-title">Automate Client Communication</h4>
+                    <p>8 pre-written text templates that auto-send when case stages change. Clients stop calling. Reviews start flowing in. Referrals go up 3x.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById('playbook-form');
+            const webhookUrl = "https://hooks.airtable.com/workflows/v1/genericWebhook/appRBOiUXED6LbxnG/wflxxdYqe0AVql918/wtrLzc3wdvlzPISXn";
+
+            if (form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const email = document.getElementById('email-input').value;
+                    const btn = form.querySelector('button[type="submit"]');
+                    const btnText = btn.querySelector('.btn-text');
+                    
+                    if (!email) {
+                        alert("Please enter your email.");
+                        return;
+                    }
+
+                    // Loading state
+                    btnText.innerText = "SENDING...";
+                    btn.disabled = true;
+
+                    try {
+                        const formData = new URLSearchParams();
+                        formData.append('email', email);
+
+                        // using mode: 'no-cors' is crucial here to ensure the browser doesn't block the redirect if Airtable rejects headers
+                        await fetch(webhookUrl, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: formData
+                        });
+                    } catch (error) {
+                        console.error('Error submitting to Airtable:', error);
+                    } finally {
+                        // Always redirect
+                        window.location.href = '../the-1m-free-pi-automation-playbook-thank-you/';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

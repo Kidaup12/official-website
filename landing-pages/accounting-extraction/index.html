@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automate Document Extraction | Kidaflow</title>
+    <meta name="description" content="Stop paying junior staff $40/hour to key data from paystubs and tax docs. Automate extraction and free up capacity in 60 seconds.">
+    <link rel="icon" type="image/png" href="../../kidaflow_logo.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Performance Optimization: Preconnect to external domains -->
+    <link rel="preconnect" href="https://www.loom.com">
+    <link rel="preconnect" href="https://www.clarity.ms">
+    <link rel="preconnect" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://www.facebook.com">
+    
+    <!-- Base Theme & Custom Styles -->
+    <link rel="stylesheet" href="../../evenup-theme.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Microsoft Clarity Tracking Code -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vkzx2txkt9");
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1414858163158577');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1414858163158577&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- SheetJS for Data Preview (Deferred for speed) -->
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js" defer></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../../index.html" class="nav-logo">
+                <img src="../../kidaflow_logo.png" alt="Kidaflow Logo" width="140" height="40">
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../../contact.html" class="nav-link">Contact</a>
+                <a href="javascript:void(0)" data-cal-link="kidaflow-automations/15-min-60s-extractionsystem" class="btn btn-primary">Book a Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero & Demo Section — CONSOLIDATED TOP FOLD -->
+    <section class="section hero-wrapper" style="padding-top: 20px; padding-bottom: 40px; background: #fff;">
+        <div class="container">
+            <div class="hero-content">
+                <span class="text-label" style="color: #e63946; background: rgba(230,57,70,0.08); border-color: rgba(230,57,70,0.2);">FOR ACCOUNTING FIRMS</span>
+                <h1 style="font-size: 48px; line-height: 1.1; margin-bottom: 16px;">Stop losing junior capacity to data entry.</h1>
+                <p style="font-size: 22px; font-weight: 500; max-width: 700px; margin: 0 auto 32px; color: var(--bg-dark-green);">
+                    Watch the automated extraction live in < 1 minute.
+                </p>
+            </div>
+            
+            <div class="video-container" style="max-width: 900px; margin: 0 auto; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border-radius: 16px;">
+                <iframe id="demo-iframe" src="https://www.loom.com/embed/681b8c34754f4238adb20c16a5e84d41" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; fullscreen" loading="lazy" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 16px;"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test It Now — SECOND -->
+    <section id="test-now" class="section" style="background: #f0f7f3; padding-top: 60px;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <span class="text-label" style="background: rgba(25,82,51,0.08); color: var(--bg-dark-green); border-color: rgba(25,82,51,0.2);">FREE LIVE DEMO</span>
+                <h2>Upload a real doc. See actual results.</h2>
+                <p style="max-width: 520px; margin: 0 auto;">No fake data. No sample outputs. Upload your own paystub, K-1, or 1040 and get a structured CSV back in under 60 seconds.</p>
+            </div>
+
+            <div class="extraction-demo">
+                <div class="demo-header">
+                    <span style="font-weight: 700; font-size: 14px;">LIVE EXTRACTION CONSOLE</span>
+                    <div style="display: flex; gap: 8px;">
+                        <span style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56;"></span>
+                        <span style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></span>
+                        <span style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></span>
+                    </div>
+                </div>
+                <div class="demo-body" id="extraction-form-wrapper">
+                    <form id="extractionForm">
+                        <div id="personsContainer">
+                            <!-- Structured sections injected here by extraction-app.js -->
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 28px; padding: 20px; font-size: 16px;" id="submit-btn" disabled>
+                            ⚡ Extract My Data Now
+                        </button>
+                        <p style="text-align:center; font-size: 13px; color: #888; margin-top: 10px;">Free. Instant. No account needed.</p>
+                        <p id="error-msg" style="display: none;"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Bar — FOURTH -->
+    <div style="background: var(--bg-dark-green); padding: 18px 0; text-align: center;">
+        <div class="container">
+            <p style="color: rgba(255,255,255,0.85); font-size: 14px; font-weight: 500; margin: 0; letter-spacing: 0.3px;">
+                Works with: <strong style="color: white;">QuickBooks · ADP · Gusto · Paychex · Xero · Lacerte · Drake · Google Sheets · Excel</strong>
+            </p>
+        </div>
+    </div>
+
+    <!-- The Bottleneck — Problem -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <span class="text-label" style="color: #e63946; background: rgba(230,57,70,0.06); border-color: rgba(230,57,70,0.15);">THE REAL PROBLEM</span>
+                    <h2>Your best people are doing your lowest-value work.</h2>
+                    <p style="font-size: 17px; line-height: 1.7;">Every hour a junior spends keying data from a paystub or tax doc is an hour you're paying $40+ for work that a system can do in seconds. Multiply that by dozens of docs per client, per season.</p>
+                    <p style="font-size: 17px; line-height: 1.7;">During tax season it creates bottlenecks. During the off-season it shows up as slow turnaround and cleanup backlog.</p>
+                </div>
+                <div class="card" style="background: var(--bg-dark-green); color: white;">
+                    <h3 style="color: white; font-size: 22px; margin-bottom: 24px;">What firms actually get:</h3>
+                    <ul class="feature-list" style="gap: 18px;">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span style="color: white; font-size: 16px;"><strong>Junior capacity back</strong> — hours/week freed up immediately</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span style="color: white; font-size: 16px;"><strong>Faster turnaround</strong> — docs turned around same-day instead of queued</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span style="color: white; font-size: 16px;"><strong>No new hires needed</strong> — handle more volume with the same team</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span style="color: white; font-size: 16px;"><strong>Better accuracy</strong> — system catches what manual entry misses</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section — CRO Redesigned -->
+    <section class="section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 56px;">
+                <span class="text-label">YOUR NUMBERS</span>
+                <h2>What is manual entry actually costing you?</h2>
+                <p>Adjust the sliders to match your firm. This is a real estimate, not a sales number.</p>
+            </div>
+            
+            <div class="calculator-card">
+                <div class="calc-grid">
+                    <div class="calc-input-group">
+                        <label for="juniors-count">Number of junior staff / interns</label>
+                        <input type="number" id="juniors-count" value="1" min="1">
+                    </div>
+                    <div class="calc-input-group">
+                        <label for="hours-per-week">Hours / week on manual data entry</label>
+                        <input type="number" id="hours-per-week" value="16" min="1">
+                    </div>
+                    <div class="calc-input-group">
+                        <label for="busy-weeks">Busy season weeks</label>
+                        <input type="number" id="busy-weeks" value="18" min="1">
+                    </div>
+                    <div class="calc-input-group">
+                        <label for="hourly-cost">Blended hourly cost ($)</label>
+                        <input type="number" id="hourly-cost" value="40" min="1">
+                    </div>
+                </div>
+                
+                <div class="calc-results">
+                    <h4 style="margin-bottom: 28px; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; color: #888; font-weight: 600;">Your Yearly Impact</h4>
+                    <div class="calc-metrics-grid">
+                        <div class="calc-metric">
+                            <div class="calc-metric-value" id="annual-cost" style="color: #e63946;">$11,520</div>
+                            <div class="calc-metric-label">Wasted on manual entry / year</div>
+                        </div>
+                        <div class="calc-metric-divider"></div>
+                        <div class="calc-metric">
+                            <div class="calc-metric-value" id="hours-saved" style="color: var(--bg-dark-green);">288</div>
+                            <div class="calc-metric-label">Hours freed up per year</div>
+                        </div>
+                        <div class="calc-metric-divider"></div>
+                        <div class="calc-metric">
+                            <div class="calc-metric-value" id="potential-revenue" style="color: var(--bg-dark-green);">$15,000+</div>
+                            <div class="calc-metric-label">Additional revenue potential</div>
+                        </div>
+                    </div>
+                    <div class="calc-cta" style="margin-top: 28px;">
+                        At $5K–$8K per client, those freed hours translate to 3–4 more clients you could take on without hiring anyone new.
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px; text-align: center; padding-top: 32px; border-top: 1px solid #f0f0f0;">
+                    <p style="font-size: 16px; font-weight: 600; margin-bottom: 8px;">30-day free trial</p>
+                    <p style="font-size: 14px; color: #666; margin-bottom: 24px;">If you're not saving at least 4 hours/week per junior in the first week, we pay you $1k for your time</p>
+                    <a href="javascript:void(0)" data-cal-link="kidaflow-automations/15-min-60s-extractionsystem" class="btn btn-primary" style="padding: 18px 48px; font-size: 16px;">
+                        See If This Is a Fit — Book a 15-Min Call
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section bg-light">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 64px;">
+                <span class="text-label">HOW IT WORKS</span>
+                <h2>Three steps. Minimal setup. Real results.</h2>
+            </div>
+            <div class="grid-3">
+                <div class="card" style="text-align: center; padding: 40px 30px;">
+                    <div style="font-size: 40px; margin-bottom: 16px;">📤</div>
+                    <span class="text-label" style="margin-bottom: 12px; display: block;">STEP 1</span>
+                    <h3 style="font-size: 22px;">Upload</h3>
+                    <p>Drop in the document. The system extracts every relevant field automatically. Flags anything it's unsure about.</p>
+                </div>
+                <div class="card" style="text-align: center; padding: 40px 30px;">
+                    <div style="font-size: 40px; margin-bottom: 16px;">👁</div>
+                    <span class="text-label" style="margin-bottom: 12px; display: block;">STEP 2</span>
+                    <h3 style="font-size: 22px;">Review</h3>
+                    <p>Your team spot-checks flagged fields. Usually 5–10 minutes instead of 45. Then moves it to the next workflow step.</p>
+                </div>
+                <div class="card" style="text-align: center; padding: 40px 30px;">
+                    <div style="font-size: 40px; margin-bottom: 16px;">🔗</div>
+                    <span class="text-label" style="margin-bottom: 12px; display: block;">STEP 3</span>
+                    <h3 style="font-size: 22px;">Push to Your Systems</h3>
+                    <p>Clean data flows to Excel, Sheets, QuickBooks, or Xero. No rework. No re-entry. No wasted time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="section bg-dark" style="background: radial-gradient(circle at 50% 50%, #0a2e1d 0%, #051b11 100%);">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <span class="text-label" style="color: var(--color-accent);">NO DISRUPTION</span>
+                    <h2 style="color: white;">Works with what you already use.</h2>
+                    <p style="color: rgba(255,255,255,0.75); font-size: 17px; line-height: 1.7;">No rip-and-replace. No months of migration. This sits on top of your existing workflow as a layer. If you already like your systems, you keep them.</p>
+                    <a href="#test-now" class="btn btn-primary" style="margin-top: 24px; padding: 16px 36px;">See It Work on Your Docs →</a>
+                </div>
+                <div class="card" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); color: white;">
+                    <h4 style="color: white; margin-bottom: 20px; font-size: 16px; text-transform: uppercase; letter-spacing: 1px;">Compatible with:</h4>
+                    <ul class="feature-list" style="columns: 2; gap: 14px;">
+                        <li style="color: white;"><svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Paystubs</li>
+                        <li style="color: white;"><svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> W-2 &amp; 1099</li>
+                        <li style="color: white;"><svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Invoices</li>
+                        <li style="color: white;"><svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Bank Statements</li>
+                        <li style="color: white;"><svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Tax Projections</li>
+                        <li style="color: white;"><svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> QuickBooks</li>
+                        <li style="color: white;"><svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Xero &amp; Lacerte</li>
+                        <li style="color: white;"><svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Google Sheets</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Timeline -->
+    <section class="section bg-light">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 56px;">
+                <span class="text-label">TIMELINE</span>
+                <h2>Live in 2 weeks. 7 hours from your team. That's it.</h2>
+                <p>We handle the heavy lifting. You show up to four short sessions and you're running.</p>
+            </div>
+            
+            <div class="grid-4">
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 36px; font-weight: 800; color: var(--bg-dark-green); margin-bottom: 8px;">2h</div>
+                    <h4 style="font-weight: 700; margin-bottom: 6px;">Kickoff</h4>
+                    <p style="font-size: 14px; color: #666; margin: 0;">Scope your doc types and workflow</p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 36px; font-weight: 800; color: var(--bg-dark-green); margin-bottom: 8px;">2h</div>
+                    <h4 style="font-weight: 700; margin-bottom: 6px;">Workflow Review</h4>
+                    <p style="font-size: 14px; color: #666; margin: 0;">We map the exact flow end-to-end</p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 36px; font-weight: 800; color: var(--bg-dark-green); margin-bottom: 8px;">2h</div>
+                    <h4 style="font-weight: 700; margin-bottom: 6px;">Team Training</h4>
+                    <p style="font-size: 14px; color: #666; margin: 0;">Your team gets up and running</p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 36px; font-weight: 800; color: var(--bg-dark-green); margin-bottom: 8px;">1h</div>
+                    <h4 style="font-weight: 700; margin-bottom: 6px;">Week 1 Check-in</h4>
+                    <p style="font-size: 14px; color: #666; margin: 0;">Tweak and confirm everything works</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; text-align: center;">
+                <p style="font-size: 16px; font-weight: 600; color: #333;">We schedule setup outside of tax season. You'll be live before Q1.</p>
+                <a href="javascript:void(0)" data-cal-link="kidaflow-automations/15-min-60s-extractionsystem" class="btn btn-primary" style="margin-top: 20px; padding: 16px 40px;">
+                    Let's Talk Timeline
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section bg-dark text-center" style="padding: 120px 0; background: var(--bg-dark-green);">
+        <div class="container">
+            <h2 style="font-size: 44px; margin-bottom: 20px; color: white; line-height: 1.2;">Ready to see this work on your actual files?</h2>
+            <p style="color: rgba(255,255,255,0.75); margin-bottom: 40px; max-width: 560px; margin-left: auto; margin-right: auto; font-size: 18px; line-height: 1.6;">
+                Standard docs extracted at 98% accuracy—including messy PDFs. If you're not saving 4 hours/week per junior, we refund your setup fee.
+            </p>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="javascript:void(0)" data-cal-link="kidaflow-automations/15-min-60s-extractionsystem" class="btn btn-white" style="padding: 20px 48px; font-size: 17px; color: var(--bg-dark-green); font-weight: 700;">
+                    Book a 15-Min Call
+                </a>
+                <a href="#test-now" class="btn" style="padding: 20px 48px; font-size: 17px; color: white; border: 2px solid rgba(255,255,255,0.4); border-radius: 50px; background: transparent; font-weight: 600;">
+                    Test It Free First →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Minimal) -->
+    <footer class="footer">
+        <div class="container">
+            <div style="text-align: center; opacity: 0.6; font-size: 14px;">
+                <img src="../../kidaflow_logo.png" alt="Kidaflow" style="height: 30px; filter: brightness(0) invert(1); margin-bottom: 20px; display: inline-block;" width="105" height="30" decoding="async" loading="lazy">
+                <p style="margin-bottom: 12px; font-weight: 600; letter-spacing: 0.5px;">hellokidaflow.com</p>
+                <p>© 2026 Kidaflow. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Status Overlay -->
+    <div id="status-overlay" class="status-overlay">
+        <div class="spinner"></div>
+        <h2 style="font-size: 32px; margin-bottom: 16px; color: white;">Analyzing Documents...</h2>
+        <p style="opacity: 0.8; max-width: 400px; margin: 0 auto; color: white;">Our engine is reading your files and extracting line items. This typically takes 60 seconds.</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <p id="progress-text" style="color: white;">0%</p>
+    </div>
+
+    <!-- Success Screen -->
+    <div id="success-overlay" class="status-overlay" style="background: rgba(5, 27, 17, 0.98); overflow-y: auto; padding: 60px 20px;">
+        <div style="font-size: 64px; margin-bottom: 20px;">✅</div>
+        <h2 style="font-size: 30px; margin-bottom: 8px; color: white;">Extraction Complete!</h2>
+        <p style="color: rgba(255,255,255,0.7); margin-bottom: 32px; font-size: 15px;">Your file is downloading automatically.</p>
+        
+        <div id="processed-files-container" style="margin-bottom: 32px; text-align: left; max-width: 600px; width: 100%;">
+            <h4 style="color: var(--color-accent); margin-bottom: 10px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Files Processed:</h4>
+            <ul id="processed-file-list" style="list-style: none; padding: 0; color: rgba(255,255,255,0.85); font-size: 14px;"></ul>
+        </div>
+
+        <div id="preview-container" style="display: none; width: 100%; max-width: 900px; margin-bottom: 40px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 10px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; text-align: left;">Extracted Data:</h4>
+            <div id="excel-preview" class="excel-preview-table"></div>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px;">
+            <button class="btn btn-white" onclick="location.reload()" style="padding: 14px 28px;">Process Another Doc</button>
+            <a href="javascript:void(0)" data-cal-link="kidaflow-automations/15-min-60s-extractionsystem" class="btn btn-primary" style="padding: 14px 28px;">
+                Book a Call to Deploy This
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="extraction-app.js"></script>
+    <script src="../../booking.js"></script>
+</body>
+</html>

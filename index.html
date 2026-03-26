@@ -49,19 +49,19 @@
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="customers.html" class="nav-link">Customer Success Stories</a>
                 <div class="nav-item-dropdown">
-                    <span class="nav-link nav-link-dropdown">
+                    <a href="docflow.html" class="nav-link nav-link-dropdown" style="text-decoration:none;">
                         Solutions
                         <svg class="dropdown-arrow" viewBox="0 0 24 24">
                             <path d="M7 10l5 5 5-5z" />
                         </svg>
-                    </span>
-                    <div class="dropdown-menu" style="width: 280px;">
+                    </a>
+                    <div class="dropdown-menu">
                         <a href="docflow.html" class="dropdown-item">DocFlow System for Accounting & Finance</a>
-                        <a href="vikki.html" class="dropdown-item">Vikki for Legal & Law Firms</a>
+                        <a href="vikki.html" class="dropdown-item">Vikki for PI Law Firms</a>
                         <a href="bcv.html" class="dropdown-item">Build Compliance Vault for Architects &
                             Construction</a>
                         <a href="contact.html" class="dropdown-item"
-                            style="background: rgba(46, 139, 87, 0.15); border-left: 3px solid var(--color-accent); padding-left: 13px;">
+                            >
                             <strong>Custom Solution</strong><br>
                             <small style="opacity: 0.8; font-size: 12px;">Let's create a system that is customized for
                                 you</small>
@@ -123,12 +123,12 @@
             <div class="hero-content">
                 <h1>Business Transformation<br>is in our DNA.</h1>
                 <p>
-                    Growing companies with performance driven and proven solutions. 20+ businesses have benefited from
-                    our intelligent automation solutions.
+                    We use AI and tailored system automations to accelerate your growth. 20+ companies impacted in the
+                    last 10 months.
                 </p>
                 <div class="hero-actions" style="display: flex; gap: 20px; justify-content: center;">
                     <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin"
-                        class="btn btn-primary">Schedule a Discovery Call</a>
+                        class="btn btn-primary">Schedule a Call</a>
                     <a href="customers.html" class="btn btn-secondary">View Success Stories</a>
                 </div>
             </div>
@@ -148,20 +148,24 @@
                 <h2 style="color: #fff; margin-bottom: 30px;">Trusted by growing companies</h2>
                 <div class="grid-4 text-center" style="margin-top: 20px;">
                     <div>
-                        <h3 style="color: var(--color-brand-green); font-size: 48px; margin-bottom: 4px;">$2M+</h3>
+                        <h3 style="color: var(--color-brand-green); font-size: 48px; margin-bottom: 4px;">$<span
+                                class="stat-counter" data-target="2">0</span>M+</h3>
                         <p style="color: #ccc; font-weight: 600;">Revenue Impacted</p>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-brand-green); font-size: 48px; margin-bottom: 4px;">21+</h3>
+                        <h3 style="color: var(--color-brand-green); font-size: 48px; margin-bottom: 4px;"><span
+                                class="stat-counter" data-target="21">0</span>+</h3>
                         <p style="color: #ccc; font-weight: 600;">Clients Served<br><span
                                 style="font-size: 12px; opacity: 0.7;">Since 2025</span></p>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-brand-green); font-size: 48px; margin-bottom: 4px;">200+</h3>
+                        <h3 style="color: var(--color-brand-green); font-size: 48px; margin-bottom: 4px;"><span
+                                class="stat-counter" data-target="200">0</span>+</h3>
                         <p style="color: #ccc; font-weight: 600;">Automations Built</p>
                     </div>
                     <div>
-                        <h3 style="color: var(--color-brand-green); font-size: 48px; margin-bottom: 4px;">15,000+</h3>
+                        <h3 style="color: var(--color-brand-green); font-size: 48px; margin-bottom: 4px;"><span
+                                class="stat-counter" data-target="15000">0</span>+</h3>
                         <p style="color: #ccc; font-weight: 600;">Hours Saved</p>
                     </div>
                 </div>
@@ -322,13 +326,143 @@
         </div>
     </section>
 
+    <style>
+        /* FAQ Section Styles */
+        .faq-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-size: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--bg-dark-green);
+            transition: color 0.3s;
+        }
+
+        .faq-question:hover {
+            color: var(--color-accent);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--color-accent);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-body);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-bottom: 20px;
+        }
+    </style>
+
+    <!-- FAQ Section -->
+    <section class="section" style="background: #fdfdfd; padding: 100px 0;">
+        <div class="container" style="max-width: 800px;">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <span class="text-label" style="color: var(--color-accent);">FAQ</span>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-accordion">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">What do we do?</div>
+                    <div class="faq-answer">
+                        <p>We eliminate manual tasks and help you run business operations faster and easier. Whether it
+                            involves sales outreach, complex reporting, or client communications, we use a combination
+                            of AI and automated workflows to streamine your entire operation.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">Who do we help?</div>
+                    <div class="faq-answer">
+                        <p>We focus heavily on Accounting/Finance and Legal/Law firms due to the high volume of
+                            paperwork and compliance they handle. However, we have successfully partnered with and
+                            delivered measurable results for businesses across multiple other industries as well,
+                            including Real Estate, Construction, and Home Services. Check out our <a
+                                href="customers.html"
+                                style="color: var(--color-accent); font-weight: 600; text-decoration: underline;">Customer
+                                Success Stories</a> to learn more.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">What tools do we use?</div>
+                    <div class="faq-answer">
+                        <p>We deploy a tailored variety of platforms to best fit your needs. This includes AI tools
+                            (like LLMs), automation engines (such as n8n and Make), alongside existing software or fully
+                            custom-built applications designed exclusively for your operations.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">What are some examples of solutions we build?</div>
+                    <div class="faq-answer">
+                        <ul style="padding-left: 20px; list-style-type: disc;">
+                            <li style="margin-bottom: 10px;"><strong>Document reading/extractions:</strong>
+                                Automatically pull line items from PDFs and bank statements into your systems.</li>
+                            <li style="margin-bottom: 10px;"><strong>Automated CRMs:</strong> Systems that seamlessly
+                                trigger client communications across Email, SMS, and WhatsApp simultaneously.</li>
+                            <li><strong>Custom Operations Software:</strong> Standalone web apps and portals for
+                                managing complex client project organizations efficiently.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+                    <div class="faq-question">How can I know if you can help my business?</div>
+                    <div class="faq-answer">
+                        <p>The best way to find out is to <a href="javascript:void(0)"
+                                data-cal-link="kidaflow-automations/quick-discovery-website-linkedin"
+                                style="color: var(--color-accent); font-weight: 600; text-decoration: underline;">Schedule
+                                a Call</a> with us. We will audit your current business processes, identify the most
+                            significant bottlenecks, and present clear opportunities for automation and growth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA / Footer Area -->
     <section class="section bg-dark text-center"
         style="padding: 120px 0; border-top: 1px solid rgba(255,255,255,0.05);">
         <div class="container">
             <h2 style="font-size: 56px; margin-bottom: 30px;">Ready to scale?</h2>
             <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin"
-                class="btn btn-primary" style="padding: 24px 60px; font-size: 18px;">Schedule Discovery Call</a>
+                class="btn btn-primary" style="padding: 24px 60px; font-size: 18px;">Schedule a Call</a>
         </div>
     </section>
 
@@ -400,6 +534,72 @@
     </footer>
 
     <script src="booking.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.stat-counter');
+
+            const animateCounters = () => {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 1500; // ms
+
+                    // Delay per step ensures we notice smaller number counts
+                    let stepTime = Math.floor(duration / target);
+                    if (stepTime < 20) stepTime = 20; // Don't update too fast for big targets like 15000
+                    if (stepTime > 500) stepTime = 500; // Cap delay so it completes timely
+
+                    const inc = Math.max(1, Math.ceil(target / (duration / stepTime)));
+
+                    const updateCount = () => {
+                        // Handle numbers with text or commas correctly
+                        const count = +(counter.innerText.replace(/,/g, ''));
+
+                        if (count < target) {
+                            counter.innerText = Math.min(count + inc, target).toLocaleString();
+                            setTimeout(updateCount, stepTime);
+                        } else {
+                            counter.innerText = target.toLocaleString();
+                        }
+                    };
+
+                    updateCount();
+                });
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const statsSection = document.querySelector('.grid-4.text-center');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+
+            // FAQ Accordion Logic
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+
+                    // Toggle current item
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

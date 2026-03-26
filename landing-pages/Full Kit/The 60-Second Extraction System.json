@@ -1,0 +1,381 @@
+{
+  "name": "The 60-Second Extraction System",
+  "nodes": [
+    {
+      "parameters": {
+        "text": "={{ $json.output[0].content[0].text }}",
+        "attributes": {
+          "attributes": [
+            {
+              "name": "Vendor name",
+              "description": "The full name of the company or individual who issued the invoice.  How to identify: Usually found at the top of the invoice, often near the logo or company address. May appear as \"From\", \"Seller\", or in a header section.",
+              "required": true
+            },
+            {
+              "name": "Invoice number",
+              "description": "What to extract: The unique invoice ID assigned by the vendor.      How to identify: Labeled as \"Invoice Number\", \"Invoice No.\", or \"Ref No\". Often alphanumeric ",
+              "required": true
+            },
+            {
+              "name": "Date",
+              "description": "The date the invoice was issued. It may be labeled as 'Invoice Date', 'Date Issued', or simply 'Date' within the document. The data extractor should identify these labels and extract the accompanying date information. Expected date formats typically include MM/DD/YYYY or DD-MM-YYYY. The extracted date should be formatted as MM/DD/YYYY for consistency",
+              "required": true
+            },
+            {
+              "name": "Due Date",
+              "description": "What to extract: The payment due date indicated on the invoice.  How to identify: Often labeled as \"Due Date\", \"Pay By\", or \"Payment Due\". Format is similar to the invoice date."
+            },
+            {
+              "name": "Total amount in USD",
+              "description": "\"The total amount to be paid in USD, usually labeled as 'Total', 'Amount Due', or 'Total Amount (USD)'. This figure is typically located at the bottom or top-right of the invoice. It should appear with a '$' or 'USD' symbol. Extract this amount as a numerical value only, with no commas or currency symbols.\"",
+              "required": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        -240
+      ],
+      "id": "1f8a2e09-c003-4285-961b-0a5ae198e857",
+      "name": "Information Extractor",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1512,
+        -16
+      ],
+      "id": "777f0cfa-0d4b-47a5-8e0c-968ddac1d0c1",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "jhQ7srft9n5N7dng",
+          "name": "Openai kida ac (16-02-26)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formTitle": "Document",
+        "formDescription": "Upload form",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Upload doc",
+              "fieldType": "file"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        192,
+        -116
+      ],
+      "id": "ab64fabc-c7e5-41f9-b962-65dab16f0755",
+      "name": "On form submission",
+      "webhookId": "45b825d4-a9ec-4fe2-be62-8de5b6ec0e35"
+    },
+    {
+      "parameters": {
+        "authentication": "serviceAccount",
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1sN9G0o1sj-DwoMWOndKkvLydUK9lywEC_wbJe_jdS3o",
+          "mode": "list",
+          "cachedResultName": "Invoice Template",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1sN9G0o1sj-DwoMWOndKkvLydUK9lywEC_wbJe_jdS3o/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Invoice template",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1sN9G0o1sj-DwoMWOndKkvLydUK9lywEC_wbJe_jdS3o/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Vendor Name": "={{ $json.output['Vendor name'] }}",
+            "Invoice Number": "={{ $json.output['Invoice number'] }}",
+            "Date": "={{ $json.output.Date }}",
+            "Due Date": "={{ $json.output['Due Date'] }}",
+            "Total Amount": "={{ $json.output['Total amount in USD'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Vendor Name",
+              "displayName": "Vendor Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Invoice Number",
+              "displayName": "Invoice Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Due Date",
+              "displayName": "Due Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Total Amount",
+              "displayName": "Total Amount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1792,
+        -112
+      ],
+      "id": "47231023-bc37-4d44-8e8e-16973a15739b",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleApi": {
+          "id": "tLNx6Gsw720z05cU",
+          "name": "DE service account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Run Once for Each Item mode\nconst item = $input.item;\n\n// Check if item has binary data\nif (item.binary) {\n  // Get the first binary property key\n  const binaryKeys = Object.keys(item.binary);\n  \n  if (binaryKeys.length > 0) {\n    const originalKey = binaryKeys[0];\n    const binaryData = item.binary[originalKey];\n    \n    // Create new binary object with renamed key\n    item.binary = {\n      'Upload_doc': binaryData\n    };\n  }\n}\n\nreturn item;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        640,
+        -116
+      ],
+      "id": "5b0886dd-8285-4fff-99f6-24b5bd7e258b",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "=$binary",
+        "options": {
+          "includeBinary": true
+        }
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        416,
+        -116
+      ],
+      "id": "edeb97b5-92b4-43f7-9ede-8cbf5426ff58",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        864,
+        -116
+      ],
+      "id": "1a35fcd7-eeb4-49c2-b879-608f68df394f",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "type": "file",
+              "fileType": "base64",
+              "binaryPropertyName": "Upload_doc",
+              "fileName": "invoice"
+            },
+            {
+              "role": "system",
+              "content": "You are a data extraction assistant for an accounting firm.\n\nYou will receive an invoice document (PDF or image).\nExtract all data fields you can find and return them as a clean JSON object.\n\nReturn these fields:\n\n{\n  \"date\": \"\",\n  \"due_date\": \"\",\n  \"invoice_number\": \"\",\n  \"vendor_name\": \"\",\n  \"vendor_address\": \"\",\n  \"vendor_email\": \"\",\n  \"client_name\": \"\",\n  \"client_address\": \"\",\n  \"line_items\": [\n    {\n      \"description\": \"\",\n      \"quantity\": \"\",\n      \"unit_price\": \"\",\n      \"total\": \"\"\n    }\n  ],\n  \"subtotal\": \"\",\n  \"tax_amount\": \"\",\n  \"discount\": \"\",\n  \"total_amount\": \"\",\n  \"currency\": \"\",\n  \"payment_terms\": \"\",\n  \"notes\": \"\"\n}\n\nRules:\n- If a field is not found, return null for that field.\n- Do not add any explanation or text outside the JSON.\n- Return valid JSON only.\n- For line_items return an array even if there is only one item.\n- Dates should be in YYYY-MM-DD format.\n- Amounts should be numbers only, no currency symbols.\n"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        1088,
+        -240
+      ],
+      "id": "18003d5d-d82b-4d48-8c60-9ede80077653",
+      "name": "Message a model",
+      "credentials": {
+        "openAiApi": {
+          "id": "jhQ7srft9n5N7dng",
+          "name": "Openai kida ac (16-02-26)"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Information Extractor": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "f257431a-c5b7-4dc9-abd6-13638754885d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2ee1b1a5201177f55aa5d83dcb8c9c9ef372c5d291e79aac1d3d62cce13dea3d"
+  },
+  "id": "JuObh0IRST7HQMkV",
+  "tags": []
+}

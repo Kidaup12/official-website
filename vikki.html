@@ -4,116 +4,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vikki | Legal Process Automation for Law Firms | KiDaFlow</title>
+    <title>Vikki | Case Management & AI for Personal Injury Law firms</title>
     <meta name="description"
-        content="Vikki: The intelligent nerve center for law firms. Automate case intake, document generation, and medical records tracking.">
+        content="Vikki: The intelligent nerve center for personal injury law firms. Automate case intake, document generation, and medical records tracking.">
     <link rel="icon" type="image/png" href="kidaflow_logo.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Onest:wght@400;500;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Onest:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- EvenUp Clone Theme -->
+    <!-- Main Theme & Vikki Specific CSS -->
     <link rel="stylesheet" href="evenup-theme.css">
+    <link rel="stylesheet" href="vikki-new.css">
 
     <style>
-        :root {
-            --bg-darker-green: #0a0a0a;
-            --bg-dark-green: #111111;
-            --color-accent: #2e8b57;
-        }
-
-        .layman-summary {
-            background: rgba(46, 139, 87, 0.05);
-            border: 1px solid rgba(46, 139, 87, 0.2);
-            border-radius: 16px;
-            padding: 24px;
-            margin: 32px auto;
-            max-width: 800px;
-        }
-
-        .layman-summary h3 {
-            color: var(--color-accent);
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .layman-summary p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin: 0;
-            color: var(--text-body);
-        }
-
-        .feature-section {
-            padding: 60px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .feature-section:last-of-type {
-            border-bottom: none;
-        }
-
-        .feature-grid {
-            display: grid;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .feature-grid.img-left {
-            grid-template-columns: 0.8fr 1.2fr;
-        }
-
-        .feature-grid.img-right {
-            grid-template-columns: 1.2fr 0.8fr;
-        }
-
-        .feature-img-placeholder {
-            height: 300px;
-            background: #eee;
-            border: 2px dashed #ddd;
-            border-radius: 12px;
+        .feature-row {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 14px;
-            font-weight: 600;
-            text-align: center;
-            padding: 20px;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .feature-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .feature-content {
+            flex: 1;
         }
 
         .feature-content h3 {
-            font-size: 32px;
-            margin-bottom: 16px;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--color-text-header);
+            text-transform: none; /* Ensuring sentence case constraint */
         }
 
         .feature-content p {
             font-size: 18px;
-            line-height: 1.6;
-            color: var(--text-body);
+            color: var(--color-text-body);
+            margin-bottom: 24px;
         }
 
-        .hero-img {
-            max-width: 600px;
-            height: auto;
-            margin: 40px auto 0;
-            border-radius: 16px;
-            display: block;
+        .feature-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        @media (max-width: 768px) {
+        .feature-content li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 500;
+        }
 
-            .feature-grid.img-left,
-            .feature-grid.img-right {
-                grid-template-columns: 1fr;
+        .feature-content li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .feature-image-container {
+            width: 100%;
+            flex: 1;
+            background: #ffffff;
+            border-radius: 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .feature-placeholder-text {
+            color: #999;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+        }
+
+        @media (max-width: 992px) {
+            .feature-row, .feature-row.reverse {
+                flex-direction: column;
+                gap: 40px;
             }
+            .feature-image-container {
+                height: 300px;
+            }
+        }
+        
+        .flat-results {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        
+        .flat-result-item {
+            text-align: center;
+            max-width: 250px;
+        }
+        
+        .flat-result-item .stat-number {
+            font-size: 64px;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        /* Update typing CSS to be inline natively without jumping */
+        .typing-cursor {
+            font-weight: 600;
+            animation: blinking-cursor 1s step-end infinite;
+        }
+
+        @keyframes blinking-cursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
     </style>
 </head>
@@ -150,25 +170,26 @@
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="customers.html" class="nav-link">Customer Success Stories</a>
                 <div class="nav-item-dropdown">
-                    <span class="nav-link nav-link-dropdown">
+                    <a href="docflow.html" class="nav-link nav-link-dropdown" style="text-decoration:none;">
                         Solutions
-                        <svg class="dropdown-arrow" viewBox="0 0 24 24">
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24" width="20" height="20" style="display:inline; vertical-align:middle;">
                             <path d="M7 10l5 5 5-5z" />
                         </svg>
-                    </span>
-                    <div class="dropdown-menu" style="width: 260px;">
+                    </a>
+                    <div class="dropdown-menu">
                         <a href="docflow.html" class="dropdown-item">DocFlow System for Accounting & Finance</a>
-                        <a href="vikki.html" class="dropdown-item">Vikki for Legal & Law Firms</a>
-                        <a href="bcv.html" class="dropdown-item">Build Compliance Vault for Architects &
-                            Construction</a>
+                        <a href="vikki.html" class="dropdown-item">Vikki for PI Law Firms</a>
+                        <a href="bcv.html" class="dropdown-item">Build Compliance Vault for Architects & Construction</a>
+                        <a href="contact.html" class="dropdown-item">
+                            <strong>Custom Solution</strong><br>
+                            <small style="opacity: 0.8; font-size: 12px;">Let's create a system that is customized for you</small>
+                        </a>
                     </div>
                 </div>
 
-                <a href="projects.html" class="nav-link">Projects</a>
                 <a href="about.html" class="nav-link">About Us</a>
                 <a href="contact.html" class="nav-link">Contact Us</a>
-                <a href="https://www.skool.com/monetize-learn-aiautomation-2878" target="_blank" class="nav-link">Join
-                    the Skool</a>
+                <a href="https://www.skool.com/monetize-learn-aiautomation-2878" target="_blank" class="nav-link">Join the Skool</a>
                 <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin"
                     class="btn btn-primary">Schedule a Call</a>
             </div>
@@ -176,204 +197,218 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="section hero-wrapper" style="animation: fadeIn 0.8s forwards;">
+    <header class="hero">
         <div class="container" style="position: relative; z-index: 5;">
-            <div class="hero-content">
-                <span class="text-label"
-                    style="background: var(--color-accent); color: white; padding: 8px 16px; border-radius: 20px; display: inline-block;">Legal
-                    Process Automation</span>
-                <h1 style="margin-top: 24px;">Vikki: The Intelligent Nerve Center for Law Firms</h1>
-
-                <div class="layman-summary">
-                    <h3>In Simple Terms</h3>
-                    <p>Running a law firm involves thousands of phone calls, letters, and emails. Vikki is the only case
-                        management system built BY attorneys FOR attorneys. It automates the high-volume paperwork that
-                        buries your staff, allowing you to stop turning away $50K-$150K in monthly revenue simply
-                        because of capacity bottlenecks.</p>
+            <h1 class="reveal fade-up">Case Management & AI for Personal Injury Law firms</h1>
+            <p class="reveal fade-up" style="transition-delay: 0.2s;">
+                From intake to settlement, Vikki automates the heavy lifting. It instantly generates LORs, relentlessly tracks medical records, and drafts AI demands—giving your firm the power to handle more cases without burning out your team.
+            </p>
+            <div style="margin-top: 32px;" class="reveal fade-up" style="transition-delay: 0.4s;">
+                <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin" class="btn btn-primary" style="padding: 16px 40px; font-size: 16px;">Book a Demo</a>
+            </div>
+            <div class="hero-supporting reveal fade-up" style="transition-delay: 0.6s;">Used by PI firms across the US</div>
+            
+            <!-- Hero Dashboard Illustration Placeholder -->
+            <div class="reveal fade-up" style="transition-delay: 0.8s; margin-top: 60px; background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); padding: 12px; border: 1px solid rgba(0,0,0,0.05); max-width: 1000px; margin-left: auto; margin-right: auto;">
+                <div style="background: #f8f8f8; height: 500px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #999; font-weight: 600; font-family: 'Outfit', sans-serif; font-size: 20px; border: 2px dashed #e6e6e6;">
+                    [Dashboard Overview Visualization]
                 </div>
+            </div>
+        </div>
+    </header>
 
-                <div class="hero-actions" style="display: flex; gap: 20px; justify-content: center; margin-top: 32px;">
-                    <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin"
-                        class="btn btn-primary" style="padding: 20px 40px; font-size: 16px;">Request a Demo</a>
-                    <a href="https://vivkki.vercel.app/" target="_blank" class="btn"
-                        style="padding: 20px 40px; font-size: 16px; background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2);">Try
-                        the Tool</a>
-                </div>
-
+    <!-- How Vikki Works transition -->
+    <section class="section text-center reveal fade-in" style="background-color: #ffffff;">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <span class="text-label" style="color: var(--color-primary); margin-bottom: 16px; display: block; font-weight: 700; letter-spacing: 1.5px;">HOW VIKKI WORKS</span>
+                <h2 style="margin-bottom: 24px;">Intake to close, one system</h2>
+                <p style="font-size: 20px; line-height: 1.6; color: var(--color-text-body);">From the moment a case enters your firm to the day it settles, Vikki acts as an invisible paralegal. It tracks every detail, creates documents instantly, and alerts you to upcoming deadlines — making sure nothing slips through the cracks.</p>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="text-center" style="margin-bottom: 80px;">Complete Legal Workflow Automation</h2>
-
-            <!-- Feature 1: Case Intake & Management -->
-            <div class="feature-section">
-                <div class="feature-content"
-                    style="padding: 40px; background: #fff; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05);">
-                    <div style="font-size: 48px; margin-bottom: 24px;">📥</div>
-                    <h3>Smart Case Intake</h3>
-                    <p>Capture comprehensive client data, accident details, and insurance info through a structured
-                        digital process. Automatically organize cases by stage from intake to negotiation. Every case
-                        gets its own organized Google Drive folder structure automatically—no more searching for missing
-                        files.</p>
-                </div>
+    <!-- Why Vikki -->
+    <section class="section" style="background-color: var(--color-bg-light);">
+        <div class="container reveal fade-up" style="max-width: 1000px;">
+            <div class="why-vikki-card">
+                <h3 style="font-size: 32px; margin-bottom: 16px;">Why Vikki?</h3>
+                <p style="font-size: 20px; margin-bottom: 0;">Most case management software is just a digital filing cabinet. You still have to do all the manual work to move cases forward. <strong>Vikki is fundamentally different.</strong> It doesn't just store documents—it reads them, processes them, writes plain-English legal responses, and automatically handles the repetitive administrative work that causes bottlenecks in PI firms.</p>
             </div>
-
-            <!-- Feature 2: Instant Document Generation -->
-            <div class="feature-section">
-                <div class="feature-content"
-                    style="padding: 40px; background: #fff; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05);">
-                    <div style="font-size: 48px; margin-bottom: 24px;">✍️</div>
-                    <h3>Instant Letter Generation</h3>
-                    <p>Generate LORs (Letters of Representation) and Spoliation Letters in one click. Vikki auto-fills
-                        adjuster details, claim numbers, and client info into your firm's custom letterhead templates.
-                        What used to take a paralegal 30 minutes now takes 3 seconds.</p>
-                    <p style="margin-top: 16px;">Supports: <strong>LORs, Spoliation Letters, Demand Letters, and
-                            Client Retainers.</strong></p>
-                </div>
-            </div>
-
-            <!-- Feature 3: Medical Records Tracking -->
-            <div class="feature-section">
-                <div class="feature-content"
-                    style="padding: 40px; background: #fff; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05);">
-                    <div style="font-size: 48px; margin-bottom: 24px;">📋</div>
-                    <h3>Automatic Medical Records</h3>
-                    <p>Click once. Vikki generates the HIPAA, addresses it to the right department (billing vs.
-                        records), and sends it via email or fax. Done in 60 seconds. The system then automatically sends
-                        follow-ups every 35 days until the records are received.</p>
-                    <p style="margin-top: 16px; font-weight: 600; color: var(--color-accent);">Never chase records
-                        manually again.</p>
-                </div>
-            </div>
-
-            style="padding: 40px; background: rgba(46, 139, 87, 0.05); border-radius: 16px; text-align: center;">
-            <span style="font-size: 64px;">💰</span>
-            <p style="margin-top: 20px; font-weight: 600;">Instant Case Financials</p>
-        </div>
-        <div class="feature-content">
-            <h3>Transparent Case Economics</h3>
-            <p>See total bills, insurance payments, and outstanding balances at a glance. No spreadsheets. No
-                calculator. Vikki syncs seamlessly with your firm's existing databases to ensure every document
-                and case note is accessible securely from anywhere.</p>
-        </div>
-        <!-- Triple Guarantee Section -->
-        <div
-            style="margin-top: 100px; padding: 60px; background: radial-gradient(circle at 50% 50%, #0a2e1d 0%, #051b11 100%); border-radius: 24px; color: #fff; text-align: center;">
-            <h2 style="color: #fff; margin-bottom: 40px;">Our "Impossible to Fail" Triple Guarantee</h2>
-            <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
-                <div style="padding: 20px;">
-                    <h4 style="color: var(--color-accent); margin-bottom: 12px; font-size: 18px;">Time-Savings
-                        Guarantee</h4>
-                    <p style="font-size: 14px; opacity: 0.8;">If you don't save at least 20 hours in your first
-                        30 days, we refund 100% AND pay you $500 cash for your time.</p>
-                </div>
-                <div style="padding: 20px;">
-                    <h4 style="color: var(--color-accent); margin-bottom: 12px; font-size: 18px;">Case
-                        Protection Guarantee</h4>
-                    <p style="font-size: 14px; opacity: 0.8;">If any case gets delayed because of Vikki, we pay
-                        the late fees. Period.</p>
-                </div>
-                <div style="padding: 20px;">
-                    <h4 style="color: var(--color-accent); margin-bottom: 12px; font-size: 18px;">Profitability
-                        Guarantee</h4>
-                    <p style="font-size: 14px; opacity: 0.8;">We'll work for FREE until you're profitable with
-                        Vikki. However long it takes.</p>
-                </div>
-            </div>
-        </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section bg-dark text-center" style="padding: 120px 0;">
+    <!-- Alternating Features Section -->
+    <section class="section" style="background-color: #ffffff;">
         <div class="container">
-            <h2 style="font-size: 56px; margin-bottom: 30px;">Transform Your Legal Practice</h2>
-            <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin"
-                class="btn btn-primary" style="padding: 24px 60px; font-size: 18px;">Request a Demo</a>
+            
+            <!-- Feature 1: Image Left -->
+            <div class="feature-row reveal fade-up">
+                <div class="feature-image-container reveal flip-left">
+                    <div class="feature-placeholder-text">[Auto-Generation UI Photo]</div>
+                </div>
+                <div class="feature-content">
+                    <h3>Flawless automated documents</h3>
+                    <p>Stop risking human error by copy-pasting data. Vikki generates LORs, HIPAAs, engagement letters, and settlement statements instantly. Pre-filled with accurate client details, insurance data, and provider information, documents that took 20 minutes are generated in seconds.</p>
+                    <p style="font-weight: 600; margin-bottom: 12px;">What you get:</p>
+                    <ul>
+                        <li>Pre-filled LORs for third-party and first-party carriers</li>
+                        <li>Individual and bulk HIPAA generation for all providers</li>
+                        <li>Automated settlement and payment instruction letters</li>
+                        <li>Quick medical billing reduction requests</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 2: Image Right -->
+            <div class="feature-row reverse reveal fade-up">
+                <div class="feature-image-container reveal flip-right">
+                    <div class="feature-placeholder-text">[AI Demand Drafting Photo]</div>
+                </div>
+                <div class="feature-content">
+                    <h3>AI-driven demand drafting</h3>
+                    <p>Elevate your negotiation leverage with AI that acts as your senior paralegal. Vikki ingests massive medical files, builds exact treatment chronologies, checks local settlement data, and <span class="typing-container" style="color: var(--color-primary); display: inline; border: none; font-weight: 500;"></span><span class="typing-cursor" style="color: var(--color-primary);">|</span></p>
+                    <p style="font-weight: 600; margin-bottom: 12px;">What you get:</p>
+                    <ul>
+                        <li>High-accuracy chronologies pulled straight from medical files</li>
+                        <li>Local settlement data matching the accident type</li>
+                        <li>Clear liability points adapted to the specific incident</li>
+                        <li>Strong draft demands ready for final attorney sign-off</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 3: Image Left -->
+            <div class="feature-row reveal fade-up">
+                <div class="feature-image-container reveal flip-left">
+                    <div class="feature-placeholder-text">[Records Tracking UI Photo]</div>
+                </div>
+                <div class="feature-content">
+                    <h3>Relentless medical records tracking</h3>
+                    <p>Never rely on a sticky note to shadow a records request again. Vikki monitors every outstanding request automatically. It triggers polite follow-ups on Day 7, escalates on Day 35, and ceases immediately when records are received. Nothing is chased manually.</p>
+                    <p style="font-weight: 600; margin-bottom: 12px;">What you get:</p>
+                    <ul>
+                        <li>Automated polite email follow-ups at 7 and 35 days</li>
+                        <li>Extensive provider database with exact fax and email routing</li>
+                        <li>Hyper-accurate billing and payment tracking</li>
+                        <li>A firm-wide dashboard showing records status across your entire pipeline</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 4: Image Right -->
+            <div class="feature-row reverse reveal fade-up">
+                <div class="feature-image-container reveal flip-right">
+                    <div class="feature-placeholder-text">[Email Monitoring Photo]</div>
+                </div>
+                <div class="feature-content">
+                    <h3>Continuous email document processing</h3>
+                    <p>Your team's inbox is no longer a bottleneck. Vikki securely monitors incoming correspondence round-the-clock. Every attachment is read, intelligently classified, and instantly filed directly into the client's dedicated Google Drive workspace. No searching, no manual filing.</p>
+                    <p style="font-weight: 600; margin-bottom: 12px;">What you get:</p>
+                    <ul>
+                        <li>Instant document sorting the second an email arrives</li>
+                        <li>Seamless integration with firm-wide Gmail or Outlook setups</li>
+                        <li>Immaculately organized Google Drive hierarchy per case</li>
+                        <li>Zero-lag, real-time document availability across your team</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 5: Image Left -->
+            <div class="feature-row reveal fade-up">
+                <div class="feature-image-container reveal flip-left">
+                    <div class="feature-placeholder-text">[Visibility Dashboard Photo]</div>
+                </div>
+                <div class="feature-content">
+                    <h3>Unprecedented case visibility</h3>
+                    <p>Gain absolute command over your firm's pipeline. Vikki gives you a master view of every case, exposing its exact stage and outstanding items. It proactively flags cases stuck for 14 days, unanswered HIPAAs at 21 days, and critical statute dates approaching within 30 days.</p>
+                    <p style="font-weight: 600; margin-bottom: 12px;">What you get:</p>
+                    <ul>
+                        <li>"State of the union" dashboard for a macro view of open cases</li>
+                        <li>Automated, high-priority flags for stalled cases and deadlines</li>
+                        <li>Comprehensive, tamper-proof work logs with user attribution</li>
+                        <li>Granular stage tracking from initial consultation to final close</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 6: Image Right -->
+            <div class="feature-row reverse reveal fade-up">
+                <div class="feature-image-container reveal flip-right">
+                    <div class="feature-placeholder-text">[Centralized Info Photo]</div>
+                </div>
+                <div class="feature-content">
+                    <h3>A single source of truth</h3>
+                    <p>Scattered information slows down your firm. Vikki centralizes client demographics, layered insurance policies, specific adjuster contacts, claim numbers, and billing records into one immediately accessible profile. Always current, always accurate, and instantly available to anyone touching the file.</p>
+                    <p style="font-weight: 600; margin-bottom: 12px;">What you get:</p>
+                    <ul>
+                        <li>Exhaustive insurance tracking (health, first-party, third-party)</li>
+                        <li>A self-updating medical provider and contact method repository</li>
+                        <li>A firm-wide insurance adjuster database linked to active claims</li>
+                        <li>Deep Google Drive integration housing every single case document</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="grid-4">
-                <div>
-                    <img src="kidaflow_logo.png" alt="Kidaflow"
-                        style="filter: brightness(0) invert(1); height: 32px; margin-bottom: 24px;">
-                    <p style="font-size: 14px; opacity: 0.6;">Automating workflows for modern businesses.</p>
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/company/107006159" target="_blank" aria-label="LinkedIn"
-                            class="social-link">
-                            <svg class="social-icon" viewBox="0 0 24 24">
-                                <path
-                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                            </svg>
-                        </a>
-                        <a href="https://www.instagram.com/kidaflow_group/" target="_blank" aria-label="Instagram"
-                            class="social-link">
-                            <svg class="social-icon" viewBox="0 0 24 24">
-                                <path
-                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                            </svg>
-                        </a>
-                        <a href="https://wa.link/qat6uf" target="_blank" aria-label="WhatsApp" class="social-link">
-                            <svg class="social-icon" viewBox="0 0 24 24">
-                                <path
-                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                            </svg>
-                        </a>
-                    </div>
+    <!-- Results Section (Flat Layout) -->
+    <section class="section" style="background-color: var(--color-bg-light);">
+        <div class="container reveal fade-up">
+            <h2 class="text-center mb-12">What firms see with Vikki</h2>
+            <div class="flat-results">
+                <div class="flat-result-item">
+                    <div class="stat-number color-primary" style="color: var(--color-primary);">90%</div>
+                    <h4 style="margin-bottom: 8px;">Reduction in document time</h4>
+                    <p style="font-size: 16px; color: var(--color-text-body); opacity: 0.8;">From 20 minutes to under 2 minutes per drafted document.</p>
                 </div>
-                <div>
-                    <h4>Company</h4>
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="customers.html">Customers</a>
+                <div class="flat-result-item">
+                    <div class="stat-number color-primary" style="color: var(--color-primary);">45m</div>
+                    <h4 style="margin-bottom: 8px;">Demand drafting time</h4>
+                    <p style="font-size: 16px; color: var(--color-text-body); opacity: 0.8;">Cut drastically from an average of 6 hours of manual analysis.</p>
                 </div>
-                <div>
-                    <h4>Solutions</h4>
-                    <a href="docflow.html">DocFlow System</a>
-                    <a href="vikki.html">Vikki for Legal</a>
-                    <a href="bcv.html">Build Compliance Vault</a>
+                <div class="flat-result-item">
+                    <div class="stat-number color-primary" style="color: var(--color-primary);">200+</div>
+                    <h4 style="margin-bottom: 8px;">Hours saved yearly</h4>
+                    <p style="font-size: 16px; color: var(--color-text-body); opacity: 0.8;">Enabling paralegals and attorneys to focus on high-value case strategy.</p>
                 </div>
-                <div>
-                    <h4>Connect</h4>
-                    <a href="contact.html">Contact Us</a>
-                    <a href="mailto:hello@kidaflow.com">hello@kidaflow.com</a>
-                    <a href="tel:+254105430486">+254105430486</a>
-                </div>
-            </div>
-            <div
-                style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; font-size: 14px; opacity: 0.4;">
-                <p style="margin-bottom: 20px;">
-                    Now to him who is able to do immeasurably more than all we ask or imagine, according to his power
-                    that is at work within us, 21 to him be glory in the church and in Christ Jesus throughout all
-                    generations, for ever and ever! Amen.
-                </p>
-                © 2025 Kidaflow. All rights reserved.
             </div>
         </div>
-    </footer>
+    </section>
 
+    <!-- Social Proof Marquee -->
+    <section class="section reveal fade-in" style="background-color: #ffffff;">
+        <div class="container">
+            <h3 class="text-center" style="font-size: 20px; color: #999; margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px;">Trusted by growing Personal Injury firms across the US</h3>
+            <div class="logo-marquee-wrapper">
+                <div class="logo-marquee">
+                    <!-- First set -->
+                    <div class="logo-placeholder">PI Associates</div>
+                    <div class="logo-placeholder">Sterling Injury Law</div>
+                    <div class="logo-placeholder">Justice Group</div>
+                    <div class="logo-placeholder">Morgan & Associates</div>
+                    <!-- Duplicate set for seamless looping -->
+                    <div class="logo-placeholder">PI Associates</div>
+                    <div class="logo-placeholder">Sterling Injury Law</div>
+                    <div class="logo-placeholder">Justice Group</div>
+                    <div class="logo-placeholder">Morgan & Associates</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section cta-section reveal fade-up">
+        <div class="container">
+            <h2 style="font-size: 64px; margin-bottom: 24px;">Ready to see Vikki in action?</h2>
+            <p>Book a 30-minute demo and we'll show you exactly how Vikki handles intake, documents, medical records tracking, and AI demand drafting for your firm.</p>
+            <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin" class="btn btn-primary" style="padding: 24px 48px; font-size: 18px; background: #ffffff; color: var(--color-primary) !important; border: none; font-weight: 700; border-radius: 40px; text-transform: none; letter-spacing: 0;">Book a Demo</a>
+        </div>
+    </section>
+
+    <!-- Scripts -->
     <script src="booking.js"></script>
-
-    <style>
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
 
     <script>
         // Mobile menu functionality
@@ -408,6 +443,77 @@
                 });
             });
         }
+    </script>
+
+    <!-- Intersection Observer for Scroll Reveals & Typing Loop -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only reveal once
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+            
+            // Typing animation - typing triggers every time scrolled into view
+            const typeText = "drafts a persuasive demand letter.";
+            const typingContainer = document.querySelector('.typing-container');
+            const typingCursor = document.querySelector('.typing-cursor');
+            
+            if (typingContainer) {
+                let typeTimeout;
+                
+                const typeObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if(entry.isIntersecting) {
+                            // Reset and start typing
+                            clearTimeout(typeTimeout);
+                            typingContainer.textContent = "";
+                            let i = 0;
+                            
+                            function typeWriter() {
+                                if (i <= typeText.length) {
+                                    typingContainer.textContent = typeText.substring(0, i);
+                                    i++;
+                                    if(typingCursor) {
+                                        typingCursor.style.animation = 'none';
+                                        typingCursor.style.opacity = '1';
+                                    }
+                                    typeTimeout = setTimeout(typeWriter, 50); // typing speed
+                                } else {
+                                    // Finished typing, blink cursor
+                                    if(typingCursor) {
+                                        typingCursor.style.animation = 'blinking-cursor 1s step-end infinite';
+                                    }
+                                }
+                            }
+                            typeTimeout = setTimeout(typeWriter, 500); // initial delay
+                        } else {
+                            // If scrolled away, stop the current animation and reset
+                            clearTimeout(typeTimeout);
+                            if(typingCursor) {
+                                typingCursor.style.animation = 'blinking-cursor 1s step-end infinite';
+                            }
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                typeObserver.observe(typingContainer);
+            }
+            
+        });
     </script>
 </body>
 

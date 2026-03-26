@@ -1,0 +1,4 @@
+origin	https://github.com/Kidaup12/kidaflow-website.git (fetch)
+origin	https://github.com/Kidaup12/kidaflow-website.git (push)
+simplydone	https://github.com/randy-kip/simplydone_africa.git (fetch)
+simplydone	https://github.com/randy-kip/simplydone_africa.git (push)

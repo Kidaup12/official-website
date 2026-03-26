@@ -1,0 +1,225 @@
+:root {
+    --brand-orange: #f6531a;
+    --brand-orange-hover: #e04a17;
+    --dark-grey: #1c1c1c;
+    --light-grey: #f8f9fa;
+    --accent-blue: #007bff;
+    --card-bg: #ffffff;
+    --text-body: #4a4a4a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: radial-gradient(circle at center, #ffffff 0%, #eef2f7 100%);
+    color: var(--text-body);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.playbook-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Header */
+.playbook-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.main-headline {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(36px, 5vw, 54px);
+    color: var(--dark-grey);
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.sub-headline {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: clamp(20px, 3vw, 26px);
+    color: var(--dark-grey);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Two Column Layout */
+.playbook-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+@media (max-width: 900px) {
+    .playbook-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .playbook-image-col {
+        order: 2;
+    }
+}
+
+.playbook-image-col {
+    display: flex;
+    justify-content: center;
+}
+
+.playbook-mockup {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Conversion Card */
+.conversion-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.card-header {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--dark-grey);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.feature-checklist {
+    list-style: none;
+    margin-bottom: 35px;
+}
+
+.feature-checklist li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.check-icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--accent-blue);
+    flex-shrink: 0;
+    margin-right: 15px;
+    margin-top: 2px;
+}
+
+.capture-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.email-input {
+    width: 100%;
+    padding: 18px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    transition: border-color 0.3s;
+}
+
+.email-input:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+}
+
+.cta-button {
+    background: var(--brand-orange);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-transform: uppercase;
+    box-shadow: 0 8px 20px rgba(246, 83, 26, 0.3);
+}
+
+.cta-button:hover {
+    background: var(--brand-orange-hover);
+    transform: translateY(-2px);
+}
+
+/* What's Inside Section */
+.whats-inside {
+    background: #fff;
+    border-radius: 12px;
+    padding: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.section-title {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    color: var(--dark-grey);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.step-item {
+    background: var(--light-grey);
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid var(--brand-orange);
+}
+
+.step-label {
+    display: inline-block;
+    background: var(--dark-grey);
+    color: #fff;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.step-title {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--dark-grey);
+    margin-bottom: 15px;
+}
+
+.step-item p {
+    font-size: 15px;
+    color: var(--text-body);
+}
+
+@media (max-width: 600px) {
+    .whats-inside {
+        padding: 30px 20px;
+    }
+}

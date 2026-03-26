@@ -1,0 +1,502 @@
+{
+  "name": "CLIO LOR Document Generation",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        96
+      ],
+      "id": "0e587630-58d0-4ca1-be17-10bfa6514715",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://eu.app.clio.com/api/v4/matters.json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "fields",
+              "value": "id,display_number,description,open_date,status,client{id,name,first_name,last_name,primary_email_address,primary_phone_number},responsible_attorney{id,name,email},custom_field_values{id,field_name,field_type,value,picklist_option}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        224,
+        96
+      ],
+      "id": "12df94a8-6332-4870-8aeb-c74274c280df",
+      "name": "HTTP Request1",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "DtyRKpW1a7xnok7i",
+          "name": "CLIO"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1iy0V8Am3KYOjKLoYgKn2RhQdHhYQdBFWytk7SabQdMs",
+          "mode": "list",
+          "cachedResultName": "LOR_Demo_Template",
+          "cachedResultUrl": "https://docs.google.com/document/d/1iy0V8Am3KYOjKLoYgKn2RhQdHhYQdBFWytk7SabQdMs/edit?usp=drivesdk"
+        },
+        "name": "={{ $json.client_name }} LOR Document",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1UmP7DysC6zzKK3rVdK9rx4AmIP4ax7Me",
+          "mode": "list",
+          "cachedResultName": "Case Documents",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1UmP7DysC6zzKK3rVdK9rx4AmIP4ax7Me"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        896,
+        96
+      ],
+      "id": "b5cf5278-9ffb-4cb6-a72a-560b3161f739",
+      "name": "Copy file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "Z6hZnakuYWwdiyWO",
+          "name": "DE7"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.id }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{{DATE}}",
+              "replaceText": "={{$now.format('yyyy-MM-dd')}}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CLIENT_NAME}}",
+              "replaceText": "={{ $('Code in JavaScript').item.json.client_name }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ACCIDENT_DATE}}",
+              "replaceText": "={{ $('Code in JavaScript').item.json.accident_date }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ACCIDENT_LOCATION}}",
+              "replaceText": "={{ $('Code in JavaScript').item.json.accident_location }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{INSURANCE_COMPANY}}",
+              "replaceText": "={{ $('Code in JavaScript').item.json.insurance_company }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ADJUSTER_NAME}}",
+              "replaceText": "={{ $('Code in JavaScript').item.json.adjuster_name }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ADJUSTER_ADDRESS}}",
+              "replaceText": "={{ $('Code in JavaScript').item.json.adjuster_address }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ADJUSTER_CITY_STATE_ZIP}}",
+              "replaceText": "="
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ADJUSTER_FAX}}",
+              "replaceText": "={{ $('Code in JavaScript').item.json.adjuster_fax }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CLAIM_NUMBER}}",
+              "replaceText": "={{ $('Code in JavaScript').item.json.claim_number }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{FILE_NUMBER}}",
+              "replaceText": "={{ $('Code in JavaScript').item.json.file_number }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PROVIDER_NAME}}",
+              "replaceText": "={{ $('Code in JavaScript').item.json.provider_name }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{LIABILITY_SUMMARY}}",
+              "replaceText": "="
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        96
+      ],
+      "id": "11239109-5ba4-4383-85eb-e1fa0cb177cd",
+      "name": "Update a document",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Hs056WR0U97KBIST",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Handle however n8n received the response\nconst response = $input.first().json;\n\n// n8n HTTP node may parse it as direct object OR wrap in array\nconst raw = Array.isArray(response) ? response[0] : response;\n\n// data could be at root level or nested\nconst matters = raw.data ?? raw;\n\nconst getField = (customFields, name) =>\n  customFields.find(f => f.field_name === name)?.value ?? \"\";\n\nreturn matters.map(matter => ({\n  json: {\n    matter_id:          matter.id,\n    matter_number:      matter.display_number,\n    matter_description: matter.description,\n    open_date:          matter.open_date,\n\n    client_id:          matter.client.id,\n    client_name:        matter.client.name,\n    client_first_name:  matter.client.first_name,\n    client_last_name:   matter.client.last_name,\n    client_email:       matter.client.primary_email_address ?? \"\",\n    client_phone:       matter.client.primary_phone_number ?? \"\",\n\n    accident_date:      getField(matter.custom_field_values, \"Accident Date\"),\n    accident_location:  getField(matter.custom_field_values, \"Accident Location\"),\n    insurance_company:  getField(matter.custom_field_values, \"Insurance Company\"),\n    adjuster_name:      getField(matter.custom_field_values, \"Adjuster Name\"),\n    adjuster_address:   getField(matter.custom_field_values, \"Adjuster Address\"),\n    adjuster_fax:       getField(matter.custom_field_values, \"Adjuster Fax\"),\n    claim_number:       getField(matter.custom_field_values, \"Claim Number\"),\n    file_number:        getField(matter.custom_field_values, \"File Number\"),\n    provider_name:      getField(matter.custom_field_values, \"Provider Name\"),\n  }\n}));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        96
+      ],
+      "id": "da6a1484-74d6-4b95-bbb0-1ab7cfb116b5",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.documentId }}",
+          "mode": "id"
+        },
+        "options": {
+          "googleFileConversion": {
+            "conversion": {
+              "docsToFormat": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1344,
+        96
+      ],
+      "id": "5b31a696-552e-491d-b798-f3d848229178",
+      "name": "Download file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "Z6hZnakuYWwdiyWO",
+          "name": "DE7"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://eu.app.clio.com/api/v4/documents.json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "fields",
+              "value": "id,latest_document_version{uuid,put_url,put_headers}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "data.name",
+              "value": "={{$('Download file').item.binary.data.fileName + '.' + $('Download file').item.binary.data.fileExtension}}"
+            },
+            {
+              "name": "data.parent.id",
+              "value": "={{$('Code in JavaScript').item.json.matter_id}}"
+            },
+            {
+              "name": "data.parent.type",
+              "value": "Matter"
+            },
+            {
+              "name": "data.document_category.name",
+              "value": "Letters"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1568,
+        16
+      ],
+      "id": "877e0f7f-e1db-4e83-b95e-f9a33290a004",
+      "name": "HTTP Request2",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "DtyRKpW1a7xnok7i",
+          "name": "CLIO"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ $json.data.latest_document_version.put_url }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "X-Amz-Expires",
+              "value": "28800"
+            },
+            {
+              "name": "X-Amz-Date",
+              "value": "20260321T165513Z"
+            },
+            {
+              "name": "X-Amz-Algorithm",
+              "value": "AWS4-HMAC-SHA256"
+            },
+            {
+              "name": "X-Amz-Credential",
+              "value": "AKIA3TF4DC3BBT65NLAW/20260321/eu-west-1/s3/aws4_request"
+            },
+            {
+              "name": "X-Amz-SignedHeaders",
+              "value": "content-type;host;x-amz-server-side-encryption"
+            },
+            {
+              "name": "X-Amz-Signature",
+              "value": "a2c542e57288291528c42434b728553ad6701af7cae95b94a623b3ee4f5b26f6"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "={{ $json.data.latest_document_version.put_headers[0].name }}",
+              "value": "={{ $json.data.latest_document_version.put_headers[0].value }}"
+            },
+            {
+              "name": "={{ $json.data.latest_document_version.put_headers[1].name }}",
+              "value": "={{ $json.data.latest_document_version.put_headers[1].value }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        2016,
+        96
+      ],
+      "id": "26740ea8-994c-4b2f-be62-92c326dba069",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1792,
+        96
+      ],
+      "id": "7fa05b54-be4e-495a-8480-bb6bafebd24f",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://eu.app.clio.com/api/v4/documents/{{ $('HTTP Request2').item.json.data.id }}.json ",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "fields",
+              "value": "id,latest_document_version{fully_uploaded}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"data\": {\n    \"uuid\": \"{{ $('HTTP Request2').item.json.data.latest_document_version.uuid }}\",\n    \"fully_uploaded\": \"true\"\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        2240,
+        96
+      ],
+      "id": "30d05f7a-162d-41b6-b314-0bb77f314268",
+      "name": "HTTP Request3",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "DtyRKpW1a7xnok7i",
+          "name": "CLIO"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Copy file": {
+      "main": [
+        [
+          {
+            "node": "Update a document",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Copy file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a document": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "2a61c7f8-fb11-4a55-8236-324a9cbc73ef",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "66f6014a84d73d42043e4f5d54d62356a09e260ecb90546c28ce5debd8a1abdf"
+  },
+  "id": "lBnmAt8mOcKQJljU",
+  "tags": []
+}
