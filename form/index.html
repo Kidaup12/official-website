@@ -467,25 +467,29 @@
         btn.textContent = 'Submitting...';
 
         const payload = {
-            ...answers,
+            source:       answers.source       || '',
+            firm_size:    answers.firm_size     || '',
+            case_volume:  answers.case_volume   || '',
             full_name:    fullName,
-            firm_name:    firmName || 'Not provided',
+            firm_name:    firmName              || '',
             email:        email,
             phone:        phone,
-            cms:          cms || 'Not specified',
+            cms:          cms                   || '',
             submitted_at: new Date().toISOString()
         };
 
+        // Use text/plain to avoid CORS preflight — Airtable receives full JSON body
         try {
             await fetch('https://hooks.airtable.com/workflows/v1/genericWebhook/appRBOiUXED6LbxnG/wflxxdYqe0AVql918/wtrLzc3wdvlzPISXn', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'text/plain' },
                 body: JSON.stringify(payload)
             });
         } catch (err) {
             console.error('Webhook error:', err);
         }
 
+        // Redirect only fires AFTER webhook call completes (await above)
         window.location.href = '/confirmation?source=' + source;
     }
 </script>
