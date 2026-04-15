@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Get Your Free Demo | Kidaflow</title>
+    <link rel="icon" type="image/png" href="kidaflow_logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --green: #082111;
+            --green-mid: #195233;
+            --yellow: #FFB800;
+            --border: #e5e5e5;
+            --muted: #666;
+            --radius: 10px;
+        }
+
+        body {
+            font-family: 'Onest', sans-serif;
+            background: #f7f7f5;
+            color: #082111;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* PROGRESS BAR */
+        .progress-bar-wrap {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 14px 24px;
+        }
+
+        .progress-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 560px;
+            margin: 0 auto 10px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .progress-track {
+            max-width: 560px;
+            margin: 0 auto;
+            height: 6px;
+            background: #e5e5e5;
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--green-mid);
+            border-radius: 99px;
+            transition: width 0.4s ease;
+        }
+
+        /* MAIN LAYOUT */
+        .form-main {
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 40px 20px 60px;
+        }
+
+        .form-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 48px 48px 40px;
+            width: 100%;
+            max-width: 560px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+        }
+
+        /* STEPS */
+        .step { display: none; }
+        .step.active { display: block; }
+
+        .step-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--green-mid);
+            margin-bottom: 12px;
+        }
+
+        .step h2 {
+            font-size: 26px;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 28px;
+            color: var(--green);
+        }
+
+        /* RADIO OPTIONS */
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 20px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: border-color 0.15s, background 0.15s;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .option-item:hover { border-color: var(--green-mid); }
+
+        .option-item.selected {
+            border-color: var(--green-mid);
+            background: #f0f7f3;
+        }
+
+        .option-item input[type="radio"],
+        .option-item input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: border-color 0.15s, background 0.15s;
+            position: relative;
+        }
+
+        .option-item input[type="checkbox"] { border-radius: 5px; }
+
+        .option-item.selected input[type="radio"],
+        .option-item.selected input[type="checkbox"] {
+            border-color: var(--green-mid);
+            background: var(--green-mid);
+        }
+
+        .option-item.selected input[type="radio"]::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 7px;
+            height: 7px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .option-item.selected input[type="checkbox"]::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 6px;
+            width: 5px;
+            height: 9px;
+            border: 2px solid #fff;
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+        }
+
+        .option-label {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* CONTACT FORM */
+        .fields-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .field-group.full { grid-column: 1 / -1; }
+
+        .field-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .field-group input,
+        .field-group select {
+            padding: 13px 14px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 16px;
+            color: var(--green);
+            background: #fff;
+            transition: border-color 0.15s;
+            width: 100%;
+        }
+
+        .field-group input:focus,
+        .field-group select:focus {
+            outline: none;
+            border-color: var(--green-mid);
+        }
+
+        .field-group input.error,
+        .field-group select.error {
+            border-color: #e53e3e;
+        }
+
+        .fine-print {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            margin-top: 20px;
+        }
+
+        /* BUTTONS */
+        .btn-next {
+            width: 100%;
+            padding: 17px;
+            background: var(--green-mid);
+            color: #fff;
+            font-family: inherit;
+            font-size: 17px;
+            font-weight: 800;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-next:hover { opacity: 0.9; transform: scale(1.01); }
+        .btn-next:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+        .btn-next.loading::after {
+            content: '...';
+        }
+
+        /* ERROR */
+        .error-msg {
+            color: #e53e3e;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: -20px;
+            margin-bottom: 16px;
+            display: none;
+        }
+        .error-msg.visible { display: block; }
+
+        /* FOOTER */
+        .form-footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        @media (max-width: 600px) {
+            .form-card { padding: 32px 20px 28px; border-radius: 0; border-left: none; border-right: none; }
+            .form-main { padding: 0 0 60px; align-items: flex-start; }
+            .fields-grid { grid-template-columns: 1fr; }
+            .step h2 { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-bar-wrap">
+        <div class="progress-meta">
+            <span id="step-label-text">Step 1 of 4</span>
+            <span id="step-pct-text">25%</span>
+        </div>
+        <div class="progress-track">
+            <div class="progress-fill" id="progress-fill" style="width: 25%;"></div>
+        </div>
+    </div>
+
+    <main class="form-main">
+        <div class="form-card">
+
+            <!-- STEP 1: Firm Size -->
+            <div class="step active" id="step-1">
+                <div class="step-label">Step 1 of 4</div>
+                <h2>How many attorneys at your firm?</h2>
+                <div class="options-list" id="q1-options">
+                    <label class="option-item">
+                        <input type="radio" name="firm_size" value="Solo attorney">
+                        <span class="option-label">Solo attorney (just me)</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="firm_size" value="2-3 attorneys">
+                        <span class="option-label">2-3 attorneys</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="firm_size" value="4-6 attorneys">
+                        <span class="option-label">4-6 attorneys</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="firm_size" value="7+ attorneys">
+                        <span class="option-label">7+ attorneys</span>
+                    </label>
+                </div>
+                <p class="error-msg" id="q1-error">Please select an option to continue.</p>
+                <button class="btn-next" onclick="goToStep(2)">Next</button>
+            </div>
+
+            <!-- STEP 2: Case Volume -->
+            <div class="step" id="step-2">
+                <div class="step-label">Step 2 of 4</div>
+                <h2>How many active PI cases are you handling right now?</h2>
+                <div class="options-list" id="q2-options">
+                    <label class="option-item">
+                        <input type="radio" name="case_volume" value="1-50 cases">
+                        <span class="option-label">1-50 cases</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="case_volume" value="51-100 cases">
+                        <span class="option-label">51-100 cases</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="case_volume" value="101-200 cases">
+                        <span class="option-label">101-200 cases</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="case_volume" value="200+ cases">
+                        <span class="option-label">200+ cases</span>
+                    </label>
+                </div>
+                <p class="error-msg" id="q2-error">Please select an option to continue.</p>
+                <button class="btn-next" onclick="goToStep(3)">Next</button>
+            </div>
+
+            <!-- STEP 3: Pain Points -->
+            <div class="step" id="step-3">
+                <div class="step-label">Step 3 of 4</div>
+                <h2>What's your biggest operational challenge right now?</h2>
+                <p style="font-size: 14px; color: var(--muted); margin-bottom: 20px;">Select all that apply.</p>
+                <div class="options-list" id="q3-options">
+                    <label class="option-item">
+                        <input type="checkbox" name="pain_points" value="Turning away cases because team is maxed out">
+                        <span class="option-label">Turning away cases because team is maxed out</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="checkbox" name="pain_points" value="Cases sitting stuck and nobody knows why">
+                        <span class="option-label">Cases sitting stuck and nobody knows why</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="checkbox" name="pain_points" value="Team spending 20+ hours/week building documents">
+                        <span class="option-label">Team spending 20+ hours/week building documents</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="checkbox" name="pain_points" value="Knowledge trapped in one person's head">
+                        <span class="option-label">Knowledge trapped in one person's head</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="checkbox" name="pain_points" value="About to hire and want to avoid next hire">
+                        <span class="option-label">About to hire (or just hired) and want to avoid next hire</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="checkbox" name="pain_points" value="Medical records falling through the cracks">
+                        <span class="option-label">Medical records falling through the cracks</span>
+                    </label>
+                </div>
+                <p class="error-msg" id="q3-error">Please select at least one option.</p>
+                <button class="btn-next" onclick="goToStep(4)">Next</button>
+            </div>
+
+            <!-- STEP 4: Contact Info -->
+            <div class="step" id="step-4">
+                <div class="step-label">Step 4 of 4</div>
+                <h2>Where should we send your demo link?</h2>
+                <div class="fields-grid">
+                    <div class="field-group">
+                        <label for="first_name">First Name*</label>
+                        <input type="text" id="first_name" placeholder="Jane" autocomplete="given-name">
+                    </div>
+                    <div class="field-group">
+                        <label for="last_name">Last Name*</label>
+                        <input type="text" id="last_name" placeholder="Smith" autocomplete="family-name">
+                    </div>
+                    <div class="field-group full">
+                        <label for="firm_name">Firm Name*</label>
+                        <input type="text" id="firm_name" placeholder="Smith Law Firm" autocomplete="organization">
+                    </div>
+                    <div class="field-group full">
+                        <label for="work_email">Work Email*</label>
+                        <input type="email" id="work_email" placeholder="jane@smithlaw.com" autocomplete="email">
+                    </div>
+                    <div class="field-group full">
+                        <label for="phone">Phone Number*</label>
+                        <input type="tel" id="phone" placeholder="(405) 555-0100" autocomplete="tel">
+                    </div>
+                    <div class="field-group full">
+                        <label for="cms">Current Case Management System</label>
+                        <select id="cms">
+                            <option value="">Select your system</option>
+                            <option value="Clio">Clio</option>
+                            <option value="Filevine">Filevine</option>
+                            <option value="MyCase">MyCase</option>
+                            <option value="Google Drive">Google Drive</option>
+                            <option value="Other">Other</option>
+                            <option value="None">None</option>
+                        </select>
+                    </div>
+                </div>
+                <p class="fine-print">
+                    We'll send you a calendar link within 24 hours to book your 20-minute demo. No sales pitch - just a live walkthrough.
+                </p>
+                <p class="error-msg" id="q4-error">Please fill in all required fields.</p>
+                <button class="btn-next" id="submit-btn" onclick="submitForm()">GET MY FREE DEMO</button>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="form-footer">
+        Kidaflow &nbsp;|&nbsp; © 2026 PI Automation Systems
+    </footer>
+
+<script>
+    // Read source param
+    const source = new URLSearchParams(window.location.search).get('source') || 'capacity';
+
+    // Form state
+    const answers = { source };
+    let currentStep = 1;
+
+    const stepProgress = { 1: 25, 2: 50, 3: 75, 4: 100 };
+
+    // Handle radio/checkbox selection visuals
+    document.querySelectorAll('.options-list').forEach(list => {
+        list.addEventListener('click', e => {
+            const item = e.target.closest('.option-item');
+            if (!item) return;
+            const input = item.querySelector('input');
+            if (!input) return;
+
+            if (input.type === 'radio') {
+                list.querySelectorAll('.option-item').forEach(i => i.classList.remove('selected'));
+                item.classList.add('selected');
+                input.checked = true;
+            } else {
+                item.classList.toggle('selected');
+                input.checked = item.classList.contains('selected');
+            }
+        });
+    });
+
+    function setProgress(step) {
+        const pct = stepProgress[step];
+        document.getElementById('progress-fill').style.width = pct + '%';
+        document.getElementById('step-label-text').textContent = 'Step ' + step + ' of 4';
+        document.getElementById('step-pct-text').textContent = pct + '%';
+    }
+
+    function showStep(n) {
+        document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+        document.getElementById('step-' + n).classList.add('active');
+        currentStep = n;
+        setProgress(n);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goToStep(n) {
+        const prev = n - 1;
+
+        if (prev === 1) {
+            const selected = document.querySelector('input[name="firm_size"]:checked');
+            if (!selected) {
+                document.getElementById('q1-error').classList.add('visible');
+                return;
+            }
+            document.getElementById('q1-error').classList.remove('visible');
+            answers.firm_size = selected.value;
+        }
+
+        if (prev === 2) {
+            const selected = document.querySelector('input[name="case_volume"]:checked');
+            if (!selected) {
+                document.getElementById('q2-error').classList.add('visible');
+                return;
+            }
+            document.getElementById('q2-error').classList.remove('visible');
+            answers.case_volume = selected.value;
+        }
+
+        if (prev === 3) {
+            const checked = [...document.querySelectorAll('input[name="pain_points"]:checked')];
+            if (checked.length === 0) {
+                document.getElementById('q3-error').classList.add('visible');
+                return;
+            }
+            document.getElementById('q3-error').classList.remove('visible');
+            answers.pain_points = checked.map(c => c.value).join(', ');
+        }
+
+        showStep(n);
+    }
+
+    function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    async function submitForm() {
+        // Collect contact fields
+        const firstName = document.getElementById('first_name').value.trim();
+        const lastName  = document.getElementById('last_name').value.trim();
+        const firmName  = document.getElementById('firm_name').value.trim();
+        const email     = document.getElementById('work_email').value.trim();
+        const phone     = document.getElementById('phone').value.trim();
+        const cms       = document.getElementById('cms').value;
+
+        // Clear error states
+        ['first_name','last_name','firm_name','work_email','phone'].forEach(id => {
+            document.getElementById(id).classList.remove('error');
+        });
+
+        let valid = true;
+        if (!firstName) { document.getElementById('first_name').classList.add('error'); valid = false; }
+        if (!lastName)  { document.getElementById('last_name').classList.add('error');  valid = false; }
+        if (!firmName)  { document.getElementById('firm_name').classList.add('error');  valid = false; }
+        if (!email || !validateEmail(email)) { document.getElementById('work_email').classList.add('error'); valid = false; }
+        if (!phone)     { document.getElementById('phone').classList.add('error');       valid = false; }
+
+        if (!valid) {
+            document.getElementById('q4-error').textContent = 'Please fill in all required fields correctly.';
+            document.getElementById('q4-error').classList.add('visible');
+            return;
+        }
+
+        document.getElementById('q4-error').classList.remove('visible');
+
+        const btn = document.getElementById('submit-btn');
+        btn.disabled = true;
+        btn.textContent = 'Submitting...';
+
+        const payload = {
+            ...answers,
+            first_name: firstName,
+            last_name:  lastName,
+            firm_name:  firmName,
+            email:      email,
+            phone:      phone,
+            cms:        cms || 'Not specified',
+            submitted_at: new Date().toISOString()
+        };
+
+        try {
+            await fetch('https://hooks.airtable.com/workflows/v1/genericWebhook/appRBOiUXED6LbxnG/wflxxdYqe0AVql918/wtrLzc3wdvlzPISXn', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+        } catch (err) {
+            // Fail silently - still redirect so lead is not lost
+            console.error('Webhook error:', err);
+        }
+
+        window.location.href = '/confirmation.html?source=' + source;
+    }
+</script>
+
+</body>
+</html>

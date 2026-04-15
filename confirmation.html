@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're In | Kidaflow</title>
+    <link rel="icon" type="image/png" href="kidaflow_logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Onest', sans-serif;
+            background: #082111;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px;
+        }
+
+        .mark {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+        }
+
+        .mark svg {
+            width: 28px;
+            height: 28px;
+            stroke: #fff;
+            stroke-width: 2.5;
+            fill: none;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .sub {
+            font-size: 17px;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            max-width: 420px;
+            line-height: 1.6;
+            margin-bottom: 48px;
+        }
+
+        .what-next {
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            padding: 32px 36px;
+            max-width: 420px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .what-next p {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 20px;
+        }
+
+        .next-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .next-item:last-child { margin-bottom: 0; }
+
+        .next-num {
+            font-size: 13px;
+            font-weight: 800;
+            color: rgba(255,255,255,0.3);
+            min-width: 20px;
+            padding-top: 1px;
+        }
+
+        .next-text {
+            font-size: 15px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.5;
+        }
+
+        .next-text strong { color: #fff; font-weight: 700; }
+
+        .footer-note {
+            font-size: 13px;
+            color: rgba(255,255,255,0.25);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mark">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+
+    <h1>You're confirmed.</h1>
+
+    <p class="sub">
+        Check your inbox. You'll receive a calendar link within 24 hours to book your 20-minute demo.
+    </p>
+
+    <div class="what-next">
+        <p>What happens next</p>
+        <div class="next-item">
+            <span class="next-num">01</span>
+            <span class="next-text"><strong>Calendar link arrives</strong> — pick a time that works for you.</span>
+        </div>
+        <div class="next-item">
+            <span class="next-num">02</span>
+            <span class="next-text"><strong>20-minute live walkthrough</strong> — we show you the system running on a real PI firm.</span>
+        </div>
+        <div class="next-item">
+            <span class="next-num">03</span>
+            <span class="next-text"><strong>If it's a fit</strong> — we install in 14 days and your 30-day free trial starts.</span>
+        </div>
+    </div>
+
+    <p class="footer-note">Kidaflow &nbsp;|&nbsp; © 2026</p>
+
+</body>
+</html>
