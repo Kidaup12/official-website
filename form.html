@@ -478,10 +478,11 @@
             submitted_at: new Date().toISOString()
         };
 
-        // Use text/plain to avoid CORS preflight — Airtable receives full JSON body
+        // no-cors bypasses CORS check — request reaches Airtable, response is opaque (not needed)
         try {
             await fetch('https://hooks.airtable.com/workflows/v1/genericWebhook/appRBOiUXED6LbxnG/wflxxdYqe0AVql918/wtrLzc3wdvlzPISXn', {
                 method: 'POST',
+                mode: 'no-cors',
                 headers: { 'Content-Type': 'text/plain' },
                 body: JSON.stringify(payload)
             });
