@@ -478,12 +478,11 @@
             submitted_at: new Date().toISOString()
         };
 
-        // no-cors bypasses CORS check — request reaches Airtable, response is opaque (not needed)
+        // Routed through Netlify function to avoid CORS
         try {
-            await fetch('https://hooks.airtable.com/workflows/v1/genericWebhook/appRBOiUXED6LbxnG/wflxxdYqe0AVql918/wtrLzc3wdvlzPISXn', {
+            await fetch('/.netlify/functions/submit', {
                 method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'text/plain' },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
         } catch (err) {
