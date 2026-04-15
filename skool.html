@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Skool | KiDaFlow AI Automation Community</title>
+    <link rel="icon" type="image/png" href="kidaflow_logo.png">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Onest:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- EvenUp Clone Theme -->
+    <link rel="stylesheet" href="evenup-theme.css">
+
+    <style>
+        /* Page-specific variables */
+        :root {
+            --color-brand-green: #10b981;
+            --color-brand-green-dark: #059669;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ===================== Hero ===================== */
+        .skool-hero {
+            padding-top: 160px;
+            padding-bottom: 100px;
+            background: radial-gradient(ellipse at 60% 0%, #0d3320 0%, #051b11 50%, #000 100%);
+            color: #fff;
+            border-top: 4px solid #10b981;
+        }
+
+        .skool-hero h1 {
+            color: #fff;
+            font-size: 72px;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .skool-hero p.hero-sub {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 20px;
+            max-width: 680px;
+            margin: 0 auto 40px;
+        }
+
+        .eyebrow-pill {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #10b981;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 8px 20px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 64px;
+        }
+
+        .btn-green {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #fff !important;
+            border: none;
+        }
+
+        .btn-green:hover {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+            color: #fff !important;
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            color: #fff !important;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+            color: #fff !important;
+        }
+
+        .hero-stats {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 48px;
+            display: flex;
+            justify-content: center;
+            gap: 56px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-stat strong {
+            display: block;
+            color: #10b981;
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 4px;
+            line-height: 1;
+        }
+
+        /* ===================== Proof Strip ===================== */
+        .proof-strip {
+            background: #f9fafb;
+            padding: 80px 0;
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 36px;
+        }
+
+        .proof-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .proof-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            flex-shrink: 0;
+        }
+
+        .proof-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: #10b981;
+        }
+
+        .proof-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: #082111;
+            margin-bottom: 8px;
+        }
+
+        .proof-desc {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.55;
+            margin-bottom: 0;
+        }
+
+        /* ===================== Tier Cards ===================== */
+        .tiers-section {
+            background: #fff;
+            padding: 100px 0;
+        }
+
+        .tiers-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .tiers-header h2 {
+            color: #082111;
+        }
+
+        .tiers-header p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            align-items: start;
+        }
+
+        .tier-card {
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .tier-card.featured {
+            border: 2px solid #10b981;
+            background: #f0fdf8;
+            margin-top: -20px;
+        }
+
+        .most-value-badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 22px;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+
+        .tier-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+            width: fit-content;
+        }
+
+        .tier-tag.free {
+            background: rgba(102, 102, 102, 0.1);
+            color: #666;
+        }
+
+        .tier-tag.premium {
+            background: rgba(8, 33, 17, 0.1);
+            color: #082111;
+        }
+
+        .tier-tag.vip {
+            background: rgba(16, 185, 129, 0.15);
+            color: #059669;
+        }
+
+        .tier-name {
+            font-family: var(--font-heading);
+            font-size: 26px;
+            font-weight: 800;
+            color: #082111;
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+
+        .tier-price {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .tier-tagline {
+            font-size: 15px;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 28px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        .coaching-box {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: #082111;
+            line-height: 1.55;
+        }
+
+        .tier-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 32px;
+            flex: 1;
+        }
+
+        .tier-features li {
+            font-size: 15px;
+            color: #333;
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            line-height: 1.45;
+        }
+
+        .tier-features li:last-child {
+            border-bottom: none;
+        }
+
+        .tier-features li::before {
+            content: '✓';
+            color: #10b981;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .btn-tier-outline {
+            background: transparent;
+            color: #082111 !important;
+            border: 1.5px solid #082111;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-tier-outline:hover {
+            background: #082111;
+            color: #fff !important;
+        }
+
+        .btn-tier-dark {
+            background: #111;
+            color: #fff !important;
+            border: 1.5px solid #111;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-tier-dark:hover {
+            background: #000;
+            color: #fff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-tier-green {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #fff !important;
+            border: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-tier-green:hover {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.25);
+            color: #fff !important;
+        }
+
+        /* === Tier bonus/deal banners === */
+        .tier-deal {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: rgba(16, 185, 129, 0.07);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #065f46;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .tier-deal .deal-icon {
+            font-size: 16px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* === Getting Started Steps === */
+        .steps-section {
+            background: #f9fafb;
+            padding: 100px 0;
+        }
+
+        .steps-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .steps-header h2 {
+            color: #082111;
+            margin-bottom: 12px;
+        }
+
+        .steps-eyebrow {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #10b981;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .steps-sub {
+            color: #666;
+            font-size: 17px;
+            margin: 0;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+
+        .step-card {
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 16px;
+            padding: 32px 28px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .step-title {
+            font-family: var(--font-heading);
+            font-size: 17px;
+            font-weight: 700;
+            color: #082111;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .step-desc {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .step-img {
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e6e6e6;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .step-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Two-image sequence for step 2 */
+        .step-img-sequence {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .seq-item {
+            position: relative;
+        }
+
+        .seq-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            border: 1px solid #e6e6e6;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .seq-label {
+            display: inline-block;
+            margin-top: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #888;
+        }
+
+        .seq-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: #10b981;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .seq-arrow::before,
+        .seq-arrow::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(16, 185, 129, 0.3));
+        }
+
+        .seq-arrow::after {
+            background: linear-gradient(to left, transparent, rgba(16, 185, 129, 0.3));
+        }
+
+        @media (max-width: 900px) {
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 540px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===================== Social Proof ===================== */
+        .social-proof {
+            background: radial-gradient(circle at 50% 50%, #0a2e1d 0%, #051b11 100%);
+            padding: 100px 0;
+        }
+
+        .social-proof h2 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .proof-subhead {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 60px;
+            font-size: 18px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-bottom: 52px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 36px;
+        }
+
+        .testimonial-quote {
+            font-size: 16px;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, 0.85);
+            font-style: italic;
+            margin-bottom: 28px;
+        }
+
+        .testimonial-meta {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+
+        .testimonial-company {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-industry {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 8px;
+        }
+
+        .testimonial-stat {
+            font-size: 13px;
+            color: #10b981;
+            font-weight: 700;
+        }
+
+        .view-stories-link {
+            text-align: center;
+        }
+
+        .view-stories-link a {
+            color: #10b981;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .view-stories-link a:hover {
+            color: #34d399;
+        }
+
+        /* ===================== Final CTA ===================== */
+        .final-cta {
+            background: #111;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            color: #fff;
+            font-size: 52px;
+            margin-bottom: 24px;
+        }
+
+        .final-cta p.cta-body {
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 640px;
+            margin: 0 auto 48px;
+            font-size: 18px;
+        }
+
+        .final-cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===================== Responsive ===================== */
+        @media (max-width: 900px) {
+            .tiers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tier-card.featured {
+                margin-top: 0;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .skool-hero {
+                padding-top: 120px;
+                padding-bottom: 60px;
+            }
+
+            .skool-hero h1 {
+                font-size: 42px;
+                letter-spacing: -1px;
+            }
+
+            .proof-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-stats {
+                gap: 28px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .final-cta h2 {
+                font-size: 36px;
+            }
+
+            .final-cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .proof-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="kidaflow_logo.png" alt="Kidaflow Logo">
+            </a>
+
+            <!-- Hamburger Menu Button (Mobile Only) -->
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Mobile Menu Overlay -->
+            <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+
+            <!-- Navigation Menu -->
+            <div class="nav-menu" id="nav-menu">
+                <button class="close-menu" id="close-menu-btn" aria-label="Close menu">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                            fill="currentColor" />
+                    </svg>
+                </button>
+
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="customers.html" class="nav-link">Customer Success Stories</a>
+                <div class="nav-item-dropdown">
+                    <a href="docflow.html" class="nav-link nav-link-dropdown" style="text-decoration:none;">
+                        Solutions
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="docflow.html" class="dropdown-item">DocFlow System for Accounting &amp; Finance</a>
+                        <a href="vikki.html" class="dropdown-item">Vikki for PI Law Firms</a>
+                        <a href="bcv.html" class="dropdown-item">Build Compliance Vault for Architects &amp;
+                            Construction</a>
+                        <a href="contact.html" class="dropdown-item">
+                            <strong>Custom Solution</strong><br>
+                            <small style="opacity: 0.8; font-size: 12px;">Let's create a system that is customized for
+                                you</small>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+                <a href="skool.html" class="nav-link" style="color: #10b981; font-weight: 700;">Join the Skool</a>
+                <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin"
+                    class="btn btn-primary" style="padding: 10px 20px; font-size: 13px;">Schedule a Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Mobile menu functionality
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+
+        function openMenu() {
+            navMenu.classList.add('active');
+            mobileOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            navMenu.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        hamburgerBtn.addEventListener('click', openMenu);
+        closeMenuBtn.addEventListener('click', closeMenu);
+        mobileOverlay.addEventListener('click', closeMenu);
+
+        // Close menu when clicking on a link
+        const navLinks = navMenu.querySelectorAll('.nav-link, .dropdown-item');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    closeMenu();
+                }
+            });
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <section class="skool-hero">
+        <div class="container" style="text-align: center;">
+            <span class="eyebrow-pill">AI Automation Learn &amp; Profit · Skool Community</span>
+            <h1>Learn AI Automation<br>That Actually Pays.</h1>
+            <p class="hero-sub">The same systems we use to build automation for 20+ businesses — taught step by step.
+                From complete beginner to landing your first paid client.</p>
+            <div class="hero-ctas">
+                <a href="https://www.skool.com/monetize-learn-aiautomation-2878" target="_blank"
+                    rel="noopener noreferrer" class="btn btn-green">Join Free — Get Started</a>
+                <a href="#tiers" class="btn btn-outline-light">See All Plans</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><strong>200+</strong>Automations Built</div>
+                <div class="hero-stat"><strong>20+</strong>Businesses Impacted</div>
+                <div class="hero-stat"><strong>$2M+</strong>Revenue Impacted</div>
+                <div class="hero-stat"><strong>3 Months</strong>to First Client</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof Strip -->
+    <section class="proof-strip">
+        <div class="container">
+            <div class="proof-grid">
+                <div class="proof-item">
+                    <div class="proof-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z" />
+                        </svg>
+                    </div>
+                    <div class="proof-label">Built on real client work</div>
+                    <p class="proof-desc">Every lesson comes from systems we've built and deployed for actual
+                        businesses</p>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z" />
+                        </svg>
+                    </div>
+                    <div class="proof-label">Production-ready skills</div>
+                    <p class="proof-desc">n8n, Make, GoHighLevel, Retell, VAPI, Botpress, RAG — tools that pay</p>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                        </svg>
+                    </div>
+                    <div class="proof-label">Founder-led coaching</div>
+                    <p class="proof-desc">VIP members get direct 1:1 time with Randy or Dave — not a hired tutor</p>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
+                    </div>
+                    <div class="proof-label">Client acquisition included</div>
+                    <p class="proof-desc">Upwork, LinkedIn, cold email, YouTube — the full system to land paying
+                        clients</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tier Cards -->
+    <section id="tiers" class="tiers-section">
+        <div class="container">
+            <div class="tiers-header">
+                <span class="text-label" style="color: #10b981;">CHOOSE YOUR PATH</span>
+                <h2>Pick the plan that fits where you are.</h2>
+                <p>Whether you're just exploring or ready to go all in, there's a tier for you.</p>
+            </div>
+            <div class="tiers-grid">
+
+                <!-- Gateway (Free) -->
+                <div class="tier-card">
+                    <span class="tier-tag free">Free · Standard</span>
+                    <div class="tier-name">Gateway</div>
+                    <div class="tier-price">$0 — Always free</div>
+                    <p class="tier-tagline">Your entry point. Explore the community, get a taste of what's possible,
+                        decide when you're ready to go deeper.</p>
+                    <ul class="tier-features">
+                        <li>Community hub &amp; discussions</li>
+                        <li>Intro: what is AI automation?</li>
+                        <li>Pick your operating name (5 min)</li>
+                        <li>Peer support &amp; networking</li>
+                        <li>Upgrade anytime, no pressure</li>
+                    </ul>
+                    <a href="https://www.skool.com/monetize-learn-aiautomation-2878" target="_blank"
+                        rel="noopener noreferrer" class="btn btn-tier-outline">Join Free</a>
+                </div>
+
+                <!-- Launch Your AI Agency ($45/mo) -->
+                <div class="tier-card">
+                    <span class="tier-tag premium">Premium · $45/mo</span>
+                    <div class="tier-name">Launch Your AI Agency</div>
+                    <div class="tier-price">$45 — per month · full 3-month curriculum</div>
+                    <p class="tier-tagline">The complete client acquisition system. Upwork, LinkedIn, cold email, lead
+                        scraping, chatbots, voice agents, AI delivery — structured week by week.</p>
+                    <div class="tier-deal">
+                        <span class="deal-icon">🎁</span>
+                        <span>Join Premium now and get instant access to all VIP ($79/mo) content included — at no extra cost.</span>
+                    </div>
+                    <ul class="tier-features">
+                        <li>Full 3-month curriculum with weekly action plan</li>
+                        <li>Niche selection &amp; business setup</li>
+                        <li>Upwork &amp; LinkedIn client acquisition</li>
+                        <li>Cold email: scrape 1,000 leads, write sequences, launch</li>
+                        <li>Chatbot intro + platform selection</li>
+                        <li>Voice agents intro (Retell / VAPI / GHL)</li>
+                        <li>YouTube inbound strategy</li>
+                        <li>AI apps, images &amp; video overview</li>
+                        <li>RAG systems intro + CRM / GoHighLevel gateway</li>
+                    </ul>
+                    <a href="https://www.skool.com/monetize-learn-aiautomation-2878/classroom" target="_blank"
+                        rel="noopener noreferrer" class="btn btn-tier-dark">Join Premium — $45/mo</a>
+                </div>
+
+                <!-- Getting Paid ($79/mo) — Featured -->
+                <div class="tier-card featured">
+                    <div class="most-value-badge">Most Value</div>
+                    <span class="tier-tag vip">VIP · $79/mo</span>
+                    <div class="tier-name">Getting Paid</div>
+                    <div class="tier-price">$79 — per month · everything in Premium +</div>
+                    <div class="tier-deal">
+                        <span class="deal-icon">🎁</span>
+                        <span>Join VIP now and get <strong>2 months free</strong> — best value, locked in at today's rate.</span>
+                    </div>
+                    <p class="tier-tagline">Everything you need to deliver the work, not just find the clients. Deeper
+                        builds, live examples, templates, resources — plus direct access to the founders.</p>
+                    <div class="coaching-box">
+                        ★ Biweekly 1:1 with Dave or Randy + weekly check-in with Aila (coordinator) — the real reason
+                        to upgrade.
+                    </div>
+                    <ul class="tier-features">
+                        <li>Everything in Premium</li>
+                        <li>Full chatbot build on Botpress (3 lessons + monetization)</li>
+                        <li>YouTube ultimate guide + get-started module</li>
+                        <li>Voice agent resources — Retell, VAPI, GHL deep dive</li>
+                        <li>AI image gen + Veo3 &amp; Fal.ai live examples + real use cases</li>
+                        <li>RAG resources &amp; ready-to-deploy templates</li>
+                        <li>Full CRM &amp; GoHighLevel deep-dive + resources</li>
+                        <li>Biweekly 1:1 with Randy or Dave</li>
+                        <li>Weekly consultation with Aila (coordinator)</li>
+                    </ul>
+                    <a href="https://www.skool.com/monetize-learn-aiautomation-2878/classroom" target="_blank"
+                        rel="noopener noreferrer" class="btn btn-tier-green">Join VIP — $79/mo</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started Steps -->
+    <section class="steps-section">
+        <div class="container">
+            <div class="steps-header">
+                <span class="steps-eyebrow">Getting Started</span>
+                <h2>How to join in 3 steps</h2>
+                <p class="steps-sub">Takes less than 2 minutes. You can start for free.</p>
+            </div>
+            <div class="steps-grid">
+
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Go to the classroom</div>
+                    <p class="step-desc">Click any "Join" button on this page. You'll land on the AI Automation Learn
+                        &amp; Profit Skool community.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Click a locked course</div>
+                    <p class="step-desc">In the classroom, click the Premium or VIP course. A popup will show your
+                        upgrade options with pricing.</p>
+                    <div class="step-img-sequence">
+                        <div class="seq-item">
+                            <img src="skool/courses.png" alt="Skool classroom showing course catalogue">
+                            <span class="seq-label">The classroom</span>
+                        </div>
+                        <div class="seq-arrow">then click a locked course</div>
+                        <div class="seq-item">
+                            <img src="skool/locked.png" alt="Locked course upgrade popup">
+                            <span class="seq-label">Upgrade prompt appears</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Select your plan</div>
+                    <p class="step-desc">Choose Standard (free), Premium ($45/mo), or VIP ($79/mo). Skool handles
+                        billing securely.</p>
+                    <div class="step-img">
+                        <img src="skool/select_plan.png"
+                            alt="Skool plan selection showing $0 Standard, $45 Premium, $79 VIP">
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Start learning immediately</div>
+                    <p class="step-desc">Access unlocks instantly. VIP members: expect a welcome message from the team
+                        within 24 hours to schedule your first 1:1.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <h2>Real results from real businesses.</h2>
+            <p class="proof-subhead">The systems we teach are the same ones powering these transformations.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"We went from losing leads in spreadsheets to having a fully automated
+                        nerve center. It totally changed our business."</p>
+                    <div class="testimonial-meta">
+                        <div class="testimonial-company">Beva Homes</div>
+                        <div class="testimonial-industry">Real Estate Developer</div>
+                        <div class="testimonial-stat">$2M revenue reclaimed</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"The invoices used to pile up. Now they just get processed. It feels
+                        like magic, but it's just really good engineering."</p>
+                    <div class="testimonial-meta">
+                        <div class="testimonial-company">Beauty in the Books</div>
+                        <div class="testimonial-industry">Financial Services</div>
+                        <div class="testimonial-stat">77% faster processing</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Our dispatchers were drowning in calls. The voice agent handles the
+                        routine stuff now, and we focus on the big jobs."</p>
+                    <div class="testimonial-meta">
+                        <div class="testimonial-company">Mr. Rooter Ottawa</div>
+                        <div class="testimonial-industry">Plumbing Services</div>
+                        <div class="testimonial-stat">15 hrs saved per week</div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-stories-link">
+                <a href="customers.html">View all customer success stories →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>The window won't stay open forever.</h2>
+            <p class="cta-body">AI automation is still early. The people who learn this now — and can deliver results —
+                will be the ones charging a premium in 6 months. Start today.</p>
+            <div class="final-cta-buttons">
+                <a href="https://www.skool.com/monetize-learn-aiautomation-2878" target="_blank"
+                    rel="noopener noreferrer" class="btn btn-green">Join Free Now</a>
+                <a href="https://www.skool.com/monetize-learn-aiautomation-2878/classroom" target="_blank"
+                    rel="noopener noreferrer" class="btn btn-outline-light">See the Classroom</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid-4">
+                <div>
+                    <img src="kidaflow_logo.png" alt="Kidaflow"
+                        style="filter: brightness(0) invert(1); height: 32px; margin-bottom: 24px;">
+                    <p style="font-size: 14px; opacity: 0.6;">Automating workflows for modern businesses.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/107006159" target="_blank" aria-label="LinkedIn"
+                            class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/kidaflow_group/" target="_blank" aria-label="Instagram"
+                            class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="https://wa.link/qat6uf" target="_blank" aria-label="WhatsApp" class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="customers.html">Customers</a>
+                </div>
+                <div>
+                    <h4>Solutions</h4>
+                    <a href="docflow.html">DocFlow System</a>
+                    <a href="vikki.html">Vikki for Legal</a>
+                    <a href="bcv.html">Build Compliance Vault</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="mailto:hello@kidaflow.com">hello@kidaflow.com</a>
+                    <a href="tel:+254105430486">+254105430486</a>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; font-size: 14px; opacity: 0.4;">
+                <p style="margin-bottom: 20px;">
+                    Now to him who is able to do immeasurably more than all we ask or imagine, according to his power
+                    that is at work within us, 21 to him be glory in the church and in Christ Jesus throughout all
+                    generations, for ever and ever! Amen.
+                </p>
+                © 2025 Kidaflow. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="booking.js"></script>
+</body>
+
+</html>
