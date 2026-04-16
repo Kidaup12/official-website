@@ -307,10 +307,18 @@
 
         /* VIDEO SECTION */
         .video-section {
-            background: var(--green);
+            position: relative;
             padding: 72px 0;
             color: #fff;
+            background: url('../Client Stories/5.png') center center / cover no-repeat;
         }
+        .video-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(8, 33, 17, 0.88);
+        }
+        .video-section > * { position: relative; z-index: 1; }
         .video-section .section-eyebrow {
             font-size: 12px;
             font-weight: 700;
@@ -667,7 +675,12 @@
         <div class="container">
             <div class="section-eyebrow">In the Paralegal's Words</div>
             <h2>Heard Directly from the Team</h2>
-            <p class="video-sub">JC, paralegal at PI Associates OKC, walks through exactly what changed — and what it means for the firm day to day.</p>
+
+            <blockquote style="max-width: 640px; margin: 0 0 36px; padding: 28px 32px; border-left: 3px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.06); border-radius: 0 10px 10px 0;">
+                <p style="font-size: 18px; line-height: 1.75; color: #fff; font-style: italic; margin-bottom: 12px;">"Once you get a client, you put them in just like this. This does everything you need from A to Z. See you. You don't have to pay for employees to do this paper pushing, button punching — it does it on its own."</p>
+                <cite style="font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.5); font-style: normal;">JC, Paralegal — PI Associates OKC</cite>
+            </blockquote>
+
             <div class="video-wrapper">
                 <div class="video-container">
                     <!-- Replace LOOM_ID_HERE with the actual Loom video ID -->
