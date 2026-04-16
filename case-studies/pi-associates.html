@@ -90,7 +90,22 @@
             padding-top: 48px;
         }
         .hero-inner {
-            max-width: 680px;
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            gap: 56px;
+            align-items: center;
+        }
+        .hero-photo {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            object-position: center 0%;
+            border-radius: 14px;
+            opacity: 0.92;
+        }
+        @media (max-width: 768px) {
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-photo { display: none; }
         }
         .hero-eyebrow {
             font-size: 12px;
@@ -491,6 +506,7 @@
                         </div>
                     </div>
                 </div>
+                <img src="../attorney.jpg" alt="Jim Luman" class="hero-photo">
             </div>
         </div>
         </div>
