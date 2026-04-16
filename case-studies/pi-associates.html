@@ -75,12 +75,23 @@
         /* HERO */
         .hero {
             background: var(--green);
-            padding: 72px 0 64px;
+            padding: 0 0 64px;
             color: #fff;
+        }
+        .hero-banner {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center 15%;
+            display: block;
+            opacity: 0.55;
+        }
+        .hero-body {
+            padding-top: 48px;
         }
         .hero-inner {
             display: grid;
-            grid-template-columns: 1fr 300px;
+            grid-template-columns: 1fr 260px;
             gap: 56px;
             align-items: center;
         }
@@ -143,8 +154,9 @@
         }
 
         @media (max-width: 768px) {
+            .hero-banner { height: 140px; }
             .hero-inner { grid-template-columns: 1fr; }
-            .hero-photo { aspect-ratio: 16/9; object-position: center 10%; max-height: 280px; }
+            .hero-photo { aspect-ratio: 16/9; object-position: center 10%; max-height: 240px; }
         }
 
         /* FIRM META */
@@ -469,7 +481,9 @@
 
     <!-- HERO -->
     <section class="hero">
+        <img src="../attorney.jpg" alt="PI Associates OKC" class="hero-banner">
         <div class="container-wide">
+        <div class="hero-body">
             <div class="hero-inner">
                 <div>
                     <div class="hero-eyebrow">Case Study &nbsp;|&nbsp; Personal Injury Law</div>
@@ -489,6 +503,7 @@
                 </div>
                 <img src="../attorney.jpg" alt="Jim Luman" class="hero-photo">
             </div>
+        </div>
         </div>
     </section>
 
@@ -656,7 +671,7 @@
             <div class="video-wrapper">
                 <div class="video-container">
                     <!-- Replace LOOM_ID_HERE with the actual Loom video ID -->
-                    <iframe src="https://www.loom.com/embed/LOOM_ID_HERE?hide_owner=true&hide_share=true&hide_title=true"
+                    <iframe src="https://www.loom.com/embed/18bdcc652bbd49aba19d47c2c847a071?hide_owner=true&hide_share=true&hide_title=true"
                             frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
                     </iframe>
                 </div>
