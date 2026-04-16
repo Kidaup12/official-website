@@ -84,16 +84,13 @@
             object-fit: cover;
             object-position: center 15%;
             display: block;
-            opacity: 0.55;
+            opacity: 0.82;
         }
         .hero-body {
             padding-top: 48px;
         }
         .hero-inner {
-            display: grid;
-            grid-template-columns: 1fr 260px;
-            gap: 56px;
-            align-items: center;
+            max-width: 680px;
         }
         .hero-eyebrow {
             font-size: 12px;
@@ -117,21 +114,13 @@
             line-height: 1.65;
             margin-bottom: 40px;
         }
-        .hero-photo {
-            width: 100%;
-            aspect-ratio: 3/4;
-            object-fit: cover;
-            object-position: center 5%;
-            border-radius: 14px;
-            opacity: 0.92;
-        }
 
         /* STATS ROW */
         .stats-row {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1px;
-            background: rgba(255,255,255,0.08);
+            gap: 0;
+            border: 1px solid rgba(255,255,255,0.12);
             border-radius: 12px;
             overflow: hidden;
             max-width: 480px;
@@ -139,6 +128,9 @@
         .stat-cell {
             background: rgba(255,255,255,0.05);
             padding: 24px 28px;
+        }
+        .stat-cell:first-child {
+            border-right: 1px solid rgba(255,255,255,0.12);
         }
         .stat-val {
             font-size: 36px;
@@ -155,8 +147,6 @@
 
         @media (max-width: 768px) {
             .hero-banner { height: 140px; }
-            .hero-inner { grid-template-columns: 1fr; }
-            .hero-photo { aspect-ratio: 16/9; object-position: center 10%; max-height: 240px; }
         }
 
         /* FIRM META */
@@ -501,7 +491,6 @@
                         </div>
                     </div>
                 </div>
-                <img src="../attorney.jpg" alt="Jim Luman" class="hero-photo">
             </div>
         </div>
         </div>
