@@ -78,6 +78,12 @@
             padding: 72px 0 64px;
             color: #fff;
         }
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 56px;
+            align-items: center;
+        }
         .hero-eyebrow {
             font-size: 12px;
             font-weight: 700;
@@ -87,31 +93,37 @@
             margin-bottom: 20px;
         }
         .hero h1 {
-            font-size: 42px;
+            font-size: 38px;
             font-weight: 800;
             line-height: 1.1;
             letter-spacing: -0.5px;
-            max-width: 700px;
             margin-bottom: 24px;
             color: #fff;
         }
         .hero-sub {
             font-size: 17px;
             color: rgba(255,255,255,0.6);
-            max-width: 560px;
             line-height: 1.65;
-            margin-bottom: 48px;
+            margin-bottom: 40px;
+        }
+        .hero-photo {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            object-position: center 5%;
+            border-radius: 14px;
+            opacity: 0.92;
         }
 
         /* STATS ROW */
         .stats-row {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1px;
             background: rgba(255,255,255,0.08);
             border-radius: 12px;
             overflow: hidden;
-            max-width: 640px;
+            max-width: 480px;
         }
         .stat-cell {
             background: rgba(255,255,255,0.05);
@@ -128,6 +140,11 @@
             font-size: 13px;
             color: rgba(255,255,255,0.45);
             line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-photo { aspect-ratio: 16/9; object-position: center 10%; max-height: 280px; }
         }
 
         /* FIRM META */
@@ -338,7 +355,7 @@
             width: 100%;
             aspect-ratio: 3/4;
             object-fit: cover;
-            object-position: top;
+            object-position: center 0%;
             border-radius: 14px;
             box-shadow: 0 12px 40px rgba(0,0,0,0.12);
         }
@@ -452,24 +469,25 @@
 
     <!-- HERO -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-eyebrow">Case Study &nbsp;|&nbsp; Personal Injury Law</div>
-            <h1>PI Associates OKC Took On 14 More Cases in 2 Months. Same Team. No New Hires.</h1>
-            <p class="hero-sub">A 12-person firm in Oklahoma City hit a capacity ceiling. Here's how they broke through it — without a single new hire.</p>
+        <div class="container-wide">
+            <div class="hero-inner">
+                <div>
+                    <div class="hero-eyebrow">Case Study &nbsp;|&nbsp; Personal Injury Law</div>
+                    <h1>PI Associates OKC Took On 14 More Cases in 2 Months. Same Team. No New Hires.</h1>
+                    <p class="hero-sub">A 12-person firm in Oklahoma City hit a capacity ceiling. Here's how they broke through it — without a single new hire.</p>
 
-            <div class="stats-row">
-                <div class="stat-cell">
-                    <span class="stat-val">+35%</span>
-                    <span class="stat-label">Increase in case capacity</span>
+                    <div class="stats-row">
+                        <div class="stat-cell">
+                            <span class="stat-val">+35%</span>
+                            <span class="stat-label">Increase in case capacity</span>
+                        </div>
+                        <div class="stat-cell">
+                            <span class="stat-val">14</span>
+                            <span class="stat-label">New cases in first 2 months</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-cell">
-                    <span class="stat-val">14</span>
-                    <span class="stat-label">New cases in first 2 months</span>
-                </div>
-                <div class="stat-cell">
-                    <span class="stat-val">5 min</span>
-                    <span class="stat-label">Document generation, down from 25</span>
-                </div>
+                <img src="../attorney.jpg" alt="Jim Luman" class="hero-photo">
             </div>
         </div>
     </section>
