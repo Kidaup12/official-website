@@ -207,6 +207,121 @@
             line-height: 1.7;
         }
 
+        /* STICKY BAR */
+        .sticky-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: #082111;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+        }
+        .sticky-bar.visible { transform: translateY(0); }
+        .sticky-bar-logo { font-size: 16px; font-weight: 800; color: #fff; }
+        .sticky-bar-cta {
+            background: #fff;
+            color: #082111;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 800;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+        }
+        @media (max-width: 480px) { .sticky-bar-logo { display: none; } }
+
+        /* PAIN POINT CARDS */
+        .pain-card {
+            padding: 24px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-left: 3px solid #082111;
+            border-radius: 0 10px 10px 0;
+        }
+        .pain-card h4 {
+            font-size: 15px;
+            font-weight: 800;
+            color: #082111;
+            margin-bottom: 8px;
+        }
+        .pain-card p {
+            font-size: 14px;
+            line-height: 1.65;
+            color: #555;
+            margin: 0;
+        }
+
+        /* MID-PAGE CTA STRIP */
+        .cta-strip {
+            padding: 48px 0;
+            background: #f0f7f3;
+            text-align: center;
+            border-top: 1px solid #d4e8dc;
+            border-bottom: 1px solid #d4e8dc;
+        }
+        .cta-strip p {
+            font-size: 18px;
+            font-weight: 600;
+            color: #082111;
+            margin-bottom: 20px;
+        }
+
+        /* CLOSING SECTION — dark, forceful */
+        .closing-section {
+            padding: 96px 0;
+            background: #082111;
+            text-align: center;
+        }
+        .closing-inner { max-width: 640px; margin: 0 auto; }
+        .closing-inner .closing-eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 20px;
+        }
+        .closing-inner h2 {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .closing-inner p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 36px;
+            line-height: 1.7;
+        }
+        .closing-inner .cta-large-closing {
+            background: #fff !important;
+            color: #082111 !important;
+            font-size: 18px !important;
+            padding: 18px 48px !important;
+            border-radius: 50px !important;
+            font-weight: 800 !important;
+            display: inline-block;
+            text-decoration: none;
+            letter-spacing: 0.2px;
+        }
+        .closing-inner .cta-sub {
+            font-size: 13px;
+            color: rgba(255,255,255,0.3);
+            margin-top: 14px;
+            margin-bottom: 0;
+        }
+
         @media (max-width: 900px) {
             .insight-grid { grid-template-columns: 1fr 1fr; }
             .testimonial-card { grid-template-columns: 1fr; gap: 24px; }
@@ -215,7 +330,7 @@
         @media (max-width: 600px) {
             .insight-grid { grid-template-columns: 1fr; }
             .guarantee-premium { flex-direction: column; gap: 12px; }
-            .closing-inner h2 { font-size: 26px; }
+            .closing-inner h2 { font-size: 28px; }
         }
     </style>
 </head>
@@ -231,6 +346,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+
+    <!-- STICKY BAR -->
+    <div class="sticky-bar" id="sticky-bar">
+        <span class="sticky-bar-logo">Kidaflow</span>
+        <a href="/form" class="sticky-bar-cta cta-large">CLAIM YOUR FREE TRIAL</a>
+    </div>
 
     <!-- WARNING BAR -->
     <div class="warning-bar" id="dynamic-warning"></div>
@@ -262,9 +383,9 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
 
             <div class="reveal fade-up" style="margin-top: 32px;">
-                <a href="/form" class="btn btn-primary cta-large">SEE IT FREE FOR 30 DAYS</a>
+                <a href="/form" class="btn btn-primary cta-large">CLAIM YOUR FREE 30-DAY TRIAL</a>
             </div>
-            <p style="font-size: 13px; color: #999; margin-top: 14px;">No credit card required. 48-hour setup. $1,000 guarantee.</p>
+            <p style="font-size: 13px; color: #999; margin-top: 14px;">No credit card. No contract. Live in 48 hours. $1,000 guarantee if it doesn't work.</p>
         </div>
     </header>
 
@@ -331,6 +452,12 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         </div>
     </section>
+
+    <!-- MID-PAGE CTA -->
+    <div class="cta-strip">
+        <p id="cta-strip-text"></p>
+        <a href="/form" class="btn btn-primary cta-large">CLAIM YOUR FREE 30-DAY TRIAL</a>
+    </div>
 
     <!-- SECTION 5: THE 5 SYSTEMS -->
     <section class="ads-section" style="background: #fdfdfd;">
@@ -442,28 +569,15 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     </section>
 
-    <!-- SECTION 6: OFFER -->
-    <section class="ads-section" style="background: #ffffff;">
-        <div class="container">
-            <div class="guarantee-box reveal fade-up">
-                <h2 style="font-size: 32px; margin-bottom: 16px;" id="offer-headline"></h2>
-                <p id="offer-text"></p>
-                <div style="margin-top: 32px;">
-                    <a href="/form" class="btn btn-primary cta-large" style="background: #ffffff !important; color: #082111 !important;">
-                        SEE IT FREE FOR 30 DAYS
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 7: QUALIFIER -->
+    <!-- CLOSING SECTION -->
     <section class="closing-section">
         <div class="closing-inner">
-            <h2 class="reveal fade-up" id="qualifier-headline"></h2>
-            <p class="reveal fade-up" id="qualifier-text"></p>
+            <div class="closing-eyebrow reveal fade-up">30-Day Free Trial</div>
+            <h2 class="reveal fade-up" id="offer-headline"></h2>
+            <p class="reveal fade-up" id="offer-text"></p>
             <div class="reveal fade-up">
-                <a href="/form" class="btn btn-primary cta-large">SEE IT FREE FOR 30 DAYS</a>
+                <a href="/form" class="cta-large-closing cta-large">CLAIM YOUR FREE 30-DAY TRIAL</a>
+                <p class="cta-sub">No credit card. No contract. $1,000 guarantee if it doesn't work.</p>
             </div>
         </div>
     </section>
@@ -615,8 +729,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const ppContainer = document.getElementById('pain-points');
     v.painPoints.forEach(p => {
         const d = document.createElement('div');
-        d.style.cssText = 'padding: 24px; background: #ffffff; border: 1px solid #e8e8e8; border-radius: 10px;';
-        d.innerHTML = `<h4 style="font-size: 15px; font-weight: 700; margin-bottom: 10px; color: #082111;">${p.title}</h4><p style="font-size: 14px; line-height: 1.65; color: #555; margin: 0;">${p.text}</p>`;
+        d.className = 'pain-card';
+        d.innerHTML = `<h4>${p.title}</h4><p>${p.text}</p>`;
         ppContainer.appendChild(d);
     });
 
@@ -646,13 +760,19 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('offer-headline').textContent = v.offerHeadline;
     document.getElementById('offer-text').textContent = v.offerText;
 
-    // Qualifier
-    document.getElementById('qualifier-headline').textContent = v.qualifierHeadline;
-    document.getElementById('qualifier-text').textContent = v.qualifierText;
+    // Mid-page CTA strip
+    const ctaStripText = {
+        capacity: "Ready to stop turning away cases? See the system that added 24 cases in 4 months.",
+        hiring: "Before you sign that offer letter — see what $80K in payroll savings looks like.",
+        documents: "Your paralegal should be managing cases. Not building documents.",
+        audit: "Your Monday audit should take 10 minutes. Here's how."
+    };
+    document.getElementById('cta-strip-text').textContent = ctaStripText[window.adSource] || ctaStripText.capacity;
     </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Scroll reveal
             const observer = new IntersectionObserver((entries, obs) => {
                 entries.forEach(entry => {
                     if (!entry.isIntersecting) return;
@@ -661,6 +781,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            // Sticky bar — show after scrolling past hero
+            const stickyBar = document.getElementById('sticky-bar');
+            const hero = document.querySelector('.hero-ads');
+            window.addEventListener('scroll', () => {
+                const heroBottom = hero.getBoundingClientRect().bottom;
+                stickyBar.classList.toggle('visible', heroBottom < 0);
+            }, { passive: true });
         });
     </script>
 
