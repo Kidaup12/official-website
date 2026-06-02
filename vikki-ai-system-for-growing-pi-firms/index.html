@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PI Automation System | Kidaflow</title>
+    <meta name="description" content="Done-for-you PI automation system. Get 20+ hours back every week or we pay you.">
+    <link rel="icon" type="image/png" href="/kidaflow_logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/vikki-ads.css">
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '932792812879093');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=932792812879093&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wd66z1buxv");
+    </script>
+    <!-- End Microsoft Clarity -->
+
+    <style>
+        /* PAGE-LEVEL OVERRIDES */
+        .warning-bar { letter-spacing: 0.5px; }
+
+        /* GUARANTEE BOX - HERO */
+        .guarantee-premium {
+            max-width: 580px;
+            margin: 0 auto 36px;
+            padding: 24px 28px;
+            background: #ffffff;
+            border: 1.5px solid #195233;
+            border-radius: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+        }
+        .guarantee-premium .g-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1.5px solid #195233;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .guarantee-premium .g-icon svg {
+            width: 16px; height: 16px;
+            stroke: #195233; stroke-width: 2.5; fill: none;
+        }
+        .guarantee-premium .g-text { text-align: left; }
+        .guarantee-premium .g-title {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #195233;
+            margin-bottom: 5px;
+        }
+        .guarantee-premium .g-body {
+            font-size: 15px;
+            font-weight: 500;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .guarantee-premium .g-body strong { color: #082111; font-weight: 800; }
+
+        /* INSIGHT SECTION - variant specific */
+        .insight-section {
+            padding: 80px 0;
+            background: #082111;
+            color: #fff;
+        }
+        .insight-section h2 { color: #fff; }
+        .insight-section p { color: rgba(255,255,255,0.65); }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .insight-card {
+            padding: 28px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+        }
+        .insight-card .i-val {
+            font-size: 36px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .insight-card .i-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .insight-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.6);
+            margin: 0;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials-section { padding: 80px 0; background: #fff; }
+
+        .testimonial-card {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 48px;
+            align-items: center;
+            padding: 40px;
+            border: 1px solid #e8e8e8;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            background: #fdfdfd;
+        }
+        .testimonial-card:last-child { margin-bottom: 0; }
+
+        .t-profile { text-align: center; }
+        .t-photo {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        .t-name {
+            font-size: 16px;
+            font-weight: 800;
+            color: #082111;
+            margin-bottom: 4px;
+        }
+        .t-role {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 6px;
+        }
+        .t-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            color: #195233;
+            background: #f0f7f3;
+            padding: 4px 10px;
+            border-radius: 99px;
+        }
+
+        .t-quote {
+            font-size: 18px;
+            line-height: 1.75;
+            color: #111;
+        }
+        .t-quote strong { color: #082111; }
+        .t-result {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #082111;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* CLOSING CTA SECTION */
+        .closing-section {
+            padding: 80px 0;
+            background: #f7f7f5;
+            text-align: center;
+        }
+        .closing-inner {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .closing-inner h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #082111;
+        }
+        .closing-inner p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        /* STICKY BAR */
+        .sticky-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: #082111;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+        }
+        .sticky-bar.visible { transform: translateY(0); }
+        .sticky-bar-logo { font-size: 16px; font-weight: 800; color: #fff; }
+        .sticky-bar-cta {
+            background: #fff;
+            color: #082111;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 800;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+        }
+        @media (max-width: 480px) { .sticky-bar-logo { display: none; } }
+
+        /* PAIN POINT CARDS */
+        .pain-card {
+            padding: 24px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-left: 3px solid #082111;
+            border-radius: 0 10px 10px 0;
+        }
+        .pain-card h4 {
+            font-size: 15px;
+            font-weight: 800;
+            color: #082111;
+            margin-bottom: 8px;
+        }
+        .pain-card p {
+            font-size: 14px;
+            line-height: 1.65;
+            color: #555;
+            margin: 0;
+        }
+
+        /* MID-PAGE CTA STRIP */
+        .cta-strip {
+            padding: 48px 0;
+            background: #f0f7f3;
+            text-align: center;
+            border-top: 1px solid #d4e8dc;
+            border-bottom: 1px solid #d4e8dc;
+        }
+        .cta-strip p {
+            font-size: 18px;
+            font-weight: 600;
+            color: #082111;
+            margin-bottom: 20px;
+        }
+
+        /* CLOSING SECTION — dark, forceful */
+        .closing-section {
+            padding: 96px 0;
+            background: #082111;
+            text-align: center;
+        }
+        .closing-inner { max-width: 640px; margin: 0 auto; }
+        .closing-inner .closing-eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 20px;
+        }
+        .closing-inner h2 {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .closing-inner p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 36px;
+            line-height: 1.7;
+        }
+        .closing-inner .cta-large-closing {
+            background: #fff !important;
+            color: #082111 !important;
+            font-size: 18px !important;
+            padding: 18px 48px !important;
+            border-radius: 50px !important;
+            font-weight: 800 !important;
+            display: inline-block;
+            text-decoration: none;
+            letter-spacing: 0.2px;
+        }
+        .closing-inner .cta-sub {
+            font-size: 13px;
+            color: rgba(255,255,255,0.3);
+            margin-top: 14px;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 900px) {
+            .insight-grid { grid-template-columns: 1fr 1fr; }
+            .testimonial-card { grid-template-columns: 1fr; gap: 24px; }
+            .t-photo { aspect-ratio: 16/9; object-position: center 20%; max-height: 280px; width: 100%; }
+        }
+        @media (max-width: 600px) {
+            .insight-grid { grid-template-columns: 1fr; }
+            .guarantee-premium { flex-direction: column; gap: 12px; }
+            .closing-inner h2 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body class="ads-page">
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+window.adSource = urlParams.get('source') || 'capacity';
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a.cta-large').forEach(btn => {
+        btn.href = '/form?source=' + window.adSource;
+    });
+});
+</script>
+
+    <!-- STICKY BAR -->
+    <div class="sticky-bar" id="sticky-bar">
+        <span class="sticky-bar-logo">Kidaflow</span>
+        <a href="/form" class="sticky-bar-cta cta-large">CLAIM YOUR FREE TRIAL</a>
+    </div>
+
+    <!-- WARNING BAR -->
+    <div class="warning-bar" id="dynamic-warning"></div>
+
+    <!-- HERO -->
+    <header class="hero-ads reveal fade-in">
+        <div class="container">
+            <h1 class="reveal fade-up" id="dynamic-headline"></h1>
+            <p class="reveal fade-up" id="dynamic-subheadline" style="font-size: 18px; max-width: 780px; margin: 0 auto 32px;"></p>
+
+            <!-- PREMIUM GUARANTEE -->
+            <div class="guarantee-premium reveal fade-up">
+                <div class="g-icon">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="g-text">
+                    <div class="g-title">30-Day Risk-Free Guarantee</div>
+                    <p class="g-body">Test the system free for 30 days. If your team isn't handling more volume within 14 days, <strong>we pay you $1,000.</strong> No contracts. No credit card.</p>
+                </div>
+            </div>
+
+            <!-- VIDEO -->
+            <div class="video-wrapper reveal fade-up">
+                <div class="video-container">
+                    <iframe src="https://www.loom.com/embed/e00d02b7e676434fafaca5f8402fdce7?hide_owner=true&hide_share=true&hide_title=true&hide_embed_params=true"
+                            frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="reveal fade-up" style="margin-top: 32px;">
+                <a href="/form" class="btn btn-primary cta-large">CLAIM YOUR FREE 30-DAY TRIAL</a>
+            </div>
+            <p style="font-size: 13px; color: #999; margin-top: 14px;">No credit card. No contract. Live in 48 hours. $1,000 guarantee if it doesn't work.</p>
+        </div>
+    </header>
+
+    <!-- SECTION 2: THE PROBLEM -->
+    <section class="ads-section">
+        <div class="container" style="max-width: 800px;">
+            <div class="reveal fade-up">
+                <h2 id="problem-headline" style="font-size: 32px; margin-bottom: 24px;"></h2>
+                <div id="pain-points" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 32px;"></div>
+                <p id="problem-close" style="margin-top: 40px; font-weight: 700; font-size: 18px; text-align: center; color: #082111;"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: VARIANT-SPECIFIC INSIGHT -->
+    <section class="insight-section">
+        <div class="container">
+            <div class="reveal fade-up" style="max-width: 700px; margin: 0 auto; text-align: center;">
+                <h2 id="insight-headline" style="font-size: 32px; margin-bottom: 16px; font-weight: 800;"></h2>
+                <p id="insight-subtext" style="font-size: 16px; margin-bottom: 0;"></p>
+            </div>
+            <div class="insight-grid reveal fade-up" id="insight-grid"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: TESTIMONIALS -->
+    <section class="testimonials-section">
+        <div class="container" style="max-width: 900px;">
+            <h2 class="text-center reveal fade-up" style="font-size: 32px; font-weight: 800; margin-bottom: 48px; color: #082111;">What PI Attorneys Are Saying</h2>
+
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card reveal fade-up">
+                <div class="t-profile">
+                    <img src="/attorney%202.webp" alt="PI Attorney" class="t-photo">
+                    <div class="t-name" id="t1-name">PI Attorney</div>
+                    <div class="t-role" id="t1-role">Multi-Attorney Firm</div>
+                    <span class="t-badge" id="t1-badge">Active Client</span>
+                </div>
+                <div>
+                    <div class="t-quote" id="t1-quote"></div>
+                    <div class="t-result" id="t1-result"></div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2: Jim Luman -->
+            <div class="testimonial-card reveal fade-up">
+                <div class="t-profile">
+                    <img src="/attorney.jpg" alt="Jim Luman" class="t-photo">
+                    <div class="t-name">Jim Luman</div>
+                    <div class="t-role">PI Associates OKC | Oklahoma City, OK</div>
+                    <span class="t-badge">15 yrs exp | 12-person team</span>
+                </div>
+                <div>
+                    <div class="t-quote">
+                        "Every document used to take 25 minutes. Four to six per client at intake. That's two hours of admin before we touched the case. Now it's 5 minutes. The whole intake packet in under 30.
+                        <br><br>
+                        <strong>We took on 14 more cases in the first 2 months. Same team. No new hires. At $60K-$100K average settlement, that's over $840K in new case value from capacity we already had.</strong>"
+                    </div>
+                    <div class="t-result" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+                        <span>+14 cases in 2 months. 35% capacity increase.</span>
+                        <a href="/case-studies/pi-associates.html" style="font-size:13px; color:inherit; opacity:0.7; text-decoration:underline; font-weight:600;">Read full case study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MID-PAGE CTA -->
+    <div class="cta-strip">
+        <p id="cta-strip-text"></p>
+        <a href="/form" class="btn btn-primary cta-large">CLAIM YOUR FREE 30-DAY TRIAL</a>
+    </div>
+
+    <!-- SECTION 5: THE 5 SYSTEMS -->
+    <section class="ads-section" style="background: #fdfdfd;">
+        <div class="container">
+            <div class="reveal fade-up" style="max-width: 700px; margin: 0 auto 60px; text-align: center;">
+                <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 16px; color: #082111;" id="systems-headline"></h2>
+                <p style="font-size: 16px; color: #666;" id="systems-subtext"></p>
+            </div>
+
+            <!-- System 1 -->
+            <div class="system-item reveal fade-up">
+                <div class="system-grid">
+                    <div class="system-content">
+                        <h4>1. Documents Built By Hand - Your Paralegal Gets 20 Hours/Week Back</h4>
+                        <div style="margin-bottom: 20px;">
+                            <strong>The Problem:</strong><br>
+                            Your paralegal opens Word and types client name, accident date, insurance info for every letter, authorization, engagement letter.
+                        </div>
+                        <div>
+                            <strong>How We Fix It:</strong><br>
+                            Documents auto-generate when a case hits the right stage, pre-filled with all case data from your system. 2-minute review instead of 20-minute manual build.
+                        </div>
+                    </div>
+                    <div class="photo-container">
+                        <img src="/1_Flawless-automated-documents.webp" alt="Doc Automation">
+                    </div>
+                </div>
+            </div>
+
+            <!-- System 2 -->
+            <div class="system-item reveal fade-up">
+                <div class="system-grid" style="direction: rtl;">
+                    <div class="system-content" style="direction: ltr;">
+                        <h4>2. Documents Lost in Email - Your Team Stops Searching</h4>
+                        <div style="margin-bottom: 20px;">
+                            <strong>The Problem:</strong><br>
+                            Medical records and insurance cards arrive and disappear into inboxes. Your team spends 45 minutes a day searching.
+                        </div>
+                        <div>
+                            <strong>How We Fix It:</strong><br>
+                            AI monitors your email 24/7, classifies every attachment, and auto-files it to the correct case folder within 2 minutes of arrival.
+                        </div>
+                    </div>
+                    <div class="photo-container">
+                        <img src="/4.1_Continuous-email-document-processing.webp" alt="Email Filing">
+                    </div>
+                </div>
+            </div>
+
+            <!-- System 3 -->
+            <div class="system-item reveal fade-up">
+                <div class="system-grid">
+                    <div class="system-content">
+                        <h4>3. Medical Records Take 8-12 Hours - AI Does It in 20 Minutes</h4>
+                        <div style="margin-bottom: 20px;">
+                            <strong>The Problem:</strong><br>
+                            Someone reads 200 pages to build a treatment timeline and identify bills. Takes 8-12 hours per case.
+                        </div>
+                        <div>
+                            <strong>How We Fix It:</strong><br>
+                            Upload the file. AI extracts every date, provider, and bill. Outputs a Word doc with the full timeline and an Excel sheet with bill tracking.
+                        </div>
+                    </div>
+                    <div class="photo-container">
+                        <img src="/7-ai-medchron.webp" alt="AI MedChron">
+                    </div>
+                </div>
+            </div>
+
+            <!-- System 4 -->
+            <div class="system-item reveal fade-up">
+                <div class="system-grid" style="direction: rtl;">
+                    <div class="system-content" style="direction: ltr;">
+                        <h4>4. Cases Go Invisible - You See Everything Stuck in 10 Minutes</h4>
+                        <div style="margin-bottom: 20px;">
+                            <strong>The Problem:</strong><br>
+                            Cases sit for weeks without anyone knowing. Every Monday: hours reconstructing what should be obvious at a glance.
+                        </div>
+                        <div>
+                            <strong>How We Fix It:</strong><br>
+                            Dashboard auto-flags stuck cases (14+ days) and overdue authorizations (21+ days). Automatic follow-ups at day 7 and day 35.
+                        </div>
+                    </div>
+                    <div class="photo-container">
+                        <img src="/5_Unprecedented-case-visibility.webp" alt="Visibility Dashboard">
+                    </div>
+                </div>
+            </div>
+
+            <!-- System 5 -->
+            <div class="system-item reveal fade-up">
+                <div class="system-grid">
+                    <div class="system-content">
+                        <h4>5. Knowledge Lives in One Person's Head - System Runs When People Leave</h4>
+                        <div style="margin-bottom: 20px;">
+                            <strong>The Problem:</strong><br>
+                            Your case manager knows every provider contact. When she leaves, she takes years of institutional knowledge with her.
+                        </div>
+                        <div>
+                            <strong>How We Fix It:</strong><br>
+                            Provider database with all contacts, fax numbers, and billing methods. Adjuster database with contact info and case assignments. New hires are productive in 30 days.
+                        </div>
+                    </div>
+                    <div class="photo-container">
+                        <img src="/6_A-single-source-of-truth.webp" alt="Knowledge Base">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLOSING SECTION -->
+    <section class="closing-section">
+        <div class="closing-inner">
+            <div class="closing-eyebrow reveal fade-up">30-Day Free Trial</div>
+            <h2 class="reveal fade-up" id="offer-headline"></h2>
+            <p class="reveal fade-up" id="offer-text"></p>
+            <div class="reveal fade-up">
+                <a href="/form" class="cta-large-closing cta-large">CLAIM YOUR FREE 30-DAY TRIAL</a>
+                <p class="cta-sub">No credit card. No contract. $1,000 guarantee if it doesn't work.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="ads-section" style="background: #082111; color: #ffffff; padding: 40px 0;">
+        <div class="container text-center">
+            <p style="font-weight: 800; font-size: 22px; color: #ffffff; margin-bottom: 8px;">Kidaflow</p>
+            <p style="color: rgba(255,255,255,0.3); font-size: 13px;">© 2026 PI Automation Systems</p>
+        </div>
+    </footer>
+
+    <script src="/booking.js"></script>
+
+    <script>
+    const variants = {
+        capacity: {
+            warning: "FOR PI FIRMS TURNING AWAY CASES DUE TO CAPACITY",
+            headline: "From 84 Cases to 108 Cases in 4 Months. Same Team. No New Hires.",
+            subheadline: "PI firms stuck at capacity aren't understaffed. They're running on broken systems. Here's what changes when you fix them.",
+            problemHeadline: "You're Turning Away $1.5M in Cases Every Year",
+            painPoints: [
+                { title: "SAYING NO TO REVENUE", text: "40-60 cases a year walking out the door. That's $1.2M-$1.8M in fees you can't take because your team is maxed out on mechanical work, not caseload." },
+                { title: "HIRING MAKES IT WORSE", text: "You hire paralegal #3. Six months later all three are drowning. You're not solving capacity, you're spreading the same broken workflow across more people." },
+                { title: "CASES GO MISSING FOR WEEKS", text: "Authorizations unanswered. Records unfiled. Statute dates creeping up. You find out when it's too late. More people won't fix this. Better systems will." }
+            ],
+            problemClose: "This isn't a headcount problem. It's a systems problem.",
+            insightHeadline: "What Capacity Actually Costs You",
+            insightSubtext: "Most PI firms don't realize how much revenue walks out the door every month. Here's the math.",
+            insightCards: [
+                { val: "$1.5M+", label: "Revenue Left on Table", text: "The average PI firm at capacity turns away 40-60 cases per year. At $25K average fee, that's over $1 million in missed revenue annually." },
+                { val: "3x", label: "Payroll to Fix the Wrong Way", text: "Hiring three paralegals costs $180K/year in payroll alone. The bottleneck isn't headcount — it's the 20+ hours each one spends on manual work." },
+                { val: "14 days", label: "To See the Difference", text: "Most firms running this system see measurable capacity improvement within two weeks of going live. Not months." }
+            ],
+            t1quote: "We were sending good cases back because we had no room. Within 30 days of implementing this, we stopped doing that. Documents that used to take 25 minutes each now generate in under 2 minutes. Medical chronologies went from 10 hours to 20 minutes. <br><br><strong>We went from 84 active cases to 108 in four months — same 3-person team, zero new hires, and $240,000 more in fees that year.</strong>",
+            t1result: "84 to 108 cases. $240K additional revenue. Same team.",
+            t1name: "PI Attorney",
+            t1role: "Texas Firm",
+            t1badge: "Active Client",
+            systemsHeadline: "The 5 Systems That Create Capacity Without Adding Payroll",
+            systemsSubtext: "Each system targets a specific bottleneck. Together, they eliminate the hidden hours that are keeping your firm from scaling.",
+            offerHeadline: "30 Days Free. $1,000 if It Doesn't Work.",
+            offerText: "We install the system in 14 days. You run it free for 30 days. If your team isn't handling more volume, we write you a check for $1,000.",
+            qualifierHeadline: "This is Built for PI Firms Handling 30+ Cases a Year",
+            qualifierText: "If you're under 30 cases, the bottlenecks this solves haven't hit you yet. Come back when they do. If you're over 30 and turning away work — this is for you."
+        },
+        hiring: {
+            warning: "FOR PI FIRMS ABOUT TO HIRE - SEE THIS FIRST",
+            headline: "Before You Sign That Offer Letter, See How PI Firms Are Scaling Without Adding Payroll",
+            subheadline: "The paralegal you're about to hire won't fix the bottleneck. Here's why — and what actually does.",
+            problemHeadline: "You're About to Make a $60,000 Mistake",
+            painPoints: [
+                { title: "HIRING DELAYS THE PROBLEM BY 18 MONTHS", text: "You hire. Six months in, the new paralegal is maxed out too. The bottleneck was never headcount — it was 20+ hours of mechanical work per person per week." },
+                { title: "THREE PARALEGALS, STILL SAYING NO", text: "$180K in payroll. All three drowning. You're STILL turning away $50K cases because nobody has room. More people without better systems = more expensive chaos." },
+                { title: "THE REAL COST OF A NEW HIRE", text: "Salary, benefits, training, management time, 6 months to full productivity. A new paralegal costs you $80K+ all-in before she's running independently." }
+            ],
+            problemClose: "You don't need another paralegal. You need to free the ones you have.",
+            insightHeadline: "The True Cost of Your Next Hire",
+            insightSubtext: "Before you commit to $60K in payroll, here's what that decision actually looks like over 12 months.",
+            insightCards: [
+                { val: "$80K+", label: "All-In Cost Year One", text: "Salary, taxes, benefits, and the hidden cost of 6 months of slow onboarding. That's before she's running a full caseload independently." },
+                { val: "6 months", label: "To Full Productivity", text: "The average paralegal takes 4-6 months to manage cases without hand-holding. You're paying full salary while output is at 40%." },
+                { val: "20 hrs/wk", label: "Still Wasted on Manual Work", text: "After all that investment, she'll still spend 20+ hours a week building documents and searching for records — unless the system changes." }
+            ],
+            t1quote: "I had the offer letter ready. Then my partner showed me this system. I held off on the hire, installed Kidaflow instead. Within 60 days my team was handling 30% more cases — from 52 active to 68. Documents went from 20 minutes each to under 2. <br><br><strong>I saved $80,000 in year-one payroll. My 2-person team now runs what used to require 3.</strong>",
+            t1result: "52 to 68 cases. $80K payroll saved. 2-person team.",
+            t1name: "PI Attorney",
+            t1role: "Florida Firm",
+            t1badge: "Active Client",
+            systemsHeadline: "What Changes When You Fix the System Instead of Adding People",
+            systemsSubtext: "These five systems eliminate the manual bottlenecks that are making you feel like you need to hire.",
+            offerHeadline: "Test It Before You Sign That Offer Letter",
+            offerText: "30 days free. If your team isn't handling more volume without a new hire, we pay you $1,000. You have nothing to lose — and potentially $80K to save.",
+            qualifierHeadline: "If You're About to Hire Paralegal #2, #3, or #4 — Read This First",
+            qualifierText: "This system is built for PI firms where the workload is outpacing capacity. If that's you, the bottleneck almost certainly isn't headcount — it's the 20+ hours per person per week going to mechanical tasks."
+        },
+        documents: {
+            warning: "FOR PI FIRMS WASTING 20+ HOURS/WEEK ON MANUAL DOCUMENTS",
+            headline: "Your Paralegal Is Spending 20+ Hours a Week Building Documents. Here's How to Get Them Back.",
+            subheadline: "Every LOR, authorization, engagement letter, and demand built manually is time your team should be spending on case strategy. That changes on day one.",
+            problemHeadline: "You're Paying a Paralegal to Do Data Entry",
+            painPoints: [
+                { title: "200+ HOURS A YEAR ON COPY AND PASTE", text: "Open Word. Change the name, date, provider list. Save. Export. Attach. Send. Repeat 40 times a week. That's five full work weeks a year on mechanical work." },
+                { title: "DEMAND LETTERS BUILT FROM MEMORY", text: "No structured chronology. No organized bill summary. Generic letters get generic first offers. Your team is leaving money on the table with every demand." },
+                { title: "SHE'S DOING THE WRONG JOB", text: "You hired her to manage cases, follow up on records, and support your clients. Instead, half her week is gone before a single case gets moved forward." }
+            ],
+            problemClose: "Documents should take 2 minutes. Not 20.",
+            insightHeadline: "What Manual Documents Are Really Costing You",
+            insightSubtext: "The hours are visible. The revenue impact is less obvious — until you do the math.",
+            insightCards: [
+                { val: "20 hrs/wk", label: "Lost to Manual Document Work", text: "Across a team of two paralegals, that's 40 hours a week building documents by hand. That's one full-time employee doing nothing but copy-paste." },
+                { val: "6 hrs", label: "Per Demand Letter", text: "Built from memory, without a structured chronology or organized bill summary. A well-documented demand gets better first offers. Most firms don't have time to build them right." },
+                { val: "5 weeks/yr", label: "Per Paralegal on Mechanical Work", text: "At 20 hours a week, your paralegal spends the equivalent of 5 full work weeks per year on tasks that a system can handle in 2 minutes." }
+            ],
+            t1quote: "My paralegal was spending her entire Monday — roughly 6 hours — building letters and authorizations. Same fields, different names, every time. I tracked it: 22 hours a week across the team on pure copy-paste. <br><br><strong>After installing this, that dropped to under 2 hours. She now spends Monday actually moving cases forward. We settled 11 more cases in the first quarter than the same quarter last year.</strong>",
+            t1result: "22 hrs/wk to 2 hrs. 11 additional settlements in Q1.",
+            t1name: "PI Attorney",
+            t1role: "Georgia Firm",
+            t1badge: "Active Client",
+            systemsHeadline: "The Systems That Eliminate Document Bottlenecks Permanently",
+            systemsSubtext: "Documents are just one of five bottlenecks. Together these systems free 20+ hours per week per paralegal.",
+            offerHeadline: "30 Days to See the Difference",
+            offerText: "We install the system in 14 days. Within your first week, documents start generating automatically. If you're not saving 15+ hours by day 30, we pay you $1,000.",
+            qualifierHeadline: "Built for PI Firms Where Document Volume Is a Real Problem",
+            qualifierText: "If your team is building LORs, authorizations, engagement letters, and demands by hand — this was designed specifically for that workflow."
+        },
+        audit: {
+            warning: "FOR PI FIRMS SPENDING HOURS EVERY WEEK AUDITING THEIR OWN CASES",
+            headline: "Stop Spending 5 Hours Every Monday Figuring Out What's Happening in Your Own Firm",
+            subheadline: "You shouldn't need to audit your own cases to know where they stand. A system should tell you — automatically, in real time.",
+            problemHeadline: "Every Monday Is Groundhog Day",
+            painPoints: [
+                { title: "5 HOURS OF DETECTIVE WORK EVERY WEEK", text: "Which cases are stuck? Which authorizations were never followed up? Which statute dates are in 60 days? You're auditing instead of practicing law. That's $2,500/week in your time alone." },
+                { title: "CASES SIT INVISIBLE FOR WEEKS", text: "An authorization went out 6 weeks ago. Nobody followed up. Records never arrived. You find out when you happen to open the file. That's delayed settlements — $300K+/year in slow-moving cases." },
+                { title: "NO VIEW OF YOUR OWN FIRM", text: "You don't know what's stuck until it's been stuck for weeks. By then, the damage is done. Cases delayed. Clients frustrated. Statute risk. You're running blind." }
+            ],
+            problemClose: "You shouldn't need a 5-hour audit to know what's happening in your own firm.",
+            insightHeadline: "The Hidden Cost of Running Without Visibility",
+            insightSubtext: "Operational blindness isn't just frustrating. It has a measurable financial impact.",
+            insightCards: [
+                { val: "$2,500/wk", label: "Your Time in Monday Audits", text: "At $250/hour and 5 hours every Monday — that's $2,500 a week, $130,000 a year, spent reconstructing what a system should show you in 10 minutes." },
+                { val: "6 weeks", label: "Average Case Sits Stuck Undetected", text: "Without automated flags, authorization delays and stuck cases go unnoticed for 4-8 weeks. That's delayed settlements and compounding statute risk on every case." },
+                { val: "10 min", label: "Your Monday Audit After This System", text: "Dashboard auto-flags everything stuck over 14 days. Overdue authorizations flagged at day 21. Follow-ups sent automatically. Your Monday briefing takes 10 minutes." }
+            ],
+            t1quote: "I had 63 active cases and no real visibility into any of them unless I dug manually. Every Monday I'd spend 4-5 hours reconstructing what should have been obvious. I was billing maybe 2 hours on those days. <br><br><strong>Now the dashboard flags everything automatically. 8 cases flagged this Monday — I reviewed all of them in 12 minutes. That's 4 hours back every single week.</strong>",
+            t1result: "5-hour Monday audit to 12 minutes. 4 hrs reclaimed weekly.",
+            t1name: "PI Attorney",
+            t1role: "Oklahoma Firm",
+            t1badge: "Active Client",
+            systemsHeadline: "The Systems That Give You Full Visibility Without the Manual Work",
+            systemsSubtext: "Case visibility is one of five operational bottlenecks. Fix all five and your firm runs without the weekly detective work.",
+            offerHeadline: "Your First Monday After This System Will Feel Different",
+            offerText: "30 days free. Within your first week, your team will see stuck cases flagged automatically. If your Monday audit isn't under 30 minutes by day 30, we pay you $1,000.",
+            qualifierHeadline: "Built for PI Firms Where Operational Visibility Is a Real Problem",
+            qualifierText: "If you're spending significant time every week figuring out where your cases stand — this was built specifically for that problem."
+        }
+    };
+
+    const v = variants[window.adSource] || variants.capacity;
+
+    // Basic fields
+    document.getElementById('dynamic-warning').textContent = v.warning;
+    document.getElementById('dynamic-headline').textContent = v.headline;
+    document.getElementById('dynamic-subheadline').textContent = v.subheadline;
+    document.getElementById('problem-headline').textContent = v.problemHeadline;
+    document.getElementById('problem-close').textContent = v.problemClose;
+
+    // Pain points
+    const ppContainer = document.getElementById('pain-points');
+    v.painPoints.forEach(p => {
+        const d = document.createElement('div');
+        d.className = 'pain-card';
+        d.innerHTML = `<h4>${p.title}</h4><p>${p.text}</p>`;
+        ppContainer.appendChild(d);
+    });
+
+    // Insight section
+    document.getElementById('insight-headline').textContent = v.insightHeadline;
+    document.getElementById('insight-subtext').textContent = v.insightSubtext;
+    const igContainer = document.getElementById('insight-grid');
+    v.insightCards.forEach(c => {
+        const d = document.createElement('div');
+        d.className = 'insight-card';
+        d.innerHTML = `<span class="i-val">${c.val}</span><span class="i-label">${c.label}</span><p>${c.text}</p>`;
+        igContainer.appendChild(d);
+    });
+
+    // Testimonial 1
+    document.getElementById('t1-quote').innerHTML = v.t1quote;
+    document.getElementById('t1-result').textContent = v.t1result;
+    document.getElementById('t1-name').textContent = v.t1name;
+    document.getElementById('t1-role').textContent = v.t1role;
+    document.getElementById('t1-badge').textContent = v.t1badge;
+
+    // Systems section
+    document.getElementById('systems-headline').textContent = v.systemsHeadline;
+    document.getElementById('systems-subtext').textContent = v.systemsSubtext;
+
+    // Offer section
+    document.getElementById('offer-headline').textContent = v.offerHeadline;
+    document.getElementById('offer-text').textContent = v.offerText;
+
+    // Mid-page CTA strip
+    const ctaStripText = {
+        capacity: "Ready to stop turning away cases? See the system that added 24 cases in 4 months.",
+        hiring: "Before you sign that offer letter — see what $80K in payroll savings looks like.",
+        documents: "Your paralegal should be managing cases. Not building documents.",
+        audit: "Your Monday audit should take 10 minutes. Here's how."
+    };
+    document.getElementById('cta-strip-text').textContent = ctaStripText[window.adSource] || ctaStripText.capacity;
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll reveal
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('active');
+                    obs.unobserve(entry.target);
+                });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            // Sticky bar — show after scrolling past hero
+            const stickyBar = document.getElementById('sticky-bar');
+            const hero = document.querySelector('.hero-ads');
+            window.addEventListener('scroll', () => {
+                const heroBottom = hero.getBoundingClientRect().bottom;
+                stickyBar.classList.toggle('visible', heroBottom < 0);
+            }, { passive: true });
+        });
+    </script>
+
+</body>
+</html>
