@@ -380,6 +380,49 @@
                     </div>
                 </div>
 
+                <!-- Spaklean -->
+                <div class="story-card">
+                    <div class="story-image"
+                        style="background:#f7f5ef; position:relative; overflow:hidden; display:block;">
+                        <div
+                            style="display:flex; align-items:center; gap:8px; padding:12px 16px; border-bottom:1px solid rgba(0,0,0,0.18); font-family:'Outfit',sans-serif;">
+                            <span
+                                style="width:18px; height:18px; border-radius:50%; background:#111; color:#fff; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; font-style:italic;">i</span>
+                            <span
+                                style="border:1px solid rgba(0,0,0,0.55); border-radius:20px; padding:3px 12px; font-size:12px;">Client Stories</span>
+                        </div>
+                        <div
+                            style="position:relative; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:18px 22px; font-family:'Outfit',sans-serif;">
+                            <div style="position:absolute; inset:0; pointer-events:none; overflow:hidden;">
+                                <span
+                                    style="position:absolute; width:54px; height:54px; border:1px solid rgba(0,0,0,0.12); border-radius:50%; left:-24px; top:30%;"></span>
+                                <span
+                                    style="position:absolute; width:50px; height:50px; border:1px solid rgba(0,0,0,0.12); border-radius:50%; right:34px; bottom:-22px;"></span>
+                                <span
+                                    style="position:absolute; width:50px; height:50px; border:1px solid rgba(0,0,0,0.12); border-radius:50%; right:0; bottom:-26px;"></span>
+                            </div>
+                            <div>
+                                <div
+                                    style="font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:0.5px; line-height:1.15; color:#1a1a1a;">
+                                    Spaklean<br>Cleaning</div>
+                                <div style="font-size:12px; color:#1a1a1a; opacity:0.85; margin-top:8px;">Presented by
+                                    Kidaflow Group</div>
+                            </div>
+                            <div style="text-align:center; flex-shrink:0;">
+                                <img src="spaklineweb.png" alt="Spaklean Cleaning Services"
+                                    style="width:130px; max-width:38vw; height:auto;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Cleaning Services</span>
+                        <h3 class="story-title">Spaklean</h3>
+                        <p class="story-desc">Eliminated missed bookings with a 24/7 WhatsApp booking system that
+                            remembers repeat customers and connects directly to their calendar.</p>
+                        <a href="case-studies/spaklean.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -488,6 +531,19 @@
                 });
             });
         }
+    </script>"
+".<script>
+        // Mobile: tap "Solutions" to expand/collapse its dropdown instead of navigating.
+        (function () {
+            if (window.__kdDropdownInit) return; window.__kdDropdownInit = true;
+            document.querySelectorAll('.nav-item-dropdown > .nav-link-dropdown').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    if (window.innerWidth > 768) return; // desktop keeps hover behaviour
+                    e.preventDefault();
+                    link.closest('.nav-item-dropdown').classList.toggle('active');
+                });
+            });
+        })();
     </script>
 </body>
 
