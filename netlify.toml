@@ -1,0 +1,12 @@
+# Netlify config for the KiDaFlow static site + serverless functions.
+# The site is plain static HTML at the repo root (no build step / publish dir = root).
+# Functions live in netlify/functions. save-agent-lead.js has no npm deps — it
+# proxies leads to a Google Apps Script web app using built-in fetch.
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+  # No build command: the site is static HTML served as-is.
+
+[functions]
+  node_bundler = "esbuild"
