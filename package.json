@@ -1,0 +1,7 @@
+{
+  "name": "kida-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KiDaFlow marketing site (static HTML) + Netlify functions for lead capture. The save-agent-lead function proxies leads to a Google Apps Script web app (no npm deps).",
+  "dependencies": {}
+}
