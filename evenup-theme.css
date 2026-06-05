@@ -297,37 +297,53 @@ img {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 32px;
-    background: rgba(255, 255, 255, 0.95);
+    padding: 28px 32px;
+    background: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    transform: translateY(calc(100% - 80px));
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    /* Content is now permanently visible */
+    transform: translateY(0);
     z-index: 2;
 }
 
-.slider-card:hover .slider-card-content {
-    transform: translateY(0);
-}
-
 .slider-quote {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
     font-weight: 500;
     color: var(--bg-dark-green);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-style: italic;
-    opacity: 0;
-    transition: opacity 0.3s ease 0.1s;
-}
-
-.slider-card:hover .slider-quote {
+    /* Permanently visible */
     opacity: 1;
 }
 
 .slider-author {
     margin-top: auto;
+}
+
+/* Read-story link — appears on hover */
+.slider-read {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s ease, transform 0.3s ease, gap 0.2s ease;
+}
+
+.slider-card:hover .slider-read {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slider-read:hover {
+    gap: 10px;
 }
 
 .author-name {
