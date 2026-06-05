@@ -128,7 +128,8 @@
             background: var(--sp-dark); color: #7ddfa4; font-weight: 700; font-size: 14.5px;
             padding: 10px 18px; border-radius: 12px;
         }
-        .sp-badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #7ddfa4; }
+        .sp-badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #7ddfa4; flex-shrink: 0; }
+        .sp-badges { display: flex; flex-wrap: wrap; gap: 10px; }
 
         /* ---- Pricing cards ---- */
         .sp-pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1180px; margin: 0 auto; align-items: stretch; }
