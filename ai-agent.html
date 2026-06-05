@@ -74,11 +74,16 @@
             margin: 0 auto;
         }
 
+        .aa-hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+        .aa-hero-cta .btn-primary { padding: 15px 32px; font-size: 16px; }
+
         .aa-bounce {
-            margin-top: 56px;
+            margin-top: 40px;
             color: #7ddfa4;
             animation: aaBounce 1.6s ease-in-out infinite;
         }
+
+        html { scroll-behavior: smooth; }
 
         @keyframes aaBounce {
             0%, 100% { transform: translateY(0); }
@@ -87,6 +92,7 @@
 
         /* ---- Section helpers ---- */
         .aa-section { padding: 100px 0; }
+        #aa-pricing { scroll-margin-top: 80px; }
         .aa-dark { background: var(--aa-dark); color: #fff; }
         .aa-dark h2, .aa-dark h3 { color: #fff; }
         .aa-grey { background: var(--bg-page); }
@@ -523,6 +529,53 @@
 
         .aa-disclaimer { max-width: 900px; margin: 40px auto 0; text-align: center; font-size: 13px; color: var(--text-muted); line-height: 1.7; }
 
+        /* ---- Get Started modal ---- */
+        .aa-modal-overlay {
+            position: fixed; inset: 0; z-index: 9999;
+            background: rgba(8, 33, 17, 0.55); backdrop-filter: blur(4px);
+            display: none; align-items: center; justify-content: center; padding: 20px;
+            opacity: 0; transition: opacity 0.25s ease;
+        }
+        .aa-modal-overlay.open { display: flex; opacity: 1; }
+        .aa-modal {
+            background: #fff; border-radius: 20px; width: 100%; max-width: 440px;
+            padding: 32px; position: relative;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            transform: translateY(16px) scale(0.98); transition: transform 0.25s ease;
+        }
+        .aa-modal-overlay.open .aa-modal { transform: none; }
+        .aa-modal-close {
+            position: absolute; top: 16px; right: 16px; width: 32px; height: 32px;
+            border: none; background: var(--bg-page); border-radius: 50%; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; color: var(--aa-dark);
+        }
+        .aa-modal-close:hover { background: #e7e7e7; }
+        .aa-modal .eyebrow { color: var(--aa-accent); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+        .aa-modal h3 { font-size: 24px; margin: 8px 0 4px; }
+        .aa-modal .tierline { font-size: 15px; color: var(--text-muted); margin-bottom: 22px; }
+        .aa-modal .tierline strong { color: var(--aa-accent); }
+        .aa-modal label { display: block; font-size: 13px; font-weight: 600; color: var(--aa-dark); margin: 0 0 6px; }
+        .aa-modal .fld { margin-bottom: 14px; }
+        .aa-modal input {
+            width: 100%; border: 1px solid rgba(0,0,0,0.15); border-radius: 10px;
+            padding: 13px 14px; font-family: var(--font-body, 'Onest', sans-serif); font-size: 15px;
+            outline: none; transition: border-color 0.2s; color: var(--aa-dark);
+        }
+        .aa-modal input:focus { border-color: var(--aa-accent); }
+        .aa-modal .submit {
+            width: 100%; background: var(--aa-accent); color: #fff; font-weight: 700; font-size: 16px;
+            border: none; border-radius: 10px; padding: 15px; cursor: pointer; transition: background 0.2s;
+            margin-top: 6px;
+        }
+        .aa-modal .submit:hover { background: #113d25; }
+        .aa-modal .submit:disabled { opacity: 0.6; cursor: not-allowed; }
+        .aa-modal .err { font-size: 13px; color: #c0392b; background: rgba(192,57,43,0.08); border: 1px solid rgba(192,57,43,0.25); border-radius: 8px; padding: 10px 12px; margin-bottom: 14px; display: none; }
+        .aa-modal .note { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 12px; }
+        .aa-modal-success { text-align: center; padding: 12px 4px; }
+        .aa-modal-success .check { width: 56px; height: 56px; border-radius: 50%; background: var(--aa-accent-soft); border: 2px solid var(--aa-accent); color: var(--aa-accent); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+        .aa-modal-success h3 { font-size: 22px; margin-bottom: 10px; }
+        .aa-modal-success p { font-size: 15px; color: var(--text-muted); line-height: 1.55; margin: 0; }
+
         /* ---- Responsive ---- */
         @media (max-width: 1024px) {
             .aa-cards, .aa-pricing { grid-template-columns: repeat(2, 1fr); }
@@ -595,12 +648,22 @@
                             <path d="M7 10l5 5 5-5z" />
                         </svg>
                     </a>
-                    <div class="dropdown-menu">
-                        <a href="ai-agent.html" class="dropdown-item">AI Sales Agent</a>
-                        <a href="docflow.html" class="dropdown-item">DocFlow System for Accounting & Finance</a>
-                        <a href="vikki.html" class="dropdown-item">Vikki for PI Law Firms</a>
-                        <a href="bcv.html" class="dropdown-item">Build Compliance Vault for Architects &
-                            Construction</a>
+                    <div class="dropdown-menu dropdown-menu--cols">
+                        <div class="dropdown-col">
+                            <span class="dropdown-col-title">Products</span>
+                            <a href="ai-agent.html" class="dropdown-item">AI Sales Agent</a>
+                            <a href="docflow.html" class="dropdown-item">DocFlow</a>
+                            <a href="vikki.html" class="dropdown-item">Vikki</a>
+                            <a href="bcv.html" class="dropdown-item">Build Compliance Vault</a>
+                        </div>
+                        <div class="dropdown-col">
+                            <span class="dropdown-col-title">Services</span>
+                            <a href="services-pricing.html" class="dropdown-item">Services &amp; Pricing</a>
+                            <a href="contact.html" class="dropdown-item">
+                                <strong>Custom Solution</strong><br>
+                                <small style="opacity: 0.8; font-size: 12px;">A system built around you</small>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -627,6 +690,10 @@
                 Built and run by KiDaFlow. Trained on your offering, your pricing, and your tone —
                 so every conversation sounds like your best salesperson, every single time.
             </p>
+            <div class="aa-hero-cta">
+                <a href="#aa-pricing" class="btn btn-primary aa-scroll-pricing">See plans &amp; pricing</a>
+                <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin" class="aa-cta-ghost">Book a free demo</a>
+            </div>
             <div class="aa-bounce" aria-hidden="true">
                 <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </div>
@@ -637,7 +704,7 @@
     <section class="aa-section" id="aa-demo">
         <div class="container">
             <div class="text-center"><span class="aa-eyebrow">See it in action</span></div>
-            <h2 class="aa-h2">Watch a real estate enquiry close itself</h2>
+            <h2 class="aa-h2">Watch a photography enquiry book itself</h2>
             <div style="height: 24px;"></div>
 
             <div class="aa-phone">
@@ -826,7 +893,7 @@
     </section>
 
     <!-- Pricing -->
-    <section class="aa-section aa-grey">
+    <section class="aa-section aa-grey" id="aa-pricing">
         <div class="container">
             <div class="text-center"><span class="aa-eyebrow">Sales AI &amp; Chatbots</span></div>
             <h2 class="aa-h2">Simple, scaled pricing</h2>
@@ -843,13 +910,13 @@
                     </div>
                     <ul class="aa-price-feats">
                         <li class="lead">Up to 250 active contacts per month</li>
-                        <li>Dedicated conversation flow with instant, consistent responses</li>
-                        <li>Basic lead database — every contact captured</li>
+                        <li>Guided conversation flow — instant, consistent replies (rule-based, no AI)</li>
+                        <li>Every contact captured into a basic lead database</li>
                         <li>2 team members receive chat escalations</li>
                         <li>Basic analytics</li>
                     </ul>
                     <div class="aa-price-best"><strong>Best for:</strong> Small businesses, solo operators, Instagram sellers, early-stage brands</div>
-                    <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin" class="aa-price-cta soft">Get Started</a>
+                    <button type="button" class="aa-price-cta soft aa-get-started" data-tier="Minimum">Get Started</button>
                 </div>
 
                 <!-- Starter -->
@@ -864,15 +931,20 @@
                     </div>
                     <ul class="aa-price-feats">
                         <li class="lead">Up to 2,500 active contacts per month</li>
-                        <li>Smart AI responses that qualify leads, upsell, and book appointments</li>
+                        <li>Genuine conversational AI — understands and reasons like ChatGPT, not a script</li>
+                        <li>Qualifies leads, upsells, and handles objections naturally</li>
+                        <li>Calendar booking — books and confirms appointments automatically</li>
+                        <li>Detailed data capture — name, budget, intent &amp; timeline saved to your CRM</li>
+                        <li>Automatically requests reviews from happy clients to build your profile</li>
+                        <li>Re-engages cold and abandoned conversations automatically</li>
+                        <li>Knows when to hand off to a human — with full context</li>
                         <li>Simple CRM integration with all leads in one place</li>
                         <li>3 team members receive escalations</li>
                         <li>Advanced analytics and reporting</li>
                         <li>Bi-weekly optimisation</li>
-                        <li>A/B testing</li>
                     </ul>
-                    <div class="aa-price-best"><strong>Best for:</strong> Growing SMEs, retail, hospitality, real estate agents, service businesses</div>
-                    <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin" class="aa-price-cta solid">Get Started</a>
+                    <div class="aa-price-best"><strong>Best for:</strong> Growing SMEs, studios, retail, hospitality, real estate agents, service businesses</div>
+                    <button type="button" class="aa-price-cta solid aa-get-started" data-tier="Starter">Get Started</button>
                 </div>
 
                 <!-- Pro -->
@@ -885,17 +957,19 @@
                         <div class="aa-price-trial">14-day free trial</div>
                     </div>
                     <ul class="aa-price-feats">
-                        <li class="lead">Up to 7,500 active contacts per month</li>
-                        <li>Latest AI models for the smartest possible responses</li>
-                        <li>Full lead qualification, appointment booking, and upselling</li>
-                        <li>Full CRM with lead follow-up, marketing campaigns, and Meta Ads connection</li>
+                        <li class="lead">Everything in Starter, plus:</li>
+                        <li>Up to 7,500 active contacts per month</li>
+                        <li>Most advanced conversational AI — deepest reasoning and multi-step problem solving</li>
+                        <li>Replies in English &amp; Swahili (multilingual)</li>
+                        <li>Automated multi-touch follow-up (24 hours, 3 days, 7 days)</li>
+                        <li>Remembers returning customers across conversations</li>
+                        <li>Full CRM with marketing campaigns and Meta Ads connection</li>
                         <li>Smart dashboard analytics</li>
-                        <li>Dedicated account manager</li>
-                        <li>Weekly strategy calls</li>
+                        <li>Dedicated account manager and weekly strategy calls</li>
                         <li>4-hour support response</li>
                     </ul>
                     <div class="aa-price-best"><strong>Best for:</strong> Enterprises, multi-location businesses, high-volume sales teams, NGOs</div>
-                    <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin" class="aa-price-cta soft">Get Started</a>
+                    <button type="button" class="aa-price-cta soft aa-get-started" data-tier="Pro">Get Started</button>
                 </div>
             </div>
 
@@ -954,10 +1028,10 @@
                 <div>
                     <h4>Solutions</h4>
                     <a href="ai-agent.html">AI Sales Agent</a>
-                    <a href="ai-agent.html">AI Sales Agent</a>
                     <a href="docflow.html">DocFlow System</a>
                     <a href="vikki.html">Vikki for Legal</a>
                     <a href="bcv.html">Build Compliance Vault</a>
+                    <a href="services-pricing.html">Services &amp; Pricing</a>
                 </div>
                 <div>
                     <h4>Connect</h4>
@@ -1005,8 +1079,8 @@
                 link.addEventListener('click', () => { if (window.innerWidth <= 768) closeMenu(); });
             });
         }
-    </script>"
-".<script>
+    </script>
+    <script>
         // Mobile: tap "Solutions" to expand/collapse its dropdown instead of navigating.
         (function () {
             if (window.__kdDropdownInit) return; window.__kdDropdownInit = true;
@@ -1019,6 +1093,42 @@
             });
         })();
     </script>
+
+    <!-- Get Started modal -->
+    <div class="aa-modal-overlay" id="aa-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="aa-modal-title">
+        <div class="aa-modal">
+            <button type="button" class="aa-modal-close" id="aa-modal-close" aria-label="Close">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+            </button>
+            <div id="aa-modal-form-wrap">
+                <span class="eyebrow">Get Started</span>
+                <h3 id="aa-modal-title">Let's set up your agent</h3>
+                <p class="tierline">You're getting started with the <strong id="aa-modal-tier">Starter</strong> plan. Drop your details and we'll reach out within 24 hours.</p>
+                <form id="aa-modal-form" novalidate>
+                    <div class="err" id="aa-modal-err"></div>
+                    <div class="fld">
+                        <label for="aa-m-name">Full Name</label>
+                        <input type="text" id="aa-m-name" placeholder="Your name" required>
+                    </div>
+                    <div class="fld">
+                        <label for="aa-m-email">Email</label>
+                        <input type="email" id="aa-m-email" placeholder="you@business.com" required>
+                    </div>
+                    <div class="fld">
+                        <label for="aa-m-phone">Phone / WhatsApp</label>
+                        <input type="tel" id="aa-m-phone" placeholder="+254 7XX XXX XXX" required>
+                    </div>
+                    <button type="submit" class="submit" id="aa-modal-submit">Notify me — I'm interested</button>
+                    <p class="note">No spam. We'll only use this to set up your trial.</p>
+                </form>
+            </div>
+            <div class="aa-modal-success" id="aa-modal-success" style="display:none;">
+                <div class="check"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <h3>You're on the list 🎉</h3>
+                <p id="aa-modal-success-msg">We've noted your interest in the <strong>Starter</strong> plan. A KiDaFlow specialist will reach out within 24 hours to set up your 14-day free trial. Check your inbox for a confirmation.</p>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

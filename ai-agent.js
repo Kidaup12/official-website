@@ -34,27 +34,25 @@
 
   // ---- DATA ----
   const DEMO_CONVERSATION = [
-    { from: 'customer', text: 'Hi, I saw your listing for the 2-bedroom in Kilimani. Is it still available?' },
-    { from: 'agent', text: "Hi! Yes, the Kilimani apartment is still available 🏠 Great choice — it's one of our most popular listings. Can I ask, are you looking to rent or buy?" },
-    { from: 'customer', text: 'Rent. How much is it?' },
-    { from: 'agent', text: "It's going for KES 75,000/month, utilities not included. It comes fully furnished with fibre internet already installed. Are you looking to move in soon or is this for a few months from now?" },
-    { from: 'customer', text: "I'm looking to move in next month actually" },
-    { from: 'agent', text: 'Perfect timing — we have it available from the 1st. Quick question: will this be just for you, or for a family?' },
-    { from: 'customer', text: 'Just me and my partner' },
-    { from: 'agent', text: "Lovely. Just to make sure it's the right fit — what's your monthly budget range? The 2-bed is at 75K but we also have a stunning 1-bed in the same building at 52K if that works better." },
-    { from: 'customer', text: '75K is fine. We like the 2-bed' },
-    { from: 'agent', text: "Excellent. I'd love to set up a viewing for you — our agent can show you around at a time that works for you. What does your schedule look like this week?" },
-    { from: 'customer', text: 'Thursday afternoon works' },
-    { from: 'agent', text: "Thursday afternoon is confirmed ✅ I just need a couple of details to lock it in. What's your full name?" },
-    { from: 'customer', text: 'Sarah Kamau' },
-    { from: 'agent', text: 'Thank you Sarah. And your WhatsApp number so our agent can send you the address and confirm the time?' },
-    { from: 'customer', text: '0712 345 678' },
-    { from: 'agent', text: "Perfect. You're all set, Sarah 🎉 Our agent will WhatsApp you by tomorrow morning to confirm Thursday. In the meantime — we also have 2 parking bays available for this unit at KES 5,000/bay/month. Would that be useful for you?" },
-    { from: 'customer', text: 'Yes actually, we have one car' },
-    { from: 'agent', text: "Done — I've noted one parking bay for you. Our agent will include that in the confirmation. See you Thursday! 👋" },
+    { from: 'customer', text: 'Hi, do you do studio photography sessions? Looking for a portrait shoot.' },
+    { from: 'agent', text: "Hi! Yes we do 📸 Welcome to Lumina Studio. We'd love to shoot for you. Quick question — is this for personal portraits, a brand/product shoot, or something else?" },
+    { from: 'customer', text: 'Personal portraits. And how much is it?' },
+    { from: 'agent', text: "Lovely. Our Portrait Session is KES 12,000 — that's a 1-hour studio shoot, 2 backdrops, and 10 professionally edited photos delivered. We also have a Premium package at KES 20,000 with 3 outfits and 25 edits. Which feels right for you?" },
+    { from: 'customer', text: "The 12K portrait one is good. Do you have space this week?" },
+    { from: 'agent', text: 'Great choice! Let me check the calendar… ✨ We have Wednesday 2pm, Thursday 11am, or Saturday 10am open this week. Which works best for you?' },
+    { from: 'customer', text: 'Saturday 10am works' },
+    { from: 'agent', text: "Perfect — Saturday 10am it is. Just to lock it in, what's your full name and WhatsApp number?" },
+    { from: 'customer', text: 'Aisha Mwangi, 0712 345 678' },
+    { from: 'agent', text: 'Thank you Aisha 🙌 To secure your Saturday slot we take a 50% deposit (KES 6,000), with the balance on the day. You can pay via M-Pesa to Till 555888 — shall I send the details?' },
+    { from: 'customer', text: 'Yes please send them' },
+    { from: 'agent', text: "Sent ✅ Till 555888, amount KES 6,000, reference 'Aisha-Sat'. Once it reflects I'll confirm your booking right away." },
+    { from: 'customer', text: 'Done, just paid the 6,000' },
+    { from: 'agent', text: "Received, thank you! 🎉 You're confirmed for Saturday 10am, Portrait Session at Lumina Studio. I've WhatsApp'd you the address, what to wear, and a prep checklist. One tip — clients who add hair & makeup (KES 3,500) love their results. Want me to add it?" },
+    { from: 'customer', text: 'Ooh yes, add the makeup' },
+    { from: 'agent', text: "Done — hair & makeup added, our stylist will arrive 30 minutes before. See you Saturday, Aisha! 👋" },
   ];
 
-  const RESULTS = ['Viewing booked', 'Parking upsell', 'Contact captured', 'Added to CRM'];
+  const RESULTS = ['Session booked', '50% deposit paid', 'Makeup upsell', 'Added to CRM'];
 
   const COMPARISON_ROWS = [
     { bot: 'Follows a fixed script', agent: 'Understands context and adapts in real time' },
@@ -532,6 +530,110 @@
     setTimeout(function () { section.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 150);
   }
 
+  // ===================== Get Started modal =====================
+  function wireModal() {
+    const overlay = document.getElementById('aa-modal-overlay');
+    if (!overlay) return;
+    const closeBtn = document.getElementById('aa-modal-close');
+    const tierEl = document.getElementById('aa-modal-tier');
+    const form = document.getElementById('aa-modal-form');
+    const formWrap = document.getElementById('aa-modal-form-wrap');
+    const successWrap = document.getElementById('aa-modal-success');
+    const successMsg = document.getElementById('aa-modal-success-msg');
+    const errBox = document.getElementById('aa-modal-err');
+    const submitBtn = document.getElementById('aa-modal-submit');
+    let currentTier = 'Starter';
+
+    function open(tier) {
+      currentTier = tier || 'Starter';
+      tierEl.textContent = currentTier;
+      errBox.style.display = 'none';
+      formWrap.style.display = '';
+      successWrap.style.display = 'none';
+      form.reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Notify me — I'm interested";
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(function () { document.getElementById('aa-m-name').focus(); }, 60);
+    }
+    function close() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.aa-get-started').forEach(function (btn) {
+      btn.addEventListener('click', function () { open(btn.getAttribute('data-tier')); });
+    });
+    closeBtn.addEventListener('click', close);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay.classList.contains('open')) close(); });
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      errBox.style.display = 'none';
+      const name = document.getElementById('aa-m-name').value.trim();
+      const email = document.getElementById('aa-m-email').value.trim();
+      const phone = document.getElementById('aa-m-phone').value.trim();
+      if (!name || !email || !phone) {
+        errBox.textContent = 'Please fill in your name, email, and phone.';
+        errBox.style.display = 'block';
+        return;
+      }
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+        errBox.textContent = 'Please enter a valid email address.';
+        errBox.style.display = 'block';
+        return;
+      }
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      let ok = false;
+      try {
+        const res = await fetch('/.netlify/functions/save-chatbot-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: name, email: email, phone: phone, tier: currentTier }),
+        });
+        const j = await res.json().catch(function () { return {}; });
+        ok = res.ok && j.success === true;
+      } catch (err) {
+        console.warn('[ai-agent] chatbot lead submit failed:', err);
+      }
+
+      if (ok) {
+        successMsg.innerHTML = "We've noted your interest in the <strong>" + esc(currentTier) +
+          "</strong> plan. A KiDaFlow specialist will reach out within 24 hours to set up your 14-day free trial. Check your inbox for a confirmation.";
+        formWrap.style.display = 'none';
+        successWrap.style.display = 'block';
+      } else {
+        // Submission didn't go through — tell the user honestly and offer the calendar
+        // as a direct alternative so the lead isn't lost.
+        errBox.innerHTML = "We couldn't record that automatically — no problem. " +
+          "We're opening our calendar so you can book a time directly. " +
+          "You can also email <a href=\"mailto:hello@kidaflow.com\" style=\"color:var(--aa-accent);font-weight:600;\">hello@kidaflow.com</a>.";
+        errBox.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Notify me — I'm interested";
+        openCalFallback();
+      }
+    });
+
+    function openCalFallback() {
+      try {
+        if (typeof window.Cal === 'function') {
+          window.Cal('modal', {
+            calLink: 'kidaflow-automations/quick-discovery-website-linkedin',
+            config: { layout: 'month_view' }
+          });
+          return;
+        }
+      } catch (e) { /* fall through to new tab */ }
+      // Fallback if the Cal embed isn't ready: open the booking page in a new tab.
+      window.open('https://cal.com/kidaflow-automations/quick-discovery-website-linkedin', '_blank', 'noopener');
+    }
+  }
+
   // ===================== init =====================
   document.addEventListener('DOMContentLoaded', function () {
     renderComparison();
@@ -542,5 +644,6 @@
     renderFormOptions();
     runDemo();
     wireForm();
+    wireModal();
   });
 })();
