@@ -925,6 +925,24 @@ img {
         color: var(--color-accent);
     }
 
+    /* Two-column dropdown stacks to one column on mobile */
+    .dropdown-menu--cols {
+        display: block;
+        width: auto;
+        padding: 8px 0 0 12px;
+        gap: 0;
+    }
+
+    .dropdown-col + .dropdown-col {
+        border-left: none;
+        padding-left: 0;
+        margin-top: 8px;
+    }
+
+    .dropdown-col-title {
+        padding: 8px 12px 4px;
+    }
+
     /* CTA Button in mobile menu */
     .nav-menu .btn {
         margin-left: 0;
@@ -1237,6 +1255,39 @@ img {
 .dropdown-item:hover {
     background: #f5f5f5;
     color: var(--color-accent);
+}
+
+/* ---- Two-column Solutions dropdown (desktop) ---- */
+.dropdown-menu--cols {
+    width: 460px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 12px;
+    padding: 16px;
+}
+
+.dropdown-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-col + .dropdown-col {
+    border-left: 1px solid rgba(0, 0, 0, 0.07);
+    padding-left: 12px;
+}
+
+.dropdown-col-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    padding: 4px 12px 8px;
+}
+
+.dropdown-menu--cols .dropdown-item {
+    padding: 8px 12px;
+    border-radius: 8px;
 }
 
 /* ==========================================================================
