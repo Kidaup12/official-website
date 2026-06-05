@@ -463,7 +463,7 @@
       if (arrow) arrow.style.display = 'none';
 
       try {
-        const res = await fetch('/.netlify/functions/save-agent-lead', {
+        const res = await fetch('/api/save-agent-lead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -590,7 +590,7 @@
 
       let ok = false;
       try {
-        const res = await fetch('/.netlify/functions/save-chatbot-lead', {
+        const res = await fetch('/api/save-chatbot-lead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name: name, email: email, phone: phone, tier: currentTier }),

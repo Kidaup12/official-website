@@ -480,7 +480,7 @@
 
         // Routed through Netlify function to avoid CORS
         try {
-            await fetch('/.netlify/functions/submit', {
+            await fetch('/api/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
