@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Pricing | AI & Automation Agency | KiDaFlow</title>
+    <meta name="description"
+        content="Everything KiDaFlow builds — bespoke AI agents, document & data automation, CRM systems, and full-stack integrations. Transparent USD pricing. 20+ businesses served across 5 continents.">
+    <link rel="icon" type="image/png" href="kidaflow_logo.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Onest:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- EvenUp Clone Theme -->
+    <link rel="stylesheet" href="evenup-theme.css">
+
+    <style>
+        /* ===== Services & Pricing — uses the site theme tokens ===== */
+        :root {
+            --sp-dark: #082111;
+            --sp-accent: #195233;
+            --sp-accent-soft: rgba(25, 82, 51, 0.08);
+            --sp-accent-line: rgba(25, 82, 51, 0.22);
+            --sp-green-bright: #2e8b57;
+        }
+
+        .sp-eyebrow {
+            display: inline-block;
+            color: var(--sp-accent);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        .sp-dark .sp-eyebrow { color: #7ddfa4; }
+
+        .sp-section { padding: 96px 0; }
+        .sp-dark { background: var(--sp-dark); color: #fff; }
+        .sp-dark h2, .sp-dark h3 { color: #fff; }
+        .sp-grey { background: var(--bg-page); }
+        .sp-h2 { font-size: 46px; line-height: 1.1; letter-spacing: -1px; text-align: center; margin-bottom: 16px; }
+        .sp-sub { font-size: 18px; color: var(--text-muted); text-align: center; max-width: 740px; margin: 0 auto 56px; }
+        .sp-dark .sp-sub { color: rgba(255, 255, 255, 0.72); }
+
+        /* scroll reveal */
+        .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.in { opacity: 1; transform: none; }
+
+        /* ---- Hero ---- */
+        .sp-hero {
+            position: relative;
+            background: var(--sp-dark);
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+        }
+        .sp-hero .container { position: relative; z-index: 2; }
+        /* animated soft blobs */
+        .sp-blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.5; z-index: 1; }
+        .sp-blob.b1 { width: 420px; height: 420px; background: rgba(25, 82, 51, 0.55); top: -120px; left: -80px; animation: spFloat1 14s ease-in-out infinite; }
+        .sp-blob.b2 { width: 360px; height: 360px; background: rgba(46, 139, 87, 0.4); bottom: -140px; right: -60px; animation: spFloat2 16s ease-in-out infinite; }
+        @keyframes spFloat1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(40px, 30px); } }
+        @keyframes spFloat2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-30px, -40px); } }
+
+        .sp-hero h1 { color: #fff; font-size: 64px; line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 24px; }
+        .sp-hero .sp-lead { font-size: 21px; line-height: 1.55; color: rgba(255, 255, 255, 0.88); max-width: 720px; margin: 0 auto 40px; }
+
+        .sp-metrics { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px 48px; margin-bottom: 44px; }
+        .sp-metric { text-align: center; }
+        .sp-metric .num { font-size: 40px; font-weight: 800; color: #7ddfa4; letter-spacing: -1px; line-height: 1; }
+        .sp-metric .lbl { font-size: 14px; color: rgba(255, 255, 255, 0.7); margin-top: 8px; }
+
+        .sp-headline-stat {
+            max-width: 680px; margin: 0 auto 40px;
+            background: rgba(125, 223, 164, 0.08); border: 1px solid rgba(125, 223, 164, 0.25);
+            border-radius: 16px; padding: 20px 26px;
+            display: flex; align-items: center; gap: 18px; justify-content: center; flex-wrap: wrap; text-align: left;
+        }
+        .sp-headline-stat .amt { font-size: 42px; font-weight: 800; color: #7ddfa4; letter-spacing: -1px; line-height: 1; flex-shrink: 0; }
+        .sp-headline-stat .txt { font-size: 15.5px; color: rgba(255, 255, 255, 0.85); line-height: 1.5; max-width: 360px; }
+        .sp-headline-stat .txt strong { color: #fff; }
+
+        .sp-hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .sp-ghost {
+            display: inline-flex; align-items: center; gap: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.4); color: #fff; font-weight: 600;
+            padding: 16px 30px; border-radius: var(--radius-pill); text-decoration: none; transition: border-color 0.2s, background 0.2s;
+        }
+        .sp-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.06); }
+
+        /* ---- Industries tabs ---- */
+        .sp-tabs { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 1000px; margin: 0 auto 40px; }
+        .sp-tab {
+            border: 1px solid rgba(0, 0, 0, 0.12); background: #fff; color: var(--sp-dark);
+            font-family: var(--font-body); font-size: 14.5px; font-weight: 600;
+            padding: 11px 20px; border-radius: var(--radius-pill); cursor: pointer; transition: all 0.2s;
+        }
+        .sp-tab:hover { border-color: var(--sp-accent); }
+        .sp-tab.active { background: var(--sp-accent); color: #fff; border-color: var(--sp-accent); }
+
+        .sp-panels { max-width: 880px; margin: 0 auto; }
+        .sp-panel { display: none; }
+        .sp-panel.active { display: block; animation: spFade 0.4s ease; }
+        @keyframes spFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+        .sp-ind-card {
+            background: #fff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 18px;
+            padding: 34px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        .sp-ind-card h3 { font-size: 26px; margin-bottom: 10px; }
+        .sp-ind-clients { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 18px 0 22px; }
+        .sp-chip {
+            display: inline-flex; align-items: center;
+            background: var(--sp-accent-soft); border: 1px solid var(--sp-accent-line);
+            color: var(--sp-dark); font-weight: 600; font-size: 14px;
+            padding: 7px 14px; border-radius: var(--radius-pill); text-decoration: none; transition: all 0.18s;
+        }
+        a.sp-chip:hover { background: var(--sp-accent); color: #fff; transform: translateY(-2px); }
+        .sp-chip.static { cursor: default; }
+        .sp-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--sp-dark); color: #7ddfa4; font-weight: 700; font-size: 14.5px;
+            padding: 10px 18px; border-radius: 12px;
+        }
+        .sp-badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #7ddfa4; }
+
+        /* ---- Pricing cards ---- */
+        .sp-pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1180px; margin: 0 auto; align-items: stretch; }
+        .sp-price-card {
+            background: #fff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 20px;
+            padding: 34px 28px; position: relative; display: flex; flex-direction: column;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .sp-price-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0, 0, 0, 0.09); }
+        .sp-price-card.popular { border: 2px solid var(--sp-accent); box-shadow: 0 20px 44px rgba(25, 82, 51, 0.14); }
+        @media (min-width: 1025px) { .sp-price-card.popular { transform: scale(1.04); } .sp-price-card.popular:hover { transform: scale(1.04) translateY(-6px); } }
+        .sp-pop-badge {
+            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+            background: var(--sp-accent); color: #fff; font-size: 12px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.06em; padding: 6px 16px; border-radius: 20px; white-space: nowrap;
+        }
+        .sp-price-card h3 { font-size: 25px; margin-bottom: 10px; }
+        .sp-price-desc { font-size: 14.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 22px; min-height: 72px; }
+        .sp-price-box { background: var(--bg-page); border-radius: 14px; padding: 20px; margin-bottom: 22px; }
+        .sp-price-amt { font-size: 34px; font-weight: 800; color: var(--sp-dark); letter-spacing: -1px; line-height: 1.1; }
+        .sp-price-amt .per { font-size: 15px; font-weight: 500; color: var(--text-muted); }
+        .sp-price-meta { font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-top: 10px; }
+        .sp-price-setup { font-size: 13px; color: var(--sp-accent); font-weight: 600; margin-top: 8px; }
+        .sp-price-box--accent { background: var(--sp-accent-soft); border: 1px solid var(--sp-accent-line); }
+        .sp-vivid { color: var(--sp-green-bright); font-weight: 700; }
+        .sp-price-amt.sp-vivid { color: var(--sp-green-bright); }
+        .sp-feats { list-style: none; padding: 0; margin: 0 0 22px; }
+        .sp-feats li { display: flex; gap: 10px; font-size: 14.5px; line-height: 1.5; color: rgba(8, 33, 17, 0.85); padding: 7px 0; }
+        .sp-feats li::before { content: "✓"; color: var(--sp-accent); font-weight: 800; flex-shrink: 0; }
+        .sp-best { font-size: 13px; color: var(--text-muted); border-left: 3px solid var(--sp-accent); padding-left: 12px; margin-bottom: 24px; line-height: 1.5; }
+        .sp-price-cta { margin-top: auto; text-align: center; display: block; width: 100%; padding: 14px; border-radius: var(--radius-pill); font-weight: 700; text-decoration: none; transition: background 0.2s; }
+        .sp-price-cta.solid { background: var(--sp-accent); color: #fff; }
+        .sp-price-cta.solid:hover { background: var(--color-accent-hover, #113d25); }
+        .sp-price-cta.soft { background: var(--bg-page); color: var(--sp-dark); border: 1px solid rgba(0,0,0,0.08); }
+        .sp-price-cta.soft:hover { background: #ececec; }
+
+        /* inline CTA band */
+        .sp-cta-band {
+            max-width: 1000px; margin: 44px auto 0; background: #fff;
+            border: 1px solid var(--sp-accent-line); border-radius: 18px;
+            padding: 32px 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+        }
+        .sp-cta-band p { margin: 0; font-size: 16px; color: var(--text-body); max-width: 620px; line-height: 1.55; }
+        .sp-cta-band strong { color: var(--sp-dark); }
+
+        /* ---- Bespoke AI cards ---- */
+        .sp-bespoke-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1100px; margin: 0 auto; }
+        .sp-bcard {
+            background: #fff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 18px; padding: 30px;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .sp-bcard:hover { transform: translateY(-5px); box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08); }
+        .sp-bicon { width: 50px; height: 50px; border-radius: 13px; background: var(--sp-accent); color: #fff; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+        .sp-bcard h3 { font-size: 20px; margin-bottom: 10px; }
+        .sp-bcard p { font-size: 14.5px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+        /* dark closing CTA */
+        .sp-close { text-align: center; }
+        .sp-close .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+
+        /* responsive */
+        @media (max-width: 1024px) {
+            .sp-pricing, .sp-bespoke-grid { grid-template-columns: 1fr; max-width: 560px; }
+            .sp-price-card.popular { transform: none; }
+        }
+        @media (max-width: 768px) {
+            .sp-hero h1 { font-size: 40px; }
+            .sp-hero .sp-lead { font-size: 18px; }
+            .sp-h2 { font-size: 31px; }
+            .sp-section { padding: 64px 0; }
+            .sp-metric .num { font-size: 32px; }
+            .sp-cta-band { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="kidaflow_logo.png" alt="Kidaflow Logo">
+            </a>
+
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+
+            <div class="nav-menu" id="nav-menu">
+                <button class="close-menu" id="close-menu-btn" aria-label="Close menu">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                            fill="currentColor" />
+                    </svg>
+                </button>
+
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="customers.html" class="nav-link">Customer Success Stories</a>
+                <div class="nav-item-dropdown">
+                    <a href="services-pricing.html" class="nav-link nav-link-dropdown" style="text-decoration:none;">
+                        Solutions
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu--cols">
+                        <div class="dropdown-col">
+                            <span class="dropdown-col-title">Products</span>
+                            <a href="ai-agent.html" class="dropdown-item">AI Sales Agent</a>
+                            <a href="docflow.html" class="dropdown-item">DocFlow</a>
+                            <a href="vikki.html" class="dropdown-item">Vikki</a>
+                            <a href="bcv.html" class="dropdown-item">Build Compliance Vault</a>
+                        </div>
+                        <div class="dropdown-col">
+                            <span class="dropdown-col-title">Services</span>
+                            <a href="services-pricing.html" class="dropdown-item">Services &amp; Pricing</a>
+                            <a href="contact.html" class="dropdown-item">
+                                <strong>Custom Solution</strong><br>
+                                <small style="opacity: 0.8; font-size: 12px;">A system built around you</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+                <a href="skool.html" class="nav-link">Join the Skool</a>
+                <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-form"
+                    data-cal-namespace="quick-discovery-website-form" data-cal-config='{"layout":"month_view"}'
+                    class="btn btn-primary">Schedule a Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="sp-hero sp-dark sp-section">
+        <div class="sp-blob b1"></div>
+        <div class="sp-blob b2"></div>
+        <div class="container">
+            <span class="sp-eyebrow">AI &amp; Automation Agency</span>
+            <h1>Everything We Build</h1>
+            <p class="sp-lead">Bespoke AI and automation that turns operational bottlenecks into recovered revenue. One team, engineering the exact system your business needs.</p>
+
+            <div class="sp-metrics">
+                <div class="sp-metric"><div class="num"><span class="sp-count" data-target="20">0</span>+</div><div class="lbl">Businesses Served</div></div>
+                <div class="sp-metric"><div class="num"><span class="sp-count" data-target="5">0</span></div><div class="lbl">Continents</div></div>
+                <div class="sp-metric"><div class="num"><span class="sp-count" data-target="100">0</span>%</div><div class="lbl">Bespoke Solutions</div></div>
+            </div>
+
+            <div class="sp-headline-stat">
+                <span class="amt">$2.73M</span>
+                <span class="txt">in opportunity value running through one client's system within <strong>2 months</strong> of setup</span>
+            </div>
+
+            <div class="sp-hero-cta">
+                <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-form"
+                    data-cal-namespace="quick-discovery-website-form" data-cal-config='{"layout":"month_view"}'
+                    class="btn btn-primary" style="padding: 16px 32px;">Book a Discovery Call</a>
+                <a href="customers.html" class="sp-ghost">View Case Studies →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="sp-section">
+        <div class="container">
+            <div class="text-center reveal"><span class="sp-eyebrow">Industries We Serve</span></div>
+            <h2 class="sp-h2 reveal">Proven results, across every sector</h2>
+            <p class="sp-sub reveal">We've engineered solutions for businesses on five continents. Pick an industry to see who we've helped and what changed.</p>
+
+            <div class="sp-tabs reveal" id="sp-tabs"></div>
+            <div class="sp-panels" id="sp-panels"></div>
+        </div>
+    </section>
+
+    <!-- CRM Packages -->
+    <section class="sp-section sp-grey">
+        <div class="container">
+            <div class="text-center reveal"><span class="sp-eyebrow">CRM Packages</span></div>
+            <h2 class="sp-h2 reveal">Your business command centre</h2>
+            <p class="sp-sub reveal">A system your team will actually use — with AI and automation built in. Fixed monthly pricing in USD. No surprises.</p>
+
+            <div class="sp-pricing">
+                <!-- Starter -->
+                <div class="sp-price-card reveal">
+                    <h3>Starter CRM</h3>
+                    <p class="sp-price-desc">Replace your spreadsheet with a proper, organised system your team can actually use — with built-in AI and automation.</p>
+                    <div class="sp-price-box">
+                        <div class="sp-price-amt">$60–120 <span class="per">/mo</span></div>
+                        <div class="sp-price-meta">Fixed monthly · We manage the platform</div>
+                        <div class="sp-price-setup">Setup: $150–300</div>
+                    </div>
+                    <ul class="sp-feats">
+                        <li>Organised lead and client database</li>
+                        <li>Built-in AI to query, sort &amp; modify data</li>
+                        <li>Automation to move leads through stages</li>
+                        <li>Connects to existing tools (forms, email, WhatsApp)</li>
+                        <li>Multiple views — grid, kanban, calendar, gallery</li>
+                        <li>Team collaboration with role permissions</li>
+                        <li>Scales as contacts grow</li>
+                    </ul>
+                    <div class="sp-best"><strong>Best for:</strong> Small businesses, freelancers, NGOs, startups — anyone replacing a spreadsheet</div>
+                    <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-form"
+                        data-cal-namespace="quick-discovery-website-form" data-cal-config='{"layout":"month_view"}'
+                        class="sp-price-cta soft">Book a Discovery Call</a>
+                </div>
+
+                <!-- Sales & Marketing -->
+                <div class="sp-price-card popular reveal">
+                    <div class="sp-pop-badge">Popular Choice</div>
+                    <h3>Sales &amp; Marketing CRM</h3>
+                    <p class="sp-price-desc">A proper sales pipeline with automated follow-up, ad tracking, and email/SMS campaigns — built to convert and grow revenue.</p>
+                    <div class="sp-price-box sp-price-box--accent">
+                        <div class="sp-price-amt sp-vivid">$190–350 <span class="per">/mo</span></div>
+                        <div class="sp-price-meta"><span class="sp-vivid">Fixed monthly</span> · Setup: <span class="sp-vivid">$460–920</span> · Or <span class="sp-vivid">5–10% of revenue</span> generated from campaigns (client pays tool costs under commission model)</div>
+                    </div>
+                    <ul class="sp-feats">
+                        <li>Visual sales pipeline with deal stages</li>
+                        <li>Automated lead follow-up sequences (email &amp; SMS)</li>
+                        <li>Connected to your ads — see exactly what converts</li>
+                        <li>Email marketing campaigns</li>
+                        <li>Round-robin lead assignment</li>
+                        <li>Revenue forecasting &amp; reporting</li>
+                        <li>Integration with calling, WhatsApp, and social channels</li>
+                    </ul>
+                    <div class="sp-best"><strong>Best for:</strong> SMEs running ads, real estate, clinics, service businesses scaling sales</div>
+                    <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-form"
+                        data-cal-namespace="quick-discovery-website-form" data-cal-config='{"layout":"month_view"}'
+                        class="sp-price-cta solid">Book a Discovery Call</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="sp-price-card reveal">
+                    <h3>Enterprise CRM</h3>
+                    <p class="sp-price-desc">The complete business operating system — multi-location, multi-team, with AI automation at every touchpoint.</p>
+                    <div class="sp-price-box">
+                        <div class="sp-price-amt">$300–800 <span class="per">/mo</span></div>
+                        <div class="sp-price-meta">All tool costs included. One monthly fee. Zero surprises.</div>
+                        <div class="sp-price-setup">Setup: $1,500–8,000 (complexity-based)</div>
+                    </div>
+                    <ul class="sp-feats">
+                        <li>Full GoHighLevel setup &amp; white-labelling</li>
+                        <li>Unlimited contacts &amp; pipelines</li>
+                        <li>Voice AI + chatbot + CRM in one system</li>
+                        <li>Multi-channel marketing automation (email, SMS, WhatsApp, calls)</li>
+                        <li>Custom reporting &amp; analytics dashboards</li>
+                        <li>Dedicated support &amp; monthly strategy reviews</li>
+                    </ul>
+                    <div class="sp-best"><strong>Best for:</strong> Multi-location businesses, franchise operations, high-growth companies, international teams</div>
+                    <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-form"
+                        data-cal-namespace="quick-discovery-website-form" data-cal-config='{"layout":"month_view"}'
+                        class="sp-price-cta soft">Book a Discovery Call</a>
+                </div>
+            </div>
+
+            <div class="sp-cta-band reveal">
+                <p><strong>Not sure which CRM fits?</strong> We'll assess your current setup and build a custom package — the right tools, the right automations, the right price.</p>
+                <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-form"
+                    data-cal-namespace="quick-discovery-website-form" data-cal-config='{"layout":"month_view"}'
+                    class="btn btn-primary" style="white-space: nowrap;">Book a Discovery Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bespoke AI -->
+    <section class="sp-section">
+        <div class="container">
+            <div class="text-center reveal"><span class="sp-eyebrow">Bespoke AI &amp; Automation</span></div>
+            <h2 class="sp-h2 reveal">If your industry has a workflow problem,<br>we'll build the AI that solves it.</h2>
+            <p class="sp-sub reveal">We've added value to 20+ businesses across 5 continents. No two solutions are the same — and that's exactly how we like it. From legal case management systems to fire protection scheduling tools to OCR-powered compliance engines, we engineer bespoke software around your exact operational needs.</p>
+
+            <div class="sp-bespoke-grid">
+                <div class="sp-bcard reveal">
+                    <div class="sp-bicon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.142 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M12 5a3 3 0 1 1 5.997.142 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path></svg>
+                    </div>
+                    <h3>Custom AI Agents</h3>
+                    <p>Voice, chat, or backend agents trained on your data, connected to your tools, and built to handle your specific workflows.</p>
+                </div>
+                <div class="sp-bcard reveal">
+                    <div class="sp-bicon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="13" x2="15" y2="13"></line><line x1="9" y1="17" x2="15" y2="17"></line></svg>
+                    </div>
+                    <h3>Document &amp; Data Automation</h3>
+                    <p>OCR, document generation, email parsing, smart filing — eliminate manual data handling at any scale.</p>
+                </div>
+                <div class="sp-bcard reveal">
+                    <div class="sp-bicon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"></rect><rect x="14" y="14" width="8" height="8" rx="1"></rect><path d="M10 6h4a2 2 0 0 1 2 2v6"></path><path d="M6 10v4a2 2 0 0 0 2 2h6"></path></svg>
+                    </div>
+                    <h3>System Integrations &amp; Full-Stack Builds</h3>
+                    <p>We connect your existing tools or build net-new — CRMs, ERPs, QuickBooks, Google Drive, OneDrive, Meta, WhatsApp API, and more.</p>
+                </div>
+            </div>
+
+            <div class="sp-cta-band reveal">
+                <p><strong>Have a complex problem that doesn't fit a package?</strong> Tell us what you're dealing with. If there's a solution, we'll build it.</p>
+                <a href="contact.html" class="btn btn-primary" style="white-space: nowrap;">Start a Conversation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="sp-section sp-dark sp-close">
+        <div class="container">
+            <h2 class="sp-h2 reveal">Ready to automate what's slowing you down?</h2>
+            <p class="sp-sub reveal">Book a free discovery call and we'll map the highest-leverage automation for your business — honestly, with no obligation.</p>
+            <div class="cta-row reveal">
+                <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-form"
+                    data-cal-namespace="quick-discovery-website-form" data-cal-config='{"layout":"month_view"}'
+                    class="btn btn-primary" style="padding: 16px 32px;">Book a Discovery Call</a>
+                <a href="customers.html" class="sp-ghost">View Case Studies →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid-4">
+                <div>
+                    <img src="kidaflow_logo.png" alt="Kidaflow"
+                        style="filter: brightness(0) invert(1); height: 32px; margin-bottom: 24px;">
+                    <p style="font-size: 14px; opacity: 0.6;">Automating workflows for modern businesses.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/kidaflow" target="_blank" aria-label="LinkedIn"
+                            class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/kidaflow_group/" target="_blank" aria-label="Instagram"
+                            class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.949 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="https://wa.link/qat6uf" target="_blank" aria-label="WhatsApp" class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="customers.html">Customers</a>
+                </div>
+                <div>
+                    <h4>Solutions</h4>
+                    <a href="ai-agent.html">AI Sales Agent</a>
+                    <a href="docflow.html">DocFlow System</a>
+                    <a href="vikki.html">Vikki for Legal</a>
+                    <a href="bcv.html">Build Compliance Vault</a>
+                    <a href="services-pricing.html">Services &amp; Pricing</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="mailto:hello@kidaflow.com">hello@kidaflow.com</a>
+                    <a href="tel:+254105430486">+254105430486</a>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; font-size: 14px; opacity: 0.4;">
+                <p style="margin-bottom: 20px;">
+                    Now to him who is able to do immeasurably more than all we ask or imagine, according to his
+                    power that is at work within us, 21 to him be glory in the church and in Christ Jesus throughout
+                    all generations, for ever and ever! Amen.
+                </p>
+                © 2025 Kidaflow. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="booking.js"></script>
+    <script src="services-pricing.js"></script>
+    <script>
+        // Mobile menu
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        if (hamburgerBtn) {
+            function openMenu() { navMenu.classList.add('active'); mobileOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+            function closeMenu() { navMenu.classList.remove('active'); mobileOverlay.classList.remove('active'); document.body.style.overflow = ''; }
+            hamburgerBtn.addEventListener('click', openMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+            if (mobileOverlay) mobileOverlay.addEventListener('click', closeMenu);
+            navMenu.querySelectorAll('.nav-link, .dropdown-item').forEach(function (link) {
+                link.addEventListener('click', function () { if (window.innerWidth <= 768) closeMenu(); });
+            });
+        }
+    </script>
+    <script>
+        // Mobile: tap "Solutions" to expand/collapse its dropdown instead of navigating.
+        (function () {
+            if (window.__kdDropdownInit) return; window.__kdDropdownInit = true;
+            document.querySelectorAll('.nav-item-dropdown > .nav-link-dropdown').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    if (window.innerWidth > 768) return;
+                    e.preventDefault();
+                    link.closest('.nav-item-dropdown').classList.toggle('active');
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>
