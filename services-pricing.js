@@ -21,7 +21,7 @@
   var INDUSTRIES = [
     { name: 'Legal Services', clients: ['PI Associates OKC', 'Ask a Barrister', 'Bail 2 GO'], metric: 'Up to $1.4M pipeline value added' },
     { name: 'Accounting & Bookkeeping', clients: ['Cherokee CPA', 'Beauty in the Books'], metric: '$45K+ annual capacity unlocked' },
-    { name: 'Real Estate', clients: ['Beva Homes'], metric: 'Multi-x lead capacity, zero new hires' },
+    { name: 'Real Estate', clients: ['Beva Homes'], metric: '3x lead capacity with zero new hires', metric2: '$2.73M opportunity value flowing through the system within 2 months' },
     { name: 'Home Services & Plumbing', clients: ['Mr. Rooter Ottawa'], metric: '$250K+ revenue protected in 90 days' },
     { name: 'Construction & Inspection', clients: ['Northern Inspections'], metric: '$72K+ extra annual revenue capacity' },
     { name: 'Logistics & Waste', clients: ['Bins4less USA'], metric: 'Zero leads fall through the cracks' },
@@ -48,12 +48,14 @@
       tabs.appendChild(tab);
 
       var chips = ind.clients.map(clientChip).join('');
+      var badges = '<div class="sp-badge">' + esc(ind.metric) + '</div>';
+      if (ind.metric2) badges += '<div class="sp-badge">' + esc(ind.metric2) + '</div>';
       var panel = elFrom(
         '<div class="sp-panel' + (i === 0 ? ' active' : '') + '" data-i="' + i + '">' +
           '<div class="sp-ind-card">' +
             '<h3>' + esc(ind.name) + '</h3>' +
             '<div class="sp-ind-clients">' + chips + '</div>' +
-            '<div class="sp-badge">' + esc(ind.metric) + '</div>' +
+            '<div class="sp-badges">' + badges + '</div>' +
           '</div>' +
         '</div>'
       );
