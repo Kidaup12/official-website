@@ -125,6 +125,28 @@
             margin-bottom: 16px;
         }
 
+        /* ---- ROI band ---- */
+        .roi-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 24px; margin-top: 48px;
+        }
+        .roi-card {
+            background: #fff; border: 1px solid var(--color-border);
+            border-radius: 16px; padding: 32px 28px; text-align: left;
+        }
+        .roi-card .roi-value {
+            font-size: 40px; font-weight: 700; line-height: 1.05;
+            color: var(--color-primary); margin-bottom: 10px;
+        }
+        .roi-card h4 { margin-bottom: 8px; font-size: 18px; }
+        .roi-card p { font-size: 15px; line-height: 1.6; color: var(--color-text-body); opacity: 0.8; }
+        .roi-note {
+            font-size: 13.5px; line-height: 1.7; color: var(--color-text-body);
+            opacity: 0.7; margin-top: 24px; max-width: 860px;
+        }
+        .roi-note a { color: var(--color-primary); }
+        @media (max-width: 900px) { .roi-grid { grid-template-columns: 1fr; } }
+
         /* Typing animation styles */
         .typing-cursor {
             font-weight: 600;
@@ -478,16 +500,58 @@
                     <p style="font-size: 16px; color: var(--color-text-body); opacity: 0.8;">From 20 minutes to under 2 minutes per drafted document.</p>
                 </div>
                 <div class="flat-result-item">
-                    <div class="stat-number color-primary" style="color: var(--color-primary);">45m</div>
+                    <div class="stat-number color-primary" style="color: var(--color-primary);">2 min</div>
                     <h4 style="margin-bottom: 8px;">Demand drafting time</h4>
-                    <p style="font-size: 16px; color: var(--color-text-body); opacity: 0.8;">Cut drastically from an average of 6 hours of manual analysis.</p>
+                    <p style="font-size: 16px; color: var(--color-text-body); opacity: 0.8;">Down from an average of 6 hours of manual analysis &mdash; a 99% reduction.</p>
                 </div>
                 <div class="flat-result-item">
-                    <div class="stat-number color-primary" style="color: var(--color-primary);">200+</div>
-                    <h4 style="margin-bottom: 8px;">Hours saved yearly</h4>
-                    <p style="font-size: 16px; color: var(--color-text-body); opacity: 0.8;">Enabling paralegals and attorneys to focus on high-value case strategy.</p>
+                    <div class="stat-number color-primary" style="color: var(--color-primary);">1,800+</div>
+                    <h4 style="margin-bottom: 8px;">Hours saved per person, yearly</h4>
+                    <p style="font-size: 16px; color: var(--color-text-body); opacity: 0.8;">Over 15,000 hours a year across an eight-person firm.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="section" style="background-color: #ffffff; border-top: 1px solid var(--color-border);">
+        <div class="container reveal fade-up">
+            <h2 class="text-center mb-12">What those hours are actually worth</h2>
+            <p class="text-center" style="max-width: 760px; margin: -24px auto 0; font-size: 17px; color: var(--color-text-body); opacity: 0.85;">
+                Hours saved only matter if they show up on the balance sheet. Priced at what a paralegal
+                actually costs a firm &mdash; salary plus benefits &mdash; here is what Vikki gives back.
+            </p>
+
+            <div class="roi-grid">
+                <div class="roi-card">
+                    <div class="roi-value">$43.26</div>
+                    <h4>True cost per paralegal hour</h4>
+                    <p>The national median paralegal wage is $30.24 an hour. Once benefits and payroll costs
+                    are included, each working hour actually costs a firm just over $43.</p>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-value">$77,800</div>
+                    <h4>Recovered per paralegal, per year</h4>
+                    <p>At 1,800 hours returned, Vikki gives back more than the fully-loaded annual cost of
+                    the paralegal doing that work &mdash; roughly $89,970 a year.</p>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-value">$648,000</div>
+                    <h4>Recovered across an 8-person firm</h4>
+                    <p>Over 15,000 hours a year, redirected from paper-pushing into billable case work.
+                    That is capacity a firm already pays for but never gets to use.</p>
+                </div>
+            </div>
+
+            <p class="roi-note">
+                <strong>How these are calculated.</strong> Paralegal median wages of $30.24/hour and $62,890/year
+                are from the U.S. Bureau of Labor Statistics, <em>Occupational Outlook Handbook</em> (May 2025).
+                The fully-loaded figure applies the BLS <em>Employer Costs for Employee Compensation</em> release
+                (March 2026), in which wages and salaries make up 69.9% of total private-industry employer cost
+                &mdash; a multiplier of about 1.43&times;. Hours saved assume a 40-hour week over 52 weeks and the
+                90% reduction in document handling time measured at deployed firms. Actual savings vary with
+                caseload, staffing mix, and local pay rates.
+            </p>
         </div>
     </section>
 
